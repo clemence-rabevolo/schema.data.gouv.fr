@@ -235,7 +235,7 @@
       
       
       
-      <h2>etalab/schema-lieux-covoiturage <small><span class="label">0.1.2</span></small></h2>
+      <h2>etalab/schema-lieux-covoiturage <small><span class="label">0.2.0</span></small></h2>
       
       <div class="badge-container">
         
@@ -251,7 +251,7 @@
           
             
             <li>
-              <a href="/schemas/etalab/schema-lieux-covoiturage/0.1.2/schema.json">Schéma Lieux de covoiturage 0.1.2 (format tableschema)</a>
+              <a href="/schemas/etalab/schema-lieux-covoiturage/0.2.0/schema.json">Schéma Lieux de covoiturage 0.2.0 (format tableschema)</a>
             </li>
             
           
@@ -260,6 +260,12 @@
           <li>Versions disponibles :
             <ul>
             
+            
+              <li>
+                <a href="/etalab/schema-lieux-covoiturage/0.2.0.html">
+                  0.2.0
+                </a>
+              </li>
             
               <li>
                 <a href="/etalab/schema-lieux-covoiturage/0.1.2.html">
@@ -292,7 +298,7 @@
 
       
       <div class="form__group" style="margin-top: 3em">
-        <a href="/etalab/schema-lieux-covoiturage/0.1.2/documentation.html" title="Documentation du modèle de données" class="button icon-button">
+        <a href="/etalab/schema-lieux-covoiturage/0.2.0/documentation.html" title="Documentation du modèle de données" class="button icon-button">
           <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M4 22v-20h16v11.543c0 4.107-6 2.457-6 2.457s1.518 6-2.638 6h-7.362zm18-7.614v-14.386h-20v24h10.189c3.163 0 9.811-7.223 9.811-9.614zm-5-1.386h-10v-1h10v1zm0-4h-10v1h10v-1zm0-3h-10v1h10v-1z"/></svg>
           Lire la documentation
         </a>
@@ -302,7 +308,7 @@
           Saisir des données
         </a>
 
-        <a href="https://validata.etalab.studio/table-schema?schema_url=https://schema.data.gouv.fr/schemas/etalab/schema-lieux-covoiturage/0.1.2/schema.json" title="Valider des données" class="button icon-button">
+        <a href="https://validata.etalab.studio/table-schema?schema_url=https://schema.data.gouv.fr/schemas/etalab/schema-lieux-covoiturage/0.2.0/schema.json" title="Valider des données" class="button icon-button">
           <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
           Valider des données
         </a>
@@ -316,8 +322,8 @@
   <li>Auteur : Antoine Augusti pour Etalab</li>
   <li>Schéma créé le : 25/06/2019</li>
   <li>Site web : https://github.com/etalab/schema-lieux-covoiturage</li>
-  <li>Données d’exemple : https://github.com/etalab/schema-lieux-covoiturage/raw/v0.1.2/exemple-valide.csv</li>
-  <li>Version : 0.1.2</li>
+  <li>Données d’exemple : https://github.com/etalab/schema-lieux-covoiturage/raw/v0.2.0/exemple-valide.csv</li>
+  <li>Version : 0.2.0</li>
   <li>Clé primaire : <code class="highlighter-rouge">id_lieu</code></li>
 </ul>
 
@@ -337,8 +343,8 @@
     <tr>
       <td>id_lieu</td>
       <td>chaîne de caractères</td>
-      <td>Identifiant du lieu de covoiturage, délivré par le point d’accès national</td>
-      <td>35238-C-001</td>
+      <td>Identifiant du lieu de covoiturage, délivré par le point d’accès national selon la règle INSEE-P-XXX où INSEE est le code INSEE de la commune et XXX est le numéro d’ordre d’arrivée dans la base sur 3 chiffres, commençant par 001</td>
+      <td>35238-C-001 pour la première aire référencée dans la commune de code INSEE 35238</td>
       <td>Valeur obligatoire, Motif : <code class="highlighter-rouge">^([013-9]\d|2[AB1-9])\d{3}-C-\d{3}$</code></td>
     </tr>
     <tr>
@@ -374,7 +380,7 @@
       <td>chaîne de caractères</td>
       <td>Le type de lieu de covoiturage</td>
       <td>Parking</td>
-      <td>Valeur obligatoire, Valeurs autorisées : Aire de covoiturage, Sortie d’autoroute, Parking, Supermarché, Parking relais, Délaissé routier</td>
+      <td>Valeur obligatoire, Valeurs autorisées : Aire de covoiturage, Sortie d’autoroute, Parking, Supermarché, Parking relais, Délaissé routier, Auto-stop</td>
     </tr>
     <tr>
       <td>date_maj</td>
@@ -395,7 +401,7 @@
       <td>chaîne de caractères</td>
       <td>SIREN de l’entité ayant fourni la donnée</td>
       <td>225300011</td>
-      <td>Valeur obligatoire, Motif : <code class="highlighter-rouge">^\d{9}$</code></td>
+      <td>Valeur optionnelle, Motif : <code class="highlighter-rouge">^\d{9}$</code></td>
     </tr>
     <tr>
       <td>Xlong</td>
@@ -428,7 +434,7 @@
     <tr>
       <td>duree</td>
       <td>nombre entier</td>
-      <td>Si il existe une restriction sur la durée de stationnement autorisée, la durée maximale de stationnement autorisée exprimée en minutes</td>
+      <td>S’il existe une restriction sur la durée de stationnement autorisée, la durée maximale de stationnement autorisée exprimée en minutes</td>
       <td>60</td>
       <td>Valeur optionnelle, Valeur minimale : 0</td>
     </tr>
@@ -449,7 +455,7 @@
     <tr>
       <td>lumiere</td>
       <td>booléen</td>
-      <td>Un éclairage nocture est-il présent</td>
+      <td>Un éclairage nocturne est-il présent</td>
       <td> </td>
       <td>Valeur optionnelle</td>
     </tr>
