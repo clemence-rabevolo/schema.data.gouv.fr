@@ -310,159 +310,246 @@
 
 <h3 id="modèle-de-données">Modèle de données</h3>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nom</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Exemple</th>
-      <th>Propriétés</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>COLL_NOM (Nom de la collectivité)</td>
-      <td>chaîne de caractères</td>
-      <td>Nom officiel de la collectivité qui publie le catalogue simplifié de jeux de données limité à 140 caractères maximum.</td>
-      <td>Rennes Métropole</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>COLL_SIRET (Code SIRET de la collectivité)</td>
-      <td>chaîne de caractères</td>
-      <td>Identifiant du <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27identification_du_r%C3%A9pertoire_des_%C3%A9tablissements">Système d’Identification du Répertoire des Etablissements</a> (SIRET) de la collectivité qui publie le catalogue simplifié de jeux de données, composé de 9 chiffres SIREN + 5 chiffres NIC d’un seul tenant.</td>
-      <td>24350013900189</td>
-      <td>Valeur obligatoire, Motif : <code class="highlighter-rouge">^\d{14}$</code></td>
-    </tr>
-    <tr>
-      <td>ID (Identifiant du jeu de donnée)</td>
-      <td>chaîne de caractères</td>
-      <td>Cet identifiant est une chaîne de caractères qui correspond soit au nom du jeu de données, exprimé en minuscules sans accent ni espace (identifiant texte ou ‘slug’), soit à un code d’identification généré automatiquement (identifiant machine ou ‘hash’).</td>
-      <td>prenoms-des-nouveaux-nes-a-rennes-en-2017 ou 53699116a3a729239d203b7f</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>TITRE (Titre du jeu de données)</td>
-      <td>chaîne de caractères</td>
-      <td>Ce titre doit être un intitulé caractéristique et univoque permettant de désigner le jeu de données. Il est recommandé d’y faire figurer une indication de la zone géographique couverte et, lorsqu’elle se justifie, une indication de version ou de millésime.</td>
-      <td>Prénoms des nouveaux-nés à Rennes en 2017</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>DESCRIPTION (Description du jeu de données)</td>
-      <td>chaîne de caractères</td>
-      <td>Cette description doit fournir un bref résumé narratif du contenu du jeu de données, rédigé de façon compréhensible pour l’utilisateur.</td>
-      <td>Liste annuelle des prénoms des nouveaux-nés enregistrés à l’état-civil de la ville de Rennes pour l’année 2017.</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>THEME (Thème du jeu de données)</td>
-      <td>chaîne de caractères</td>
-      <td>En l’absence d’une nomenclature de classement par thèmes satisfaisante et adaptée au contexte local, le thème est exprimé sous la forme d’une chaîne de caractères libre dans la limite de 140 caractères maximum. Le manque de pertinence du <a href="https://publications.europa.eu/fr/web/eu-vocabularies/th-dataset/-/resource/dataset/eurovoc">thésaurus EuroVoc</a> ou des <a href="https://inspire.ec.europa.eu/Themes/Data%20Specifications/2892">thèmes INSPIRE</a> implique d’élaborer collectivement une <a href="https://docs.google.com/document/d/1oDJsHw3bmABfto6HPgCPG1ztrV3CihuHjcfU8tQpvPc/">nomenclature spécifique</a> à partir d’un appariement des termes les plus utilisés sur les plateformes territoriales de données ouvertes.</td>
-      <td>Administration locale</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>PRODUCTEUR_NOM (Nom du producteur)</td>
-      <td>chaîne de caractères</td>
-      <td>Nom officiel ou raison sociale du producteur du jeu de données limité à 140 caractères maximum.</td>
-      <td>Ville de Rennes</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>PRODUCTEUR_SIRET (Code SIRET du producteur)</td>
-      <td>chaîne de caractères</td>
-      <td>Identifiant du <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27identification_du_r%C3%A9pertoire_des_%C3%A9tablissements">Système d’Identification du Répertoire des Etablissements</a> (SIRET) du producteur du jeu de données, composé de 9 chiffres SIREN + 5 chiffres NIC d’un seul tenant.</td>
-      <td>21350238800019</td>
-      <td>Valeur obligatoire, Motif : <code class="highlighter-rouge">^\d{14}$</code></td>
-    </tr>
-    <tr>
-      <td>COUV_SPAT_MAILLE (Maille de couverture spatiale)</td>
-      <td>chaîne de caractères</td>
-      <td>La maille de couverture spatiale correspond à l’echelle territoriale que couvre le jeu de données. Pour simplifier le renseignement de ce champ, elle est désignée en choisissant une valeur parmi une liste pré-établie de valeurs possibles : ‘Infracommunale’, ‘Communale’, ‘Intercommunale’, ‘Cantonale’, ‘Départementale’, ‘Régionale’ ou ‘Autre’.</td>
-      <td>Communale</td>
-      <td>Valeur obligatoire, Valeurs autorisées : Infracommunale, Communale, Intercommunale, Cantonale, Départementale, Régionale, Autre</td>
-    </tr>
-    <tr>
-      <td>COUV_SPAT_NOM (Nom de couverture spatiale)</td>
-      <td>chaîne de caractères</td>
-      <td>Le nom de couverture spatiale correspond au nom de l’échelle territoriale que couvre le jeu de données. Il est exprimé sous la forme d’une chaîne de caractères limitée à 140 caractères maximum.</td>
-      <td>Rennes</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>COUV_TEMP_DEBUT (Date de début de la couverture temporelle)</td>
-      <td>date</td>
-      <td>La couverture temporelle correspond à la période que couvre le jeu de données. Cette période est un intervalle entre deux dates. La date de début est donc le premier terme utilisé pour désigner cet intervalle, exprimé au format AAAA-MM-JJ suivant la norme internationale <a href="https://fr.wikipedia.org/wiki/ISO_8601">ISO 8601</a>.</td>
-      <td>2017-01-01</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>COUV_TEMP_FIN (Date de fin de la couverture temporelle)</td>
-      <td>date</td>
-      <td>La couverture temporelle correspond à la période que couvre le jeu de données. Cette période est un intervalle entre deux dates. La date de fin est donc le second terme utilisé pour désigner cet intervalle, exprimé au format AAAA-MM-JJ suivant la norme internationale <a href="https://fr.wikipedia.org/wiki/ISO_8601">ISO 8601</a>.</td>
-      <td>2017-12-31</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>DATE_PUBL (Date de la première publication)</td>
-      <td>date</td>
-      <td>Date de la publication initiale du contenu du jeu de données. Elle est exprimée au format AAAA-MM-JJ suivant la norme internationale <a href="https://fr.wikipedia.org/wiki/ISO_8601">ISO 8601</a>.</td>
-      <td>2017-06-01</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>FREQ_MAJ (Fréquence de la mise à jour)</td>
-      <td>chaîne de caractères</td>
-      <td>La fréquence de mise à jour correspond à la périodicité suivant laquelle des modifications sont apportées au jeu de données. Pour simplifier le renseignement de ce champ, elle est désignée en choisissant une valeur parmi une liste pré-établie de valeurs possibles : ‘Inconnue’, ‘Ponctuelle’, ‘Irrégulière’, ‘Continuelle’, ‘Toutes les heures’, ‘Quotidienne ou plusieurs fois par jour’, ‘Hebdomadaire ou plusieurs fois par semaine’, ‘Mensuelle ou plusieurs fois par mois’, ‘Bimestrielle’, ‘Trimestrielle’, ‘Semestrielle’, ‘Annuelle’, ‘Biennale’, ‘Triennale’, ou ‘Quinquennale’.</td>
-      <td>Semestrielle</td>
-      <td>Valeur obligatoire, Valeurs autorisées : Inconnue, Ponctuelle, Irrégulière, Continuelle, Toutes les heures, Quotidienne ou plusieurs fois par jour, Hebdomadaire ou plusieurs fois par semaine, Mensuelle ou plusieurs fois par mois, Bimestrielle, Trimestrielle, Semestrielle, Annuelle, Biennale, Triennale, Quinquennale</td>
-    </tr>
-    <tr>
-      <td>DATE_MAJ (Date de la dernière mise à jour)</td>
-      <td>date</td>
-      <td>Date de la dernière modification effective du contenu du jeu de données. Elle est exprimée au format AAAA-MM-JJ suivant la norme internationale <a href="https://fr.wikipedia.org/wiki/ISO_8601">ISO 8601</a>.</td>
-      <td>2018-01-14</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>MOTS_CLES (Mots clés)</td>
-      <td>chaîne de caractères</td>
-      <td>Un ou plusieurs mot(s) clé(s) utilisé(s) pour décrire le jeu de données en minuscules non accentuées. S’il y en a plusieurs, le séparateur est le point-virgule.</td>
-      <td>scdl;prenoms;etat-civil</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>LICENCE (Licence appliquée sur le jeu de données)</td>
-      <td>chaîne de caractères</td>
-      <td>Désignation de la licence qui encadre la réutilisation du jeu de données. En France, le <a href="https://www.legifrance.gouv.fr/jo_pdf.do?id=JORFTEXT000034502557">décret n° 2017-638 du 27 avril 2017</a> restreint le choix exclusivement à deux licences. D’autres sont néanmoins utilisées par quelques producteurs ou acteurs territoriaux pour encadrer la réutilisation de certains jeux de données. Pour simplifier le renseignement de ce champ, la licence du jeu de données est désignée en choisissant une valeur parmi une liste pré-établie de valeurs possibles : ‘Licence Ouverte-LO’, ‘Open Database License-ODBL’, ‘Creative Commons-CC’, ‘Spécifique ou autre’.</td>
-      <td>Licence Ouverte-LO</td>
-      <td>Valeur obligatoire, Valeurs autorisées : Licence Ouverte-LO, Open Database License-ODBL, Creative Commons-CC, Spécifique ou autre</td>
-    </tr>
-    <tr>
-      <td>NOMBRE_RESSOURCES (Nombre de ressource(s))</td>
-      <td>nombre entier</td>
-      <td>Nombre de ressource(s) mise(s) à disposition dans le jeu de données.</td>
-      <td>3</td>
-      <td>Valeur obligatoire, Valeur minimale : 1</td>
-    </tr>
-    <tr>
-      <td>FORMAT_RESSOURCES (Format(s) des ressources)</td>
-      <td>chaîne de caractères</td>
-      <td>Format(s) dans le(s)quel(s) la (ou les) ressource(s) du jeu de données est (sont) mise(s) à disposition. Ce(s) format(s) est (sont) exprimé(s) en minuscules non accentuées. S’il y en a plusieurs, le séparateur est le point-virgule.</td>
-      <td>csv;xls;json</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>URL (URL d’accès)</td>
-      <td>chaîne de caractères (format <code class="highlighter-rouge">uri</code>)</td>
-      <td>Cet élément fournit un lien, une adresse web la plus stable possible, vers la page du jeu de données (ou de la ressource si le jeu de données n’en comprend qu’une) et/ou vers des informations complémentaires le concernant.</td>
-      <td>https://data.rennesmetropole.fr/explore/dataset/prenoms-des-nouveaux-nes-a-rennes-en-2017</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-  </tbody>
-</table>
+<h4 id="nom-de-la-collectivité---propriété-coll_nom">Nom de la collectivité - Propriété <code class="highlighter-rouge">COLL_NOM</code></h4>
+
+<blockquote>
+  <p><em>Description : Nom officiel de la collectivité qui publie le catalogue simplifié de jeux de données limité à 140 caractères maximum.<br />Ex : Rennes Métropole</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="code-siret-de-la-collectivité---propriété-coll_siret">Code SIRET de la collectivité - Propriété <code class="highlighter-rouge">COLL_SIRET</code></h4>
+
+<blockquote>
+  <p><em>Description : Identifiant du <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27identification_du_r%C3%A9pertoire_des_%C3%A9tablissements">Système d’Identification du Répertoire des Etablissements</a> (SIRET) de la collectivité qui publie le catalogue simplifié de jeux de données, composé de 9 chiffres SIREN + 5 chiffres NIC d’un seul tenant.<br />Ex : 24350013900189</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^\d{14}$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="identifiant-du-jeu-de-donnée---propriété-id">Identifiant du jeu de donnée - Propriété <code class="highlighter-rouge">ID</code></h4>
+
+<blockquote>
+  <p><em>Description : Cet identifiant est une chaîne de caractères qui correspond soit au nom du jeu de données, exprimé en minuscules sans accent ni espace (identifiant texte ou ‘slug’), soit à un code d’identification généré automatiquement (identifiant machine ou ‘hash’).<br />Ex : prenoms-des-nouveaux-nes-a-rennes-en-2017 ou 53699116a3a729239d203b7f</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="titre-du-jeu-de-données---propriété-titre">Titre du jeu de données - Propriété <code class="highlighter-rouge">TITRE</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce titre doit être un intitulé caractéristique et univoque permettant de désigner le jeu de données. Il est recommandé d’y faire figurer une indication de la zone géographique couverte et, lorsqu’elle se justifie, une indication de version ou de millésime.<br />Ex : Prénoms des nouveaux-nés à Rennes en 2017</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="description-du-jeu-de-données---propriété-description">Description du jeu de données - Propriété <code class="highlighter-rouge">DESCRIPTION</code></h4>
+
+<blockquote>
+  <p><em>Description : Cette description doit fournir un bref résumé narratif du contenu du jeu de données, rédigé de façon compréhensible pour l’utilisateur.<br />Ex : Liste annuelle des prénoms des nouveaux-nés enregistrés à l’état-civil de la ville de Rennes pour l’année 2017.</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="thème-du-jeu-de-données---propriété-theme">Thème du jeu de données - Propriété <code class="highlighter-rouge">THEME</code></h4>
+
+<blockquote>
+  <p><em>Description : En l’absence d’une nomenclature de classement par thèmes satisfaisante et adaptée au contexte local, le thème est exprimé sous la forme d’une chaîne de caractères libre dans la limite de 140 caractères maximum. Le manque de pertinence du <a href="https://publications.europa.eu/fr/web/eu-vocabularies/th-dataset/-/resource/dataset/eurovoc">thésaurus EuroVoc</a> ou des <a href="https://inspire.ec.europa.eu/Themes/Data%20Specifications/2892">thèmes INSPIRE</a> implique d’élaborer collectivement une <a href="https://docs.google.com/document/d/1oDJsHw3bmABfto6HPgCPG1ztrV3CihuHjcfU8tQpvPc/">nomenclature spécifique</a> à partir d’un appariement des termes les plus utilisés sur les plateformes territoriales de données ouvertes.<br />Ex : Administration locale</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="nom-du-producteur---propriété-producteur_nom">Nom du producteur - Propriété <code class="highlighter-rouge">PRODUCTEUR_NOM</code></h4>
+
+<blockquote>
+  <p><em>Description : Nom officiel ou raison sociale du producteur du jeu de données limité à 140 caractères maximum.<br />Ex : Ville de Rennes</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="code-siret-du-producteur---propriété-producteur_siret">Code SIRET du producteur - Propriété <code class="highlighter-rouge">PRODUCTEUR_SIRET</code></h4>
+
+<blockquote>
+  <p><em>Description : Identifiant du <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27identification_du_r%C3%A9pertoire_des_%C3%A9tablissements">Système d’Identification du Répertoire des Etablissements</a> (SIRET) du producteur du jeu de données, composé de 9 chiffres SIREN + 5 chiffres NIC d’un seul tenant.<br />Ex : 21350238800019</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^\d{14}$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="maille-de-couverture-spatiale---propriété-couv_spat_maille">Maille de couverture spatiale - Propriété <code class="highlighter-rouge">COUV_SPAT_MAILLE</code></h4>
+
+<blockquote>
+  <p><em>Description : La maille de couverture spatiale correspond à l’echelle territoriale que couvre le jeu de données. Pour simplifier le renseignement de ce champ, elle est désignée en choisissant une valeur parmi une liste pré-établie de valeurs possibles : ‘Infracommunale’, ‘Communale’, ‘Intercommunale’, ‘Cantonale’, ‘Départementale’, ‘Régionale’ ou ‘Autre’.<br />Ex : Communale</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>Infracommunale</li>
+        <li>Communale</li>
+        <li>Intercommunale</li>
+        <li>Cantonale</li>
+        <li>Départementale</li>
+        <li>Régionale</li>
+        <li>Autre</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<h4 id="nom-de-couverture-spatiale---propriété-couv_spat_nom">Nom de couverture spatiale - Propriété <code class="highlighter-rouge">COUV_SPAT_NOM</code></h4>
+
+<blockquote>
+  <p><em>Description : Le nom de couverture spatiale correspond au nom de l’échelle territoriale que couvre le jeu de données. Il est exprimé sous la forme d’une chaîne de caractères limitée à 140 caractères maximum.<br />Ex : Rennes</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="date-de-début-de-la-couverture-temporelle---propriété-couv_temp_debut">Date de début de la couverture temporelle - Propriété <code class="highlighter-rouge">COUV_TEMP_DEBUT</code></h4>
+
+<blockquote>
+  <p><em>Description : La couverture temporelle correspond à la période que couvre le jeu de données. Cette période est un intervalle entre deux dates. La date de début est donc le premier terme utilisé pour désigner cet intervalle, exprimé au format AAAA-MM-JJ suivant la norme internationale <a href="https://fr.wikipedia.org/wiki/ISO_8601">ISO 8601</a>.<br />Ex : 2017-01-01</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : date</li>
+  </ul>
+</blockquote>
+
+<h4 id="date-de-fin-de-la-couverture-temporelle---propriété-couv_temp_fin">Date de fin de la couverture temporelle - Propriété <code class="highlighter-rouge">COUV_TEMP_FIN</code></h4>
+
+<blockquote>
+  <p><em>Description : La couverture temporelle correspond à la période que couvre le jeu de données. Cette période est un intervalle entre deux dates. La date de fin est donc le second terme utilisé pour désigner cet intervalle, exprimé au format AAAA-MM-JJ suivant la norme internationale <a href="https://fr.wikipedia.org/wiki/ISO_8601">ISO 8601</a>.<br />Ex : 2017-12-31</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : date</li>
+  </ul>
+</blockquote>
+
+<h4 id="date-de-la-première-publication---propriété-date_publ">Date de la première publication - Propriété <code class="highlighter-rouge">DATE_PUBL</code></h4>
+
+<blockquote>
+  <p><em>Description : Date de la publication initiale du contenu du jeu de données. Elle est exprimée au format AAAA-MM-JJ suivant la norme internationale <a href="https://fr.wikipedia.org/wiki/ISO_8601">ISO 8601</a>.<br />Ex : 2017-06-01</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : date</li>
+  </ul>
+</blockquote>
+
+<h4 id="fréquence-de-la-mise-à-jour---propriété-freq_maj">Fréquence de la mise à jour - Propriété <code class="highlighter-rouge">FREQ_MAJ</code></h4>
+
+<blockquote>
+  <p><em>Description : La fréquence de mise à jour correspond à la périodicité suivant laquelle des modifications sont apportées au jeu de données. Pour simplifier le renseignement de ce champ, elle est désignée en choisissant une valeur parmi une liste pré-établie de valeurs possibles : ‘Inconnue’, ‘Ponctuelle’, ‘Irrégulière’, ‘Continuelle’, ‘Toutes les heures’, ‘Quotidienne ou plusieurs fois par jour’, ‘Hebdomadaire ou plusieurs fois par semaine’, ‘Mensuelle ou plusieurs fois par mois’, ‘Bimestrielle’, ‘Trimestrielle’, ‘Semestrielle’, ‘Annuelle’, ‘Biennale’, ‘Triennale’, ou ‘Quinquennale’.<br />Ex : Semestrielle</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>Inconnue</li>
+        <li>Ponctuelle</li>
+        <li>Irrégulière</li>
+        <li>Continuelle</li>
+        <li>Toutes les heures</li>
+        <li>Quotidienne ou plusieurs fois par jour</li>
+        <li>Hebdomadaire ou plusieurs fois par semaine</li>
+        <li>Mensuelle ou plusieurs fois par mois</li>
+        <li>Bimestrielle</li>
+        <li>Trimestrielle</li>
+        <li>Semestrielle</li>
+        <li>Annuelle</li>
+        <li>Biennale</li>
+        <li>Triennale</li>
+        <li>Quinquennale</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<h4 id="date-de-la-dernière-mise-à-jour---propriété-date_maj">Date de la dernière mise à jour - Propriété <code class="highlighter-rouge">DATE_MAJ</code></h4>
+
+<blockquote>
+  <p><em>Description : Date de la dernière modification effective du contenu du jeu de données. Elle est exprimée au format AAAA-MM-JJ suivant la norme internationale <a href="https://fr.wikipedia.org/wiki/ISO_8601">ISO 8601</a>.<br />Ex : 2018-01-14</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : date</li>
+  </ul>
+</blockquote>
+
+<h4 id="mots-clés---propriété-mots_cles">Mots clés - Propriété <code class="highlighter-rouge">MOTS_CLES</code></h4>
+
+<blockquote>
+  <p><em>Description : Un ou plusieurs mot(s) clé(s) utilisé(s) pour décrire le jeu de données en minuscules non accentuées. S’il y en a plusieurs, le séparateur est le point-virgule.<br />Ex : scdl;prenoms;etat-civil</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="licence-appliquée-sur-le-jeu-de-données---propriété-licence">Licence appliquée sur le jeu de données - Propriété <code class="highlighter-rouge">LICENCE</code></h4>
+
+<blockquote>
+  <p><em>Description : Désignation de la licence qui encadre la réutilisation du jeu de données. En France, le <a href="https://www.legifrance.gouv.fr/jo_pdf.do?id=JORFTEXT000034502557">décret n° 2017-638 du 27 avril 2017</a> restreint le choix exclusivement à deux licences. D’autres sont néanmoins utilisées par quelques producteurs ou acteurs territoriaux pour encadrer la réutilisation de certains jeux de données. Pour simplifier le renseignement de ce champ, la licence du jeu de données est désignée en choisissant une valeur parmi une liste pré-établie de valeurs possibles : ‘Licence Ouverte-LO’, ‘Open Database License-ODBL’, ‘Creative Commons-CC’, ‘Spécifique ou autre’.<br />Ex : Licence Ouverte-LO</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>Licence Ouverte-LO</li>
+        <li>Open Database License-ODBL</li>
+        <li>Creative Commons-CC</li>
+        <li>Spécifique ou autre</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<h4 id="nombre-de-ressources---propriété-nombre_ressources">Nombre de ressource(s) - Propriété <code class="highlighter-rouge">NOMBRE_RESSOURCES</code></h4>
+
+<blockquote>
+  <p><em>Description : Nombre de ressource(s) mise(s) à disposition dans le jeu de données.<br />Ex : 3</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : nombre entier</li>
+    <li>Valeur supérieur à 1</li>
+  </ul>
+</blockquote>
+
+<h4 id="formats-des-ressources---propriété-format_ressources">Format(s) des ressources - Propriété <code class="highlighter-rouge">FORMAT_RESSOURCES</code></h4>
+
+<blockquote>
+  <p><em>Description : Format(s) dans le(s)quel(s) la (ou les) ressource(s) du jeu de données est (sont) mise(s) à disposition. Ce(s) format(s) est (sont) exprimé(s) en minuscules non accentuées. S’il y en a plusieurs, le séparateur est le point-virgule.<br />Ex : csv;xls;json</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="url-daccès---propriété-url">URL d’accès - Propriété <code class="highlighter-rouge">URL</code></h4>
+
+<blockquote>
+  <p><em>Description : Cet élément fournit un lien, une adresse web la plus stable possible, vers la page du jeu de données (ou de la ressource si le jeu de données n’en comprend qu’une) et/ou vers des informations complémentaires le concernant.<br />Ex : https://data.rennesmetropole.fr/explore/dataset/prenoms-des-nouveaux-nes-a-rennes-en-2017</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères (format <code class="highlighter-rouge">uri</code>)</li>
+  </ul>
+</blockquote>
 
       
 

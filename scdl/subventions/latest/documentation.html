@@ -316,117 +316,160 @@
 
 <h3 id="modèle-de-données">Modèle de données</h3>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nom</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Exemple</th>
-      <th>Propriétés</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>nomAttribuant (Nom de l’attribuant)</td>
-      <td>chaîne de caractères</td>
-      <td>Nom officiel de la collectivité attribuant la subvention.</td>
-      <td>Région Bretagne</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>idAttribuant (Identification de l’attribuant)</td>
-      <td>chaîne de caractères</td>
-      <td>Identifiant du <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27identification_du_r%C3%A9pertoire_des_%C3%A9tablissements">Système d’Identification du Répertoire des Etablissements</a> (SIRET) de la collectivité attribuant la subvention, composé de 9 chiffres SIREN + 5 chiffres NIC d’un seul tenant.</td>
-      <td>23350001600040</td>
-      <td>Valeur obligatoire, Motif : <code class="highlighter-rouge">^\d{14}$</code></td>
-    </tr>
-    <tr>
-      <td>dateConvention (Date de la convention de subvention)</td>
-      <td>date</td>
-      <td>Date de la convention au format AAAA-MM-JJ suivant la norme internationale <a href="https://fr.wikipedia.org/wiki/ISO_8601">ISO 8601</a>.</td>
-      <td>2017-06-27</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>referenceDecision (Référence de la décision)</td>
-      <td>chaîne de caractères</td>
-      <td>Identifiant interne de l’acte matérialisant la décision d’attribution de la subvention. Sa composition dépend des pratiques propres à la collectivité.</td>
-      <td>2017-03-103</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>nomBeneficiaire (Nom du bénéficiaire)</td>
-      <td>chaîne de caractères</td>
-      <td>Nom officiel ou raison sociale du bénéficiaire de la subvention.</td>
-      <td>Association Les Petits Débrouillards Bretagne</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>idBeneficiaire (Identification du bénéficiaire)</td>
-      <td>chaîne de caractères</td>
-      <td>Identifiant du <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27identification_du_r%C3%A9pertoire_des_%C3%A9tablissements">Système d’Identification du Répertoire des Etablissements</a> (SIRET) du bénéficiaire de la subvention, composé de 9 chiffres SIREN + 5 chiffres NIC d’un seul tenant.</td>
-      <td>38047555800058</td>
-      <td>Valeur obligatoire, Motif : <code class="highlighter-rouge">^\d{14}$</code></td>
-    </tr>
-    <tr>
-      <td>objet (Objet de la subvention)</td>
-      <td>chaîne de caractères</td>
-      <td>Description de l’objet de la subvention attribuée limitée à 256 caractères maximum.</td>
-      <td>Animations climat-énergie dans les lycées de la région</td>
-      <td>Valeur obligatoire, Taille maximale : 256</td>
-    </tr>
-    <tr>
-      <td>montant (Montant total de la subvention)</td>
-      <td>nombre réel</td>
-      <td>Montant total de la subvention attribuée, exprimé en euros et calculé avant répartition entre les bénéficiaires dans le cas de bénéficaires multiples. Le signe de séparation entre les parties entière et décimale du nombre est le point.</td>
-      <td>47800.20</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>nature (Nature de la subvention)</td>
-      <td>chaîne de caractères</td>
-      <td>Plusieurs choix possibles en combinant les valeurs ‘aide en numéraire’ et/ou ‘aide en nature’. Les valeurs autorisées sont ‘aide en numéraire’, ‘aide en nature’, ‘aide en numéraire;aide en nature’, ‘aide en nature;aide en numéraire’. Quand la nature de la subvention est à la fois en numéraire et en nature, le signe de séparation des valeurs est le point-virgule.</td>
-      <td>aide en numéraire;aide en nature</td>
-      <td>Valeur obligatoire, Valeurs autorisées : aide en numéraire, aide en nature, aide en numéraire;aide en nature, aide en nature;aide en numéraire</td>
-    </tr>
-    <tr>
-      <td>conditionsVersement (Conditions de versement de la subvention)</td>
-      <td>chaîne de caractères</td>
-      <td>Choix unique parmi plusieurs valeurs possibles : ‘unique’, ‘échelonné’ ou ‘autre’. La valeur ‘autre’ correspond à une description libre des modalités de versement de la subvention dans la limite de 256 caractères maximum.</td>
-      <td>échelonné</td>
-      <td>Valeur obligatoire, Taille maximale : 256</td>
-    </tr>
-    <tr>
-      <td>datesPeriodeVersement (Date ou période de versement)</td>
-      <td>chaîne de caractères</td>
-      <td>Si le versement est unique et que la date précise est connue, alors il s’agit d’une date au format AAAA-MM-JJ suivant la norme internationale <a href="https://fr.wikipedia.org/wiki/ISO_8601">ISO 8601</a>. Si le versement est échelonné (ou que la date précise de versement unique est inconnue), alors il s’agit d’une période exprimée au format AAAA-MM-JJ/AAAA-MM-JJ où le séparateur entre la première et la seconde date de l’intervalle est la barre oblique suivant la norme internationale <a href="https://fr.wikipedia.org/wiki/ISO_8601">ISO 8601</a>.</td>
-      <td>‘2017-03-14’ pour une date ou ‘2017-03-14/2018-03-14’ pour une période</td>
-      <td>Valeur obligatoire, Motif : <code class="highlighter-rouge">^[0-9]{4}\-[0-9]{2}\-[0-9]{2}(\/[0-9]{4}\-[0-9]{2}\-[0-9]{2})?$</code></td>
-    </tr>
-    <tr>
-      <td>idRAE (Identifiant RAE de l’aide au titre de laquelle la subvention est attribuée)</td>
-      <td>chaîne de caractères</td>
-      <td>Numéro unique de référencement dans le <a href="https://aides-entreprises.fr/">Répertoire des Aides aux Entreprises</a>. Ce champ ne concerne que les subventions attribuées au titre d’une aide référencée dans la <a href="https://data.aides-entreprises.fr/documentation">base de données du RAE</a> gérée par l’Institut Supérieur des Métiers.</td>
-      <td>12345</td>
-      <td>Taille maximale : 5</td>
-    </tr>
-    <tr>
-      <td>notificationUE (Aide d’Etat notifiée à la Commission Européenne)</td>
-      <td>booléen</td>
-      <td>Valeurs considérées comme vraies : [‘oui’]Valeurs considérées comme fausses : [‘non’]Subvention attribuée au titre d’une aide de minimis notifiée à la Commission Européenne en vertu des dispositions du règlement n° 1407/2013 du 18 décembre 2013. Seules les valeurs ‘oui’ ou ‘non’ sont autorisées.</td>
-      <td>non</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>pourcentageSubvention (Pourcentage du montant total de la subvention attribuée au bénéficiaire)</td>
-      <td>nombre réel</td>
-      <td>Pourcentage exprimé sous la forme d’un nombre décimal. Dans le cas d’un bénéficiaire unique, le pourcentage est 100%, soit ‘1.00’ en nombre décimal. Dans le cas de bénéficiaires multiples, le pourcentage du montant attribué au bénéficiaire correspond à la part qui lui est versée : par exemple 45%, soit ‘0.45’ en nombre décimal. Le signe de séparation entre les parties entière et décimale du nombre est le point.</td>
-      <td>0.45</td>
-      <td>Valeur obligatoire, Valeur minimale : 0.01, Valeur maximale : 1</td>
-    </tr>
-  </tbody>
-</table>
+<h4 id="nom-de-lattribuant---propriété-nomattribuant">Nom de l’attribuant - Propriété <code class="highlighter-rouge">nomAttribuant</code></h4>
+
+<blockquote>
+  <p><em>Description : Nom officiel de la collectivité attribuant la subvention.<br />Ex : Région Bretagne</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="identification-de-lattribuant---propriété-idattribuant">Identification de l’attribuant - Propriété <code class="highlighter-rouge">idAttribuant</code></h4>
+
+<blockquote>
+  <p><em>Description : Identifiant du <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27identification_du_r%C3%A9pertoire_des_%C3%A9tablissements">Système d’Identification du Répertoire des Etablissements</a> (SIRET) de la collectivité attribuant la subvention, composé de 9 chiffres SIREN + 5 chiffres NIC d’un seul tenant.<br />Ex : 23350001600040</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^\d{14}$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="date-de-la-convention-de-subvention---propriété-dateconvention">Date de la convention de subvention - Propriété <code class="highlighter-rouge">dateConvention</code></h4>
+
+<blockquote>
+  <p><em>Description : Date de la convention au format AAAA-MM-JJ suivant la norme internationale <a href="https://fr.wikipedia.org/wiki/ISO_8601">ISO 8601</a>.<br />Ex : 2017-06-27</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : date</li>
+  </ul>
+</blockquote>
+
+<h4 id="référence-de-la-décision---propriété-referencedecision">Référence de la décision - Propriété <code class="highlighter-rouge">referenceDecision</code></h4>
+
+<blockquote>
+  <p><em>Description : Identifiant interne de l’acte matérialisant la décision d’attribution de la subvention. Sa composition dépend des pratiques propres à la collectivité.<br />Ex : 2017-03-103</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="nom-du-bénéficiaire---propriété-nombeneficiaire">Nom du bénéficiaire - Propriété <code class="highlighter-rouge">nomBeneficiaire</code></h4>
+
+<blockquote>
+  <p><em>Description : Nom officiel ou raison sociale du bénéficiaire de la subvention.<br />Ex : Association Les Petits Débrouillards Bretagne</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="identification-du-bénéficiaire---propriété-idbeneficiaire">Identification du bénéficiaire - Propriété <code class="highlighter-rouge">idBeneficiaire</code></h4>
+
+<blockquote>
+  <p><em>Description : Identifiant du <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27identification_du_r%C3%A9pertoire_des_%C3%A9tablissements">Système d’Identification du Répertoire des Etablissements</a> (SIRET) du bénéficiaire de la subvention, composé de 9 chiffres SIREN + 5 chiffres NIC d’un seul tenant.<br />Ex : 38047555800058</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^\d{14}$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="objet-de-la-subvention---propriété-objet">Objet de la subvention - Propriété <code class="highlighter-rouge">objet</code></h4>
+
+<blockquote>
+  <p><em>Description : Description de l’objet de la subvention attribuée limitée à 256 caractères maximum.<br />Ex : Animations climat-énergie dans les lycées de la région</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Moins de 256 caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="montant-total-de-la-subvention---propriété-montant">Montant total de la subvention - Propriété <code class="highlighter-rouge">montant</code></h4>
+
+<blockquote>
+  <p><em>Description : Montant total de la subvention attribuée, exprimé en euros et calculé avant répartition entre les bénéficiaires dans le cas de bénéficaires multiples. Le signe de séparation entre les parties entière et décimale du nombre est le point.<br />Ex : 47800.20</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : nombre réel</li>
+  </ul>
+</blockquote>
+
+<h4 id="nature-de-la-subvention---propriété-nature">Nature de la subvention - Propriété <code class="highlighter-rouge">nature</code></h4>
+
+<blockquote>
+  <p><em>Description : Plusieurs choix possibles en combinant les valeurs ‘aide en numéraire’ et/ou ‘aide en nature’. Les valeurs autorisées sont ‘aide en numéraire’, ‘aide en nature’, ‘aide en numéraire;aide en nature’, ‘aide en nature;aide en numéraire’. Quand la nature de la subvention est à la fois en numéraire et en nature, le signe de séparation des valeurs est le point-virgule.<br />Ex : aide en numéraire;aide en nature</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>aide en numéraire</li>
+        <li>aide en nature</li>
+        <li>aide en numéraire;aide en nature</li>
+        <li>aide en nature;aide en numéraire</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<h4 id="conditions-de-versement-de-la-subvention---propriété-conditionsversement">Conditions de versement de la subvention - Propriété <code class="highlighter-rouge">conditionsVersement</code></h4>
+
+<blockquote>
+  <p><em>Description : Choix unique parmi plusieurs valeurs possibles : ‘unique’, ‘échelonné’ ou ‘autre’. La valeur ‘autre’ correspond à une description libre des modalités de versement de la subvention dans la limite de 256 caractères maximum.<br />Ex : échelonné</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Moins de 256 caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="date-ou-période-de-versement---propriété-datesperiodeversement">Date ou période de versement - Propriété <code class="highlighter-rouge">datesPeriodeVersement</code></h4>
+
+<blockquote>
+  <p><em>Description : Si le versement est unique et que la date précise est connue, alors il s’agit d’une date au format AAAA-MM-JJ suivant la norme internationale <a href="https://fr.wikipedia.org/wiki/ISO_8601">ISO 8601</a>. Si le versement est échelonné (ou que la date précise de versement unique est inconnue), alors il s’agit d’une période exprimée au format AAAA-MM-JJ/AAAA-MM-JJ où le séparateur entre la première et la seconde date de l’intervalle est la barre oblique suivant la norme internationale <a href="https://fr.wikipedia.org/wiki/ISO_8601">ISO 8601</a>.<br />Ex : ‘2017-03-14’ pour une date ou ‘2017-03-14/2018-03-14’ pour une période</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^[0-9]{4}\-[0-9]{2}\-[0-9]{2}(\/[0-9]{4}\-[0-9]{2}\-[0-9]{2})?$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="identifiant-rae-de-laide-au-titre-de-laquelle-la-subvention-est-attribuée---propriété-idrae">Identifiant RAE de l’aide au titre de laquelle la subvention est attribuée - Propriété <code class="highlighter-rouge">idRAE</code></h4>
+
+<blockquote>
+  <p><em>Description : Numéro unique de référencement dans le <a href="https://aides-entreprises.fr/">Répertoire des Aides aux Entreprises</a>. Ce champ ne concerne que les subventions attribuées au titre d’une aide référencée dans la <a href="https://data.aides-entreprises.fr/documentation">base de données du RAE</a> gérée par l’Institut Supérieur des Métiers.<br />Ex : 12345</em></p>
+  <ul>
+    <li>None</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Moins de 5 caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="aide-detat-notifiée-à-la-commission-européenne---propriété-notificationue">Aide d’Etat notifiée à la Commission Européenne - Propriété <code class="highlighter-rouge">notificationUE</code></h4>
+
+<blockquote>
+  <p><em>Description : Subvention attribuée au titre d’une aide de minimis notifiée à la Commission Européenne en vertu des dispositions du règlement n° 1407/2013 du 18 décembre 2013. Seules les valeurs ‘oui’ ou ‘non’ sont autorisées.<br />Ex : non</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="pourcentage-du-montant-total-de-la-subvention-attribuée-au-bénéficiaire---propriété-pourcentagesubvention">Pourcentage du montant total de la subvention attribuée au bénéficiaire - Propriété <code class="highlighter-rouge">pourcentageSubvention</code></h4>
+
+<blockquote>
+  <p><em>Description : Pourcentage exprimé sous la forme d’un nombre décimal. Dans le cas d’un bénéficiaire unique, le pourcentage est 100%, soit ‘1.00’ en nombre décimal. Dans le cas de bénéficiaires multiples, le pourcentage du montant attribué au bénéficiaire correspond à la part qui lui est versée : par exemple 45%, soit ‘0.45’ en nombre décimal. Le signe de séparation entre les parties entière et décimale du nombre est le point.<br />Ex : 0.45</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : nombre réel</li>
+    <li>Valeur entre 0.01 et 1</li>
+  </ul>
+</blockquote>
 
       
 

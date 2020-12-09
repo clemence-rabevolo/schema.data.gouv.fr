@@ -305,201 +305,268 @@
 
 <h3 id="modèle-de-données">Modèle de données</h3>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nom</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Exemple</th>
-      <th>Propriétés</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>id</td>
-      <td>nombre entier</td>
-      <td>Un identifiant unique de l’objet arbre.</td>
-      <td>42</td>
-      <td>Valeur obligatoire, Valeur minimale : 1</td>
-    </tr>
-    <tr>
-      <td>longitude</td>
-      <td>nombre réel</td>
-      <td>La longitude en degrés décimaux (point comme séparateur décimal) de la localisation de l’arbre dans le système de coordonnées WGS84.</td>
-      <td>48.3610</td>
-      <td>Valeur obligatoire, Valeur minimale : -180, Valeur maximale : 180</td>
-    </tr>
-    <tr>
-      <td>latitude</td>
-      <td>nombre réel</td>
-      <td>La latitude en degrés décimaux (point comme séparateur décimal) de la localisation de l’arbre dans le système de coordonnées WGS84.</td>
-      <td>32.2812</td>
-      <td>Valeur obligatoire, Valeur minimale : -180, Valeur maximale : 180</td>
-    </tr>
-    <tr>
-      <td>famille_arbre</td>
-      <td>chaîne de caractères</td>
-      <td>Le taxon auquel appartient l’arbre en latin (cinquième niveau de la classification classique).</td>
-      <td>Platanaceae</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>genre_arbre</td>
-      <td>chaîne de caractères</td>
-      <td>La subdivision de la famille auquel appartient l’arbre en latin (sixième niveau de la classification classique).</td>
-      <td>Platanus</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>espece_arbre</td>
-      <td>chaîne de caractères</td>
-      <td> </td>
-      <td>Valeur optionnelle</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>cultivar_variete_arbre</td>
-      <td>chaîne de caractères</td>
-      <td>La subdivision de l’espèce auquel appartient l’arbre en latin.</td>
-      <td>Cripps Pink’</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>nom_vernaculaire</td>
-      <td>chaîne de caractères</td>
-      <td>Le nom commun français correspondant au nom scientifique ([genre][espèce][cultivar]).</td>
-      <td>Platane commun</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>code_insee</td>
-      <td>nombre entier</td>
-      <td>Le code INSEE de la commune dans laquelle l’arbre se trouve.</td>
-      <td>59599</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>code_postal</td>
-      <td>nombre entier</td>
-      <td>Le code postal de la commune dans laquelle l’arbre se trouve.</td>
-      <td>13010</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>adresse</td>
-      <td>chaîne de caractères</td>
-      <td>Le nom de la rue (avec ou sans numéro) dans laquelle l’arbre se trouve.</td>
-      <td>61 rue de la Poste</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>matricule_arbre</td>
-      <td>chaîne de caractères</td>
-      <td>L’identifiant unique de l’arbre au norme de la collectivité.</td>
-      <td>A20200525</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>date_plantation</td>
-      <td>date</td>
-      <td>La date de plantation de l’arbre, au format ISO 8601 AAAA-MM-DD.</td>
-      <td>1996-07-12</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>hauteur</td>
-      <td>nombre réel</td>
-      <td>La hauteur de l’arbre exprimée en cm</td>
-      <td>300</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>diametre</td>
-      <td>nombre réel</td>
-      <td>Le diamètre de l’arbre mesurée à hauteur d’homme, c’est-à-dire 1m50 exprimé en cm</td>
-      <td>70</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>type_sol</td>
-      <td>chaîne de caractères</td>
-      <td>La composition pédologique du sol où est planté l’arbre</td>
-      <td>Argileux</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>type_enracinement</td>
-      <td>chaîne de caractères</td>
-      <td>Le type d’enracinement de l’arbre</td>
-      <td>Pivotant</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>port_arbre</td>
-      <td>chaîne de caractères</td>
-      <td>La forme du houppier de l’arbre</td>
-      <td>Pyramide</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>arbre_remarquable</td>
-      <td>booléen</td>
-      <td>Valeurs considérées comme vraies : [‘true’, ‘True’, ‘TRUE’, ‘1’, ‘vrai’, ‘Vrai’, ‘VRAI’, ‘Oui’, ‘oui’, ‘OUI’]Valeurs considérées comme fausses : [‘false’, ‘False’, ‘FALSE’, ‘0’, ‘faux’, ‘Faux’, ‘FAUX’, ‘Non’, ‘non’, ‘NON’]Classification de l’arbre à remarquable selon son âge, sa circonférence et sa hauteur</td>
-      <td>Oui</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>arbre_protege</td>
-      <td>booléen</td>
-      <td>Valeurs considérées comme vraies : [‘true’, ‘True’, ‘TRUE’, ‘1’, ‘vrai’, ‘Vrai’, ‘VRAI’, ‘Oui’, ‘oui’, ‘OUI’]Valeurs considérées comme fausses : [‘false’, ‘False’, ‘FALSE’, ‘0’, ‘faux’, ‘Faux’, ‘FAUX’, ‘Non’, ‘non’, ‘NON’]Si l’arbre fait l’objet d’une classification et d’une protection</td>
-      <td>Non</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>contraintes_sol</td>
-      <td>chaîne de caractères</td>
-      <td>Indique la présence de contraintes physiques au niveau du sol</td>
-      <td>Sol perméabilisé</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>contrainte_aeriennes</td>
-      <td>chaîne de caractères</td>
-      <td>Indique la présence de contraintes physiques au-dessus du sol</td>
-      <td>Présence de cables</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>eclairage</td>
-      <td>booléen</td>
-      <td>Valeurs considérées comme vraies : [‘true’, ‘True’, ‘TRUE’, ‘1’, ‘vrai’, ‘Vrai’, ‘VRAI’, ‘Oui’, ‘oui’, ‘OUI’]Valeurs considérées comme fausses : [‘false’, ‘False’, ‘FALSE’, ‘0’, ‘faux’, ‘Faux’, ‘FAUX’, ‘Non’, ‘non’, ‘NON’]Indique la présence d’éclairage à proximité de l’arbre</td>
-      <td>Oui</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>arrosage</td>
-      <td>chaîne de caractères</td>
-      <td>Indique la présence ou non d’un arrosage et quel type d’arrosage</td>
-      <td>Goutte à goutte</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>allergie</td>
-      <td>nombre entier</td>
-      <td>Indique le potentiel allergisant de l’arbre (0 = nul –&gt; 5 = très fort)</td>
-      <td>2</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>remarque</td>
-      <td>chaîne de caractères</td>
-      <td>Tout autre remarque nécessaire à la gestion de l’arbre</td>
-      <td>Ceci est un exemple de remarque</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-  </tbody>
-</table>
+<h4 id="propriété-id">Propriété <code class="highlighter-rouge">id</code></h4>
+
+<blockquote>
+  <p><em>Description : Un identifiant unique de l’objet arbre.<br />Ex : 42</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : nombre entier</li>
+    <li>Valeur supérieur à 1</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-longitude">Propriété <code class="highlighter-rouge">longitude</code></h4>
+
+<blockquote>
+  <p><em>Description : La longitude en degrés décimaux (point comme séparateur décimal) de la localisation de l’arbre dans le système de coordonnées WGS84.<br />Ex : 48.3610</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : nombre réel</li>
+    <li>Valeur entre -180 et 180</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-latitude">Propriété <code class="highlighter-rouge">latitude</code></h4>
+
+<blockquote>
+  <p><em>Description : La latitude en degrés décimaux (point comme séparateur décimal) de la localisation de l’arbre dans le système de coordonnées WGS84.<br />Ex : 32.2812</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : nombre réel</li>
+    <li>Valeur entre -180 et 180</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-famille_arbre">Propriété <code class="highlighter-rouge">famille_arbre</code></h4>
+
+<blockquote>
+  <p><em>Description : Le taxon auquel appartient l’arbre en latin (cinquième niveau de la classification classique).<br />Ex : Platanaceae</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-genre_arbre">Propriété <code class="highlighter-rouge">genre_arbre</code></h4>
+
+<blockquote>
+  <p><em>Description : La subdivision de la famille auquel appartient l’arbre en latin (sixième niveau de la classification classique).<br />Ex : Platanus</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-espece_arbre">Propriété <code class="highlighter-rouge">espece_arbre</code></h4>
+
+<blockquote>
+  <p>*Description : <br />Ex : *</p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-cultivar_variete_arbre">Propriété <code class="highlighter-rouge">cultivar_variete_arbre</code></h4>
+
+<blockquote>
+  <p><em>Description : La subdivision de l’espèce auquel appartient l’arbre en latin.<br />Ex : Cripps Pink’</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-nom_vernaculaire">Propriété <code class="highlighter-rouge">nom_vernaculaire</code></h4>
+
+<blockquote>
+  <p><em>Description : Le nom commun français correspondant au nom scientifique ([genre][espèce][cultivar]).<br />Ex : Platane commun</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-code_insee">Propriété <code class="highlighter-rouge">code_insee</code></h4>
+
+<blockquote>
+  <p><em>Description : Le code INSEE de la commune dans laquelle l’arbre se trouve.<br />Ex : 59599</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : nombre entier</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-code_postal">Propriété <code class="highlighter-rouge">code_postal</code></h4>
+
+<blockquote>
+  <p><em>Description : Le code postal de la commune dans laquelle l’arbre se trouve.<br />Ex : 13010</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : nombre entier</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-adresse">Propriété <code class="highlighter-rouge">adresse</code></h4>
+
+<blockquote>
+  <p><em>Description : Le nom de la rue (avec ou sans numéro) dans laquelle l’arbre se trouve.<br />Ex : 61 rue de la Poste</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-matricule_arbre">Propriété <code class="highlighter-rouge">matricule_arbre</code></h4>
+
+<blockquote>
+  <p><em>Description : L’identifiant unique de l’arbre au norme de la collectivité.<br />Ex : A20200525</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-date_plantation">Propriété <code class="highlighter-rouge">date_plantation</code></h4>
+
+<blockquote>
+  <p><em>Description : La date de plantation de l’arbre, au format ISO 8601 AAAA-MM-DD.<br />Ex : 1996-07-12</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : date</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-hauteur">Propriété <code class="highlighter-rouge">hauteur</code></h4>
+
+<blockquote>
+  <p><em>Description : La hauteur de l’arbre exprimée en cm<br />Ex : 300</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : nombre réel</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-diametre">Propriété <code class="highlighter-rouge">diametre</code></h4>
+
+<blockquote>
+  <p><em>Description : Le diamètre de l’arbre mesurée à hauteur d’homme, c’est-à-dire 1m50 exprimé en cm<br />Ex : 70</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : nombre réel</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-type_sol">Propriété <code class="highlighter-rouge">type_sol</code></h4>
+
+<blockquote>
+  <p><em>Description : La composition pédologique du sol où est planté l’arbre<br />Ex : Argileux</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-type_enracinement">Propriété <code class="highlighter-rouge">type_enracinement</code></h4>
+
+<blockquote>
+  <p><em>Description : Le type d’enracinement de l’arbre<br />Ex : Pivotant</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-port_arbre">Propriété <code class="highlighter-rouge">port_arbre</code></h4>
+
+<blockquote>
+  <p><em>Description : La forme du houppier de l’arbre<br />Ex : Pyramide</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-arbre_remarquable">Propriété <code class="highlighter-rouge">arbre_remarquable</code></h4>
+
+<blockquote>
+  <p><em>Description : Classification de l’arbre à remarquable selon son âge, sa circonférence et sa hauteur<br />Ex : Oui</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-arbre_protege">Propriété <code class="highlighter-rouge">arbre_protege</code></h4>
+
+<blockquote>
+  <p><em>Description : Si l’arbre fait l’objet d’une classification et d’une protection<br />Ex : Non</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-contraintes_sol">Propriété <code class="highlighter-rouge">contraintes_sol</code></h4>
+
+<blockquote>
+  <p><em>Description : Indique la présence de contraintes physiques au niveau du sol <br />Ex : Sol perméabilisé</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-contrainte_aeriennes">Propriété <code class="highlighter-rouge">contrainte_aeriennes</code></h4>
+
+<blockquote>
+  <p><em>Description : Indique la présence de contraintes physiques au-dessus du sol<br />Ex : Présence de cables</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-eclairage">Propriété <code class="highlighter-rouge">eclairage</code></h4>
+
+<blockquote>
+  <p><em>Description : Indique la présence d’éclairage à proximité de l’arbre<br />Ex : Oui</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-arrosage">Propriété <code class="highlighter-rouge">arrosage</code></h4>
+
+<blockquote>
+  <p><em>Description : Indique la présence ou non d’un arrosage et quel type d’arrosage <br />Ex : Goutte à goutte</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-allergie">Propriété <code class="highlighter-rouge">allergie</code></h4>
+
+<blockquote>
+  <p><em>Description : Indique le potentiel allergisant de l’arbre (0 = nul –&gt; 5 = très fort)<br />Ex : 2</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : nombre entier</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-remarque">Propriété <code class="highlighter-rouge">remarque</code></h4>
+
+<blockquote>
+  <p><em>Description : Tout autre remarque nécessaire à la gestion de l’arbre<br />Ex : Ceci est un exemple de remarque</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
 
       
 

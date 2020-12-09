@@ -302,452 +302,464 @@
 
 <h3 id="modèle-de-données">Modèle de données</h3>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nom</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Exemple</th>
-      <th>Propriétés</th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>nom (Nom donné au DAE)</td>
-      <td>chaîne de caractères</td>
-      <td>DAE-MinSanté-Duquesne</td>
-      <td>Valeur obligatoire</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>lat_coor1 (Latitude)</td>
-      <td>nombre réel</td>
-      <td>Coordonnée de latitude  exprimée conformément au système national de référence de coordonnées géographiques et planimétriques ou à défaut en WGS 84. Le signe de séparation entre les parties entière et décimale du nombre est le point</td>
-      <td>48.8521329</td>
-      <td>Valeur obligatoire, Valeur minimale : -90, Valeur maximale : 90</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>long_coor1 (Latitude)</td>
-      <td>nombre réel</td>
-      <td>Coordonnée de longitude exprimée conformément au système national de référence de coordonnées géographiques et planimétriques ou à défaut en WGS 84. Le signe de séparation entre les parties entière et décimale du nombre est le point</td>
-      <td>2.3068453</td>
-      <td>Valeur obligatoire, Valeur minimale : -180, Valeur maximale : 180</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>adr_num (Numéro de la voie)</td>
-      <td>chaîne de caractères</td>
-      <td>Numéro de la voie et, le cas échéant, sufixe, d’implantation du DAE</td>
-      <td>14</td>
-      <td>Valeur optionnelle</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>adr_voie (Type et nom de la voie)</td>
-      <td>chaîne de caractères</td>
-      <td>Type et nom de la voie ou lieu-dit d’implantation du DAE</td>
-      <td>Avenue Duquesne</td>
-      <td>Valeur optionnelle</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>com_cp (Code Postal de la commune d’implantation du DAE)</td>
-      <td>chaîne de caractères</td>
-      <td>Code Postal de la commune d’implantation du DAE</td>
-      <td>75350</td>
-      <td>Valeur optionnelle, Motif : <code class="highlighter-rouge">^\d{5}$</code></td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>com_insee (Code Insee de la commune d’implantation du DAE)</td>
-      <td>chaîne de caractères</td>
-      <td>Code Insee de la commune d’implantation du DAE</td>
-      <td>75056</td>
-      <td>Valeur optionnelle, Motif : <code class="highlighter-rouge">^\d[AB\d]\d{3}$</code></td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>com_nom (Nom de la commune d’implantation du DAE)</td>
-      <td>chaîne de caractères</td>
-      <td>Paris</td>
-      <td>Valeur optionnelle</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>acc (Environnement d’accès du DAE)</td>
-      <td>chaîne de caractères</td>
-      <td>Environnement d’accès du DAE</td>
-      <td>Intérieur</td>
-      <td>Valeur obligatoire, Valeurs autorisées : Intérieur, Extérieur</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>acc_lib</td>
-      <td>booléen</td>
-      <td>Valeurs considérées comme vraies : [‘oui’]Valeurs considérées comme fausses : [‘non’]Accès libre du DAE</td>
-      <td>oui</td>
-      <td>Valeur obligatoire</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>acc_pcsec</td>
-      <td>booléen</td>
-      <td>Valeurs considérées comme vraies : [‘oui’]Valeurs considérées comme fausses : [‘non’]Poste de sécurité</td>
-      <td>oui</td>
-      <td>Valeur optionnelle</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>acc_acc</td>
-      <td>booléen</td>
-      <td>Valeurs considérées comme vraies : [‘oui’]Valeurs considérées comme fausses : [‘non’]Présence d’un accueil public</td>
-      <td>oui</td>
-      <td>Valeur optionnelle</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>acc_etg (Etage d’accessibilité du DAE)</td>
-      <td>chaîne de caractères</td>
-      <td>Etage du bâtiment dans lequel le DAE est accessible</td>
-      <td>0 ou -1</td>
-      <td>Valeur optionnelle</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>acc_complt (Complément d’information sur l’accès au DAE)</td>
-      <td>chaîne de caractères</td>
-      <td>Complément d’information sur l’accès au DAE</td>
-      <td>Au bout du couloir, dans un renfoncement à droite</td>
-      <td>Valeur optionnelle</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>photo1 (Photo 1 du DAE dans son environnement. Il est préconisé un plan large pour que le DAE soit visible dans son environnement. La photo déposée devra être libre de droit, sous format Open Source)</td>
-      <td>chaîne de caractères</td>
-      <td>Photo au format url. Fichier (jpg, png ou gif)</td>
-      <td>http://www.monsite.com/monimage.jpg</td>
-      <td>Valeur optionnelle, Motif : <code class="highlighter-rouge">^https?://(?:[a-z0-9\-]+\.)+[a-z]{2,6}(?:/[^/#?]+)+\.(?:jpg|jpeg|gif|png)</code></td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>photo2 (Photo 2 du DAE dans son environnement. Il est préconisé un plan large pour que le DAE soit visible dans son environnement. La photo déposée devra être libre de droit, sous format Open Source)</td>
-      <td>chaîne de caractères</td>
-      <td>Photo au format url. Fichier (jpg, png ou gif)</td>
-      <td>http://www.monsite.com/monimage.jpg</td>
-      <td>Valeur optionnelle, Motif : <code class="highlighter-rouge">^https?://(?:[a-z0-9\-]+\.)+[a-z]{2,6}(?:/[^/#?]+)+\.(?:jpg|jpeg|gif|png)</code></td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>disp_j (Pour les DAE non-disponibles 7j/7, détail de la disponibilité de l’appareil)</td>
-      <td>chaîne de caractères</td>
-      <td>Liste de valeurs séparées par ‘</td>
-      <td>’ parmi :  7j/7, lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche, jours fériés, événements</td>
-      <td>lundi</td>
-      <td>mercredi</td>
-      <td>vendredi</td>
-      <td>Valeur obligatoire, Motif : <code class="highlighter-rouge">^(7j/7|lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche|jours fériés|événements){1}(\|(7j/7|lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche|jours fériés|événements))*$</code></td>
-    </tr>
-    <tr>
-      <td>disp_h (Pour les DAE non-disponibles 24h/24, détail de la disponibilité de l’appareil)</td>
-      <td>chaîne de caractères</td>
-      <td>Liste de valeurs séparées par ‘</td>
-      <td>’ parmi : heures ouvrables, heures de nuit, 24h/24</td>
-      <td>heures ouvrables</td>
-      <td>heures de nuit</td>
-      <td>Valeur obligatoire, Motif : <code class="highlighter-rouge">^(heures ouvrables|heures de nuit|24h/24){1}(\|(heures ouvrables|heures de nuit|24h/24))*$</code></td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>disp_complt (Complément d’information sur la disponibilité du DAE)</td>
-      <td>chaîne de caractères</td>
-      <td> </td>
-      <td>Valeur optionnelle</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>tel1 (Numéro de téléphone 1 sur le site d’implantation du DAE)</td>
-      <td>chaîne de caractères</td>
-      <td>Numéro de téléphone 1 sur le site d’implantation du DAE (Conformité au standard norme ITU E123 et E164)</td>
-      <td>+33102030405</td>
-      <td>Valeur obligatoire, Motif : <code class="highlighter-rouge">^(\+33|0|\+262|\+269|\+508|\+590|\+594|\+596|\+681|\+687|\+689)[1-9](\d\d){4}$</code></td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>tel2 (Numéro 2 de téléphone 1 sur le site d’implantation du DAE)</td>
-      <td>chaîne de caractères</td>
-      <td>Numéro 2 de téléphone 1 sur le site d’implantation du DAE (Conformité au standard norme ITU E123 et E164)</td>
-      <td>+33102030405</td>
-      <td>Valeur optionnelle, Motif : <code class="highlighter-rouge">^(\+33|0|\+262|\+269|\+508|\+590|\+594|\+596|\+681|\+687|\+689)[1-9](\d\d){4}$</code></td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>site_email (Adresse email de contact du site où le DAE a été implanté)</td>
-      <td>chaîne de caractères (format <code class="highlighter-rouge">email</code>)</td>
-      <td>p.nom@domaine.fr</td>
-      <td>Valeur optionnelle</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>date_instal (Date d’installation du DAE)</td>
-      <td>date</td>
-      <td>Date d’installation du DAE  au format ISO 8601 AAAA-MM-JJ</td>
-      <td>2019-09-30</td>
-      <td>Valeur optionnelle</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>etat_fonct (Etat de fonctionnement du DAE)</td>
-      <td>chaîne de caractères</td>
-      <td>En fonctionnement</td>
-      <td>Valeur obligatoire, Valeurs autorisées : En fonctionnement, Hors service, Supprimé définitivement, Absent momentanément, Inconnu</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>fab_siren (Numéro SIREN du fabricant du DAE)</td>
-      <td>chaîne de caractères</td>
-      <td>123456789</td>
-      <td>Valeur optionnelle, Motif : <code class="highlighter-rouge">^\d{9}$</code></td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>fab_rais (Raison sociale du fabricant du DAE)</td>
-      <td>chaîne de caractères</td>
-      <td>CardiacScience, Philips, PhysioControl, Shiller, Zoll</td>
-      <td>Valeur obligatoire</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>mnt_siren (Numéro SIREN du mainteneur du DAE)</td>
-      <td>chaîne de caractères</td>
-      <td>123456789</td>
-      <td>Valeur optionnelle, Motif : <code class="highlighter-rouge">^\d{9}$</code></td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>mnt_rais (Raison sociale du mainteneur du DAE)</td>
-      <td>chaîne de caractères</td>
-      <td> </td>
-      <td>Valeur optionnelle</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>modele (Nom du modèle de DAE)</td>
-      <td>chaîne de caractères</td>
-      <td>G3, HS1, CR+, Fredeasy, AED PLUS</td>
-      <td>Valeur obligatoire</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>num_serie (Numéro de série du DAE)</td>
-      <td>chaîne de caractères</td>
-      <td>X09E409930</td>
-      <td>Valeur obligatoire</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>id_euro (Identifiant unique du dispositif (IUD européen))</td>
-      <td>chaîne de caractères</td>
-      <td>1234567890</td>
-      <td>Valeur optionnelle</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>lc_ped (Présence d’électrodes pédiatriques)</td>
-      <td>booléen</td>
-      <td>Valeurs considérées comme vraies : [‘oui’]Valeurs considérées comme fausses : [‘non’]oui</td>
-      <td>Valeur optionnelle</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>dtpr_lcped (Date de péremption des électrodes pédiatriques exprimée au format ISO 8601)</td>
-      <td>date</td>
-      <td>2019-09-30</td>
-      <td>Valeur optionnelle</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>dtpr_lcad (Date de péremption des électrodes adultes exprimée au format ISO 8601)</td>
-      <td>date</td>
-      <td>2019-09-30</td>
-      <td>Valeur optionnelle</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>dtpr_bat (Date de péremption de la batterie exprimée au format ISO 8601)</td>
-      <td>date</td>
-      <td>2019-09-30</td>
-      <td>Valeur optionnelle</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>freq_mnt (Fréquence de la maintenance)</td>
-      <td>chaîne de caractères</td>
-      <td>Echelle de temps entre deux interventions de maintenance sur un appareil) max  255 caractères</td>
-      <td>Tous les 6 mois</td>
-      <td>Valeur optionnelle</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>dispsurv (Dispositif de surveillance à distance du DAE)</td>
-      <td>booléen</td>
-      <td>Valeurs considérées comme vraies : [‘oui’]Valeurs considérées comme fausses : [‘non’]oui</td>
-      <td>Valeur optionnelle</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>dermnt (Date de la dernière maintenance du DAE)</td>
-      <td>date</td>
-      <td>Date de la dernière maintenance du DAE  exprimée au format ISO 8601</td>
-      <td>2019-09-30</td>
-      <td>Valeur obligatoire</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>expt_siren (Numéro SIREN de l’exploitant du DAE)</td>
-      <td>chaîne de caractères</td>
-      <td> </td>
-      <td>Valeur obligatoire</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>expt_rais (Raison sociale de l’exploitant du DAE)</td>
-      <td>chaîne de caractères</td>
-      <td> </td>
-      <td>Valeur obligatoire</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>expt_tel1 (Numéro de téléphone 1 de l’exploitant)</td>
-      <td>chaîne de caractères</td>
-      <td>Numéro de téléphone 1 de l’exploitant (Conformité au standard norme ITU E123 et E164)</td>
-      <td>+33102030405</td>
-      <td>Valeur obligatoire, Motif : <code class="highlighter-rouge">^(\+33|0|\+262|\+269|\+508|\+590|\+594|\+596|\+681|\+687|\+689)[1-9](\d\d){4}$</code></td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>expt_tel2 (Numéro de téléphone 2 de l’exploitant)</td>
-      <td>chaîne de caractères</td>
-      <td>Numéro de téléphone 2 de l’exploitant (Conformité au standard norme ITU E123 et E164)</td>
-      <td>+33102030405</td>
-      <td>Valeur optionnelle, Motif : <code class="highlighter-rouge">^(\+33|0|\+262|\+269|\+508|\+590|\+594|\+596|\+681|\+687|\+689)[1-9](\d\d){4}$</code></td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>expt_email (Adresse électronique de l’exploitant)</td>
-      <td>chaîne de caractères (format <code class="highlighter-rouge">email</code>)</td>
-      <td>p.nom@domaine.fr</td>
-      <td>Valeur obligatoire</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
+<h4 id="nom-donné-au-dae---propriété-nom">Nom donné au DAE - Propriété <code class="highlighter-rouge">nom</code></h4>
+
+<blockquote>
+  <p><em>Description : <br />Ex : DAE-MinSanté-Duquesne</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="latitude---propriété-lat_coor1">Latitude - Propriété <code class="highlighter-rouge">lat_coor1</code></h4>
+
+<blockquote>
+  <p><em>Description : Coordonnée de latitude  exprimée conformément au système national de référence de coordonnées géographiques et planimétriques ou à défaut en WGS 84. Le signe de séparation entre les parties entière et décimale du nombre est le point<br />Ex : 48.8521329</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : nombre réel</li>
+    <li>Valeur entre -90 et 90</li>
+  </ul>
+</blockquote>
+
+<h4 id="latitude---propriété-long_coor1">Latitude - Propriété <code class="highlighter-rouge">long_coor1</code></h4>
+
+<blockquote>
+  <p><em>Description : Coordonnée de longitude exprimée conformément au système national de référence de coordonnées géographiques et planimétriques ou à défaut en WGS 84. Le signe de séparation entre les parties entière et décimale du nombre est le point<br />Ex : 2.3068453</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : nombre réel</li>
+    <li>Valeur entre -180 et 180</li>
+  </ul>
+</blockquote>
+
+<h4 id="numéro-de-la-voie---propriété-adr_num">Numéro de la voie - Propriété <code class="highlighter-rouge">adr_num</code></h4>
+
+<blockquote>
+  <p><em>Description : Numéro de la voie et, le cas échéant, sufixe, d’implantation du DAE<br />Ex : 14</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="type-et-nom-de-la-voie---propriété-adr_voie">Type et nom de la voie - Propriété <code class="highlighter-rouge">adr_voie</code></h4>
+
+<blockquote>
+  <p><em>Description : Type et nom de la voie ou lieu-dit d’implantation du DAE<br />Ex : Avenue Duquesne</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="code-postal-de-la-commune-dimplantation-du-dae---propriété-com_cp">Code Postal de la commune d’implantation du DAE - Propriété <code class="highlighter-rouge">com_cp</code></h4>
+
+<blockquote>
+  <p><em>Description : Code Postal de la commune d’implantation du DAE<br />Ex : 75350</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^\d{5}$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="code-insee-de-la-commune-dimplantation-du-dae---propriété-com_insee">Code Insee de la commune d’implantation du DAE - Propriété <code class="highlighter-rouge">com_insee</code></h4>
+
+<blockquote>
+  <p><em>Description : Code Insee de la commune d’implantation du DAE<br />Ex : 75056</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^\d[AB\d]\d{3}$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="nom-de-la-commune-dimplantation-du-dae---propriété-com_nom">Nom de la commune d’implantation du DAE - Propriété <code class="highlighter-rouge">com_nom</code></h4>
+
+<blockquote>
+  <p><em>Description : <br />Ex : Paris</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="environnement-daccès-du-dae---propriété-acc">Environnement d’accès du DAE - Propriété <code class="highlighter-rouge">acc</code></h4>
+
+<blockquote>
+  <p><em>Description : Environnement d’accès du DAE<br />Ex : Intérieur</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>Intérieur</li>
+        <li>Extérieur</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-acc_lib">Propriété <code class="highlighter-rouge">acc_lib</code></h4>
+
+<blockquote>
+  <p><em>Description : Accès libre du DAE<br />Ex : oui</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-acc_pcsec">Propriété <code class="highlighter-rouge">acc_pcsec</code></h4>
+
+<blockquote>
+  <p><em>Description : Poste de sécurité<br />Ex : oui</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-acc_acc">Propriété <code class="highlighter-rouge">acc_acc</code></h4>
+
+<blockquote>
+  <p><em>Description : Présence d’un accueil public<br />Ex : oui</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="etage-daccessibilité-du-dae---propriété-acc_etg">Etage d’accessibilité du DAE - Propriété <code class="highlighter-rouge">acc_etg</code></h4>
+
+<blockquote>
+  <p><em>Description : Etage du bâtiment dans lequel le DAE est accessible<br />Ex : 0 ou -1</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="complément-dinformation-sur-laccès-au-dae---propriété-acc_complt">Complément d’information sur l’accès au DAE - Propriété <code class="highlighter-rouge">acc_complt</code></h4>
+
+<blockquote>
+  <p><em>Description : Complément d’information sur l’accès au DAE<br />Ex : Au bout du couloir, dans un renfoncement à droite</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="photo-1-du-dae-dans-son-environnement-il-est-préconisé-un-plan-large-pour-que-le-dae-soit-visible-dans-son-environnement-la-photo-déposée-devra-être-libre-de-droit-sous-format-open-source---propriété-photo1">Photo 1 du DAE dans son environnement. Il est préconisé un plan large pour que le DAE soit visible dans son environnement. La photo déposée devra être libre de droit, sous format Open Source - Propriété <code class="highlighter-rouge">photo1</code></h4>
+
+<blockquote>
+  <p><em>Description : Photo au format url. Fichier (jpg, png ou gif)<br />Ex : http://www.monsite.com/monimage.jpg</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^https?://(?:[a-z0-9\-]+\.)+[a-z]{2,6}(?:/[^/#?]+)+\.(?:jpg|jpeg|gif|png)</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="photo-2-du-dae-dans-son-environnement-il-est-préconisé-un-plan-large-pour-que-le-dae-soit-visible-dans-son-environnement-la-photo-déposée-devra-être-libre-de-droit-sous-format-open-source---propriété-photo2">Photo 2 du DAE dans son environnement. Il est préconisé un plan large pour que le DAE soit visible dans son environnement. La photo déposée devra être libre de droit, sous format Open Source - Propriété <code class="highlighter-rouge">photo2</code></h4>
+
+<blockquote>
+  <p><em>Description : Photo au format url. Fichier (jpg, png ou gif)<br />Ex : http://www.monsite.com/monimage.jpg</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^https?://(?:[a-z0-9\-]+\.)+[a-z]{2,6}(?:/[^/#?]+)+\.(?:jpg|jpeg|gif|png)</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="pour-les-dae-non-disponibles-7j7-détail-de-la-disponibilité-de-lappareil---propriété-disp_j">Pour les DAE non-disponibles 7j/7, détail de la disponibilité de l’appareil - Propriété <code class="highlighter-rouge">disp_j</code></h4>
+
+<blockquote>
+  <p><em>Description : Liste de valeurs séparées par ‘|’ parmi :  7j/7, lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche, jours fériés, événements<br />Ex : lundi|mercredi|vendredi</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^(7j/7|lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche|jours fériés|événements){1}(\|(7j/7|lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche|jours fériés|événements))*$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="pour-les-dae-non-disponibles-24h24-détail-de-la-disponibilité-de-lappareil---propriété-disp_h">Pour les DAE non-disponibles 24h/24, détail de la disponibilité de l’appareil - Propriété <code class="highlighter-rouge">disp_h</code></h4>
+
+<blockquote>
+  <p><em>Description : Liste de valeurs séparées par ‘|’ parmi : heures ouvrables, heures de nuit, 24h/24<br />Ex : heures ouvrables|heures de nuit</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^(heures ouvrables|heures de nuit|24h/24){1}(\|(heures ouvrables|heures de nuit|24h/24))*$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="complément-dinformation-sur-la-disponibilité-du-dae---propriété-disp_complt">Complément d’information sur la disponibilité du DAE - Propriété <code class="highlighter-rouge">disp_complt</code></h4>
+
+<blockquote>
+  <p>*Description : <br />Ex : *</p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="numéro-de-téléphone-1-sur-le-site-dimplantation-du-dae---propriété-tel1">Numéro de téléphone 1 sur le site d’implantation du DAE - Propriété <code class="highlighter-rouge">tel1</code></h4>
+
+<blockquote>
+  <p><em>Description : Numéro de téléphone 1 sur le site d’implantation du DAE (Conformité au standard norme ITU E123 et E164)<br />Ex : +33102030405</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^(\+33|0|\+262|\+269|\+508|\+590|\+594|\+596|\+681|\+687|\+689)[1-9](\d\d){4}$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="numéro-2-de-téléphone-1-sur-le-site-dimplantation-du-dae---propriété-tel2">Numéro 2 de téléphone 1 sur le site d’implantation du DAE - Propriété <code class="highlighter-rouge">tel2</code></h4>
+
+<blockquote>
+  <p><em>Description : Numéro 2 de téléphone 1 sur le site d’implantation du DAE (Conformité au standard norme ITU E123 et E164)<br />Ex : +33102030405</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^(\+33|0|\+262|\+269|\+508|\+590|\+594|\+596|\+681|\+687|\+689)[1-9](\d\d){4}$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="adresse-email-de-contact-du-site-où-le-dae-a-été-implanté---propriété-site_email">Adresse email de contact du site où le DAE a été implanté - Propriété <code class="highlighter-rouge">site_email</code></h4>
+
+<blockquote>
+  <p><em>Description : <br />Ex : p.nom@domaine.fr</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères (format <code class="highlighter-rouge">email</code>)</li>
+  </ul>
+</blockquote>
+
+<h4 id="date-dinstallation-du-dae---propriété-date_instal">Date d’installation du DAE - Propriété <code class="highlighter-rouge">date_instal</code></h4>
+
+<blockquote>
+  <p><em>Description : Date d’installation du DAE  au format ISO 8601 AAAA-MM-JJ<br />Ex : 2019-09-30</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : date</li>
+  </ul>
+</blockquote>
+
+<h4 id="etat-de-fonctionnement-du-dae---propriété-etat_fonct">Etat de fonctionnement du DAE - Propriété <code class="highlighter-rouge">etat_fonct</code></h4>
+
+<blockquote>
+  <p><em>Description : <br />Ex : En fonctionnement</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>En fonctionnement</li>
+        <li>Hors service</li>
+        <li>Supprimé définitivement</li>
+        <li>Absent momentanément</li>
+        <li>Inconnu</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<h4 id="numéro-siren-du-fabricant-du-dae---propriété-fab_siren">Numéro SIREN du fabricant du DAE - Propriété <code class="highlighter-rouge">fab_siren</code></h4>
+
+<blockquote>
+  <p><em>Description : <br />Ex : 123456789</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^\d{9}$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="raison-sociale-du-fabricant-du-dae---propriété-fab_rais">Raison sociale du fabricant du DAE - Propriété <code class="highlighter-rouge">fab_rais</code></h4>
+
+<blockquote>
+  <p><em>Description : <br />Ex : CardiacScience, Philips, PhysioControl, Shiller, Zoll</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="numéro-siren-du-mainteneur-du-dae---propriété-mnt_siren">Numéro SIREN du mainteneur du DAE - Propriété <code class="highlighter-rouge">mnt_siren</code></h4>
+
+<blockquote>
+  <p><em>Description : <br />Ex : 123456789</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^\d{9}$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="raison-sociale-du-mainteneur-du-dae---propriété-mnt_rais">Raison sociale du mainteneur du DAE - Propriété <code class="highlighter-rouge">mnt_rais</code></h4>
+
+<blockquote>
+  <p>*Description : <br />Ex : *</p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="nom-du-modèle-de-dae---propriété-modele">Nom du modèle de DAE - Propriété <code class="highlighter-rouge">modele</code></h4>
+
+<blockquote>
+  <p><em>Description : <br />Ex : G3, HS1, CR+, Fredeasy, AED PLUS</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="numéro-de-série-du-dae---propriété-num_serie">Numéro de série du DAE - Propriété <code class="highlighter-rouge">num_serie</code></h4>
+
+<blockquote>
+  <p><em>Description : <br />Ex : X09E409930</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="identifiant-unique-du-dispositif-iud-européen---propriété-id_euro">Identifiant unique du dispositif (IUD européen) - Propriété <code class="highlighter-rouge">id_euro</code></h4>
+
+<blockquote>
+  <p><em>Description : <br />Ex : 1234567890</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="présence-délectrodes-pédiatriques---propriété-lc_ped">Présence d’électrodes pédiatriques - Propriété <code class="highlighter-rouge">lc_ped</code></h4>
+
+<blockquote>
+  <p><em>Description : <br />Ex : oui</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="date-de-péremption-des-électrodes-pédiatriques-exprimée-au-format-iso-8601---propriété-dtpr_lcped">Date de péremption des électrodes pédiatriques exprimée au format ISO 8601 - Propriété <code class="highlighter-rouge">dtpr_lcped</code></h4>
+
+<blockquote>
+  <p><em>Description : <br />Ex : 2019-09-30</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : date</li>
+  </ul>
+</blockquote>
+
+<h4 id="date-de-péremption-des-électrodes-adultes-exprimée-au-format-iso-8601---propriété-dtpr_lcad">Date de péremption des électrodes adultes exprimée au format ISO 8601 - Propriété <code class="highlighter-rouge">dtpr_lcad</code></h4>
+
+<blockquote>
+  <p><em>Description : <br />Ex : 2019-09-30</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : date</li>
+  </ul>
+</blockquote>
+
+<h4 id="date-de-péremption-de-la-batterie-exprimée-au-format-iso-8601---propriété-dtpr_bat">Date de péremption de la batterie exprimée au format ISO 8601 - Propriété <code class="highlighter-rouge">dtpr_bat</code></h4>
+
+<blockquote>
+  <p><em>Description : <br />Ex : 2019-09-30</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : date</li>
+  </ul>
+</blockquote>
+
+<h4 id="fréquence-de-la-maintenance---propriété-freq_mnt">Fréquence de la maintenance - Propriété <code class="highlighter-rouge">freq_mnt</code></h4>
+
+<blockquote>
+  <p><em>Description : Echelle de temps entre deux interventions de maintenance sur un appareil) max  255 caractères<br />Ex : Tous les 6 mois</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="dispositif-de-surveillance-à-distance-du-dae---propriété-dispsurv">Dispositif de surveillance à distance du DAE - Propriété <code class="highlighter-rouge">dispsurv</code></h4>
+
+<blockquote>
+  <p><em>Description : <br />Ex : oui</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="date-de-la-dernière-maintenance-du-dae---propriété-dermnt">Date de la dernière maintenance du DAE - Propriété <code class="highlighter-rouge">dermnt</code></h4>
+
+<blockquote>
+  <p><em>Description : Date de la dernière maintenance du DAE  exprimée au format ISO 8601<br />Ex : 2019-09-30</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : date</li>
+  </ul>
+</blockquote>
+
+<h4 id="numéro-siren-de-lexploitant-du-dae---propriété-expt_siren">Numéro SIREN de l’exploitant du DAE - Propriété <code class="highlighter-rouge">expt_siren</code></h4>
+
+<blockquote>
+  <p>*Description : <br />Ex : *</p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="raison-sociale-de-lexploitant-du-dae---propriété-expt_rais">Raison sociale de l’exploitant du DAE - Propriété <code class="highlighter-rouge">expt_rais</code></h4>
+
+<blockquote>
+  <p>*Description : <br />Ex : *</p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="numéro-de-téléphone-1-de-lexploitant---propriété-expt_tel1">Numéro de téléphone 1 de l’exploitant - Propriété <code class="highlighter-rouge">expt_tel1</code></h4>
+
+<blockquote>
+  <p><em>Description : Numéro de téléphone 1 de l’exploitant (Conformité au standard norme ITU E123 et E164)<br />Ex : +33102030405</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^(\+33|0|\+262|\+269|\+508|\+590|\+594|\+596|\+681|\+687|\+689)[1-9](\d\d){4}$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="numéro-de-téléphone-2-de-lexploitant---propriété-expt_tel2">Numéro de téléphone 2 de l’exploitant - Propriété <code class="highlighter-rouge">expt_tel2</code></h4>
+
+<blockquote>
+  <p><em>Description : Numéro de téléphone 2 de l’exploitant (Conformité au standard norme ITU E123 et E164)<br />Ex : +33102030405</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^(\+33|0|\+262|\+269|\+508|\+590|\+594|\+596|\+681|\+687|\+689)[1-9](\d\d){4}$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="adresse-électronique-de-lexploitant---propriété-expt_email">Adresse électronique de l’exploitant - Propriété <code class="highlighter-rouge">expt_email</code></h4>
+
+<blockquote>
+  <p><em>Description : <br />Ex : p.nom@domaine.fr</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères (format <code class="highlighter-rouge">email</code>)</li>
+  </ul>
+</blockquote>
 
       
 

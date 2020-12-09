@@ -304,173 +304,261 @@
 
 <h3 id="modèle-de-données">Modèle de données</h3>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nom</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Exemple</th>
-      <th>Propriétés</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>BGT_NATDEC (étape budgétaire)</td>
-      <td>chaîne de caractères</td>
-      <td>Ce champ permet de déterminer l’étape budgétaire concernée. Les valeurs possibles sont : “compte administratif”, “budget prévisionnel”, “budget supplémentaire”, “décision modificative”</td>
-      <td> </td>
-      <td>Valeur obligatoire, Valeurs autorisées : budget primitif, budget supplémentaire, décision modificative, compte administratif</td>
-    </tr>
-    <tr>
-      <td>BGT_ANNEE (année de exercice)</td>
-      <td>année</td>
-      <td>Ce champ permet de renseigner l’année de l’exercice budgétaire concerné</td>
-      <td> </td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>BGT_SIRET (code SIRET)</td>
-      <td>chaîne de caractères</td>
-      <td>Ce champ permet de renseigner le code SIRET de la collectivité ou de l’établissement public concerné (http://xml.insee.fr/schema/siret.html#SIRET_stype).</td>
-      <td> </td>
-      <td>Valeur obligatoire, Motif : <code class="highlighter-rouge">^\d{14}$</code></td>
-    </tr>
-    <tr>
-      <td>BGT_NOM (nom de la collectivité ou de l’établissement concerné)</td>
-      <td>chaîne de caractères</td>
-      <td>En complément du code SIRET, ce champ permet de faciliter l’identification de l’organisme public concerné</td>
-      <td> </td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>BGT_CONTNAT (numéro du compte budgétaire)</td>
-      <td>chaîne de caractères</td>
-      <td>Ce champ correspond au numéro de l’article ou compte budgétaire. Le référentiel des comptes budgétaires est fourni par le ministère de l’Economie. A partir de la nomemclature comptable de chaque type de collectivité ou établissement local, le plan de compte contient la liste des codes associés à chaque maquette budgetaire.</td>
-      <td> </td>
-      <td>Valeur obligatoire, Taille minimale : 1, Taille maximale : 9</td>
-    </tr>
-    <tr>
-      <td>BGT_CONTNAT_LABEL (Libellé du compte budgétaire)</td>
-      <td>chaîne de caractères</td>
-      <td>Ce champ correspond à la colonne LIBELLE de l’article ou compte budgétaire dans le tableau “Liste des comptes et utilisations” du plan de compte</td>
-      <td> </td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>BGT_NATURE (Nature de la dépense ou de la recette)</td>
-      <td>chaîne de caractères</td>
-      <td>Ce champ correspond à la nature de la dépense ou de la recette, c’est-à-dire au “quoi”. Classer les dépenses par nature signifie que les recettes et les dépenses sont regroupées selon leur identité financière. Le numéro est un numéro de chapitre. Exemples de chapitre : Charges à caractère général, Charges financières…(voir plan de compte)</td>
-      <td> </td>
-      <td>Valeur obligatoire, Taille minimale : 1, Taille maximale : 9</td>
-    </tr>
-    <tr>
-      <td>BGT_NATURE_LABEL (Libellé de la nature de la dépense ou de la recette)</td>
-      <td>chaîne de caractères</td>
-      <td>Ce champ correspond à la colonne LIBELLE de la liste des chapitres du plan de compte par nature</td>
-      <td> </td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>BGT_FONCTION (Fonction de la dépense ou de la recette)</td>
-      <td>chaîne de caractères</td>
-      <td>Ce champ correspond à la fonction de la dépense ou de la recette, c’est-à-dire le “pourquoi”. Classer les dépenses et les recettes par fonction consiste à les regrouper à partir de leurs destinations ou encore de leurs finalités. Le numéro est un numéro de chapitre. Exemples de fonction : Action sociale, Aménagement et environnement…(voir plan de compte).</td>
-      <td> </td>
-      <td>Valeur optionnelle, Taille minimale : 1, Taille maximale : 9</td>
-    </tr>
-    <tr>
-      <td>BGT_FONCTION_LABEL (Libellé de la fonction de la dépense ou de la recette)</td>
-      <td>chaîne de caractères</td>
-      <td>Ce champ correspond à la colonne LIBELLE de la liste des chapitres du plan de compte par fonction</td>
-      <td> </td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>BGT_OPERATION (Code ou libellé de l’opération budgétaire votée)</td>
-      <td>chaîne de caractères</td>
-      <td>Ce champ correspond à une opération budgétaire (un projet particulier) sur lequel on souhaite attirer l’attention notamment lors du vote. Dans le cas d’une opération “Pour Vote”, ce compte opération doit contenir uniquement des chiffres ; dans le cas d’une opération “Pour information”, c’est libre.</td>
-      <td> </td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>BGT_SECTION (section budgétaire)</td>
-      <td>chaîne de caractères</td>
-      <td>Ce champ correspond au type de recette ou de dépense. A partir du Plan de Compte, dans le tableau “Liste des comptes et utilisations”, utiliser le ContNat comme code et voir le chapitre correspondant dans la colonne RR ou DR pour une recette ou une dépense respectivement. Pour savoir s’il s’agit de Fonctionnement ou d’Investissement, regarder dans le tableau “Liste des chapitres” : utiliser le code de chapitre et regarder la colonne SECTION.</td>
-      <td> </td>
-      <td>Valeur obligatoire, Valeurs autorisées : investissement, fonctionnement</td>
-    </tr>
-    <tr>
-      <td>BGT_OPBUDG (type opération budgétaire)</td>
-      <td>chaîne de caractères</td>
-      <td>Ce champ permet de distinguer les opérations d’ordre budgétaire des opérations réelles. Opérations d’ordre : qui ne donnent pas lieu à encaissement ou décaissement ; à la différence des opérations réelles.</td>
-      <td> </td>
-      <td>Valeur obligatoire, Valeurs autorisées : réel, ordre</td>
-    </tr>
-    <tr>
-      <td>BGT_CODRD (Code recette / dépense)</td>
-      <td>chaîne de caractères</td>
-      <td>Ce champ permet de déterminer le sens (recette 0 - dépense 1) du crédit concerné.</td>
-      <td> </td>
-      <td>Valeur obligatoire, Valeurs autorisées : recette, dépense</td>
-    </tr>
-    <tr>
-      <td>BGT_MTREAL (Montant signé des réalisations budgétaires)</td>
-      <td>nombre réel</td>
-      <td>Ce champ correspond au montant réalisé (en dépense ou en recette). Ce champ est à renseigner uniquement pour un compte administratif</td>
-      <td> </td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>BGT_MTBUDGPREC (Montant du budget précédent)</td>
-      <td>nombre réel</td>
-      <td>Ce champ correspond au montant prévu lors de l’exercice précédent. Ce champ permet de voir les évolutions des montants entre le budget prévisionnel (BP), les décisions modificatives et le compte administratif qui consacre la réalité des montants effectivement engagés (payés ou reçus).</td>
-      <td> </td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>BGT_MTRARPREC (Montant restant à réaliser N-1)</td>
-      <td>nombre réel</td>
-      <td>Ce champ est correspond aux montant des reprises des résultats des exercices précédents. Ce champ est rempli uniquement au BP/BS/DM et au CA pour présenter les restes à réaliser des exercice précédents.</td>
-      <td> </td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>BGT_MTPROPNOUV (Montant “Propositions nouvelles”)</td>
-      <td>nombre réel</td>
-      <td>Ce champ correspond au montant des recettes ou dépenses nouvelles non prévues dans les étapes budgétaires précédentes.</td>
-      <td> </td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>BGT_MTPREV (montant budget voté)</td>
-      <td>nombre réel</td>
-      <td>Ce champ correspond au montant prévu lors des exercices BP/BS/DM pécédents. En présence d’une valeur dans ce champ, celui-ci doit obligatoirement être valorisée soit du montant prévu soit d’un montant égal à zéro</td>
-      <td> </td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>BGT_CREDOUV (crédits ouverts à l’article)</td>
-      <td>nombre réel</td>
-      <td>Ce champ correspond au montant des crédits de paiement disponibles pour effectuer des dépenses sur cet article</td>
-      <td> </td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>BGT_MTRAR3112 (Montant reste à réaliser exercice)</td>
-      <td>nombre réel</td>
-      <td>Ce champ est utilisé pour le compte administratif. Il peut également être utilisé au BP/BS/DM pour présenter les informations du compte administratif des années précédentes</td>
-      <td> </td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>BGT_ARTSPE (Article spécialisé)</td>
-      <td>chaîne de caractères</td>
-      <td>Ce champ permet d’isoler des articles au moment du vote du budget.</td>
-      <td> </td>
-      <td>Valeur optionnelle, Valeurs autorisées : non spécialisé, spécialisé</td>
-    </tr>
-  </tbody>
-</table>
+<h4 id="étape-budgétaire---propriété-bgt_natdec">étape budgétaire - Propriété <code class="highlighter-rouge">BGT_NATDEC</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce champ permet de déterminer l’étape budgétaire concernée. Les valeurs possibles sont : “compte administratif”, “budget prévisionnel”, “budget supplémentaire”, “décision modificative”<br />Ex : None</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>budget primitif</li>
+        <li>budget supplémentaire</li>
+        <li>décision modificative</li>
+        <li>compte administratif</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<h4 id="année-de-exercice---propriété-bgt_annee">année de exercice - Propriété <code class="highlighter-rouge">BGT_ANNEE</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce champ permet de renseigner l’année de l’exercice budgétaire concerné<br />Ex : None</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : année</li>
+  </ul>
+</blockquote>
+
+<h4 id="code-siret---propriété-bgt_siret">code SIRET - Propriété <code class="highlighter-rouge">BGT_SIRET</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce champ permet de renseigner le code SIRET de la collectivité ou de l’établissement public concerné (http://xml.insee.fr/schema/siret.html#SIRET_stype).<br />Ex : None</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^\d{14}$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="nom-de-la-collectivité-ou-de-létablissement-concerné---propriété-bgt_nom">nom de la collectivité ou de l’établissement concerné - Propriété <code class="highlighter-rouge">BGT_NOM</code></h4>
+
+<blockquote>
+  <p><em>Description : En complément du code SIRET, ce champ permet de faciliter l’identification de l’organisme public concerné<br />Ex : None</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="numéro-du-compte-budgétaire---propriété-bgt_contnat">numéro du compte budgétaire - Propriété <code class="highlighter-rouge">BGT_CONTNAT</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce champ correspond au numéro de l’article ou compte budgétaire. Le référentiel des comptes budgétaires est fourni par le ministère de l’Economie. A partir de la nomemclature comptable de chaque type de collectivité ou établissement local, le plan de compte contient la liste des codes associés à chaque maquette budgetaire.<br />Ex : None</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Entre 1 et 9 caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="libellé-du-compte-budgétaire---propriété-bgt_contnat_label">Libellé du compte budgétaire - Propriété <code class="highlighter-rouge">BGT_CONTNAT_LABEL</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce champ correspond à la colonne LIBELLE de l’article ou compte budgétaire dans le tableau “Liste des comptes et utilisations” du plan de compte<br />Ex : None</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="nature-de-la-dépense-ou-de-la-recette---propriété-bgt_nature">Nature de la dépense ou de la recette - Propriété <code class="highlighter-rouge">BGT_NATURE</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce champ correspond à la nature de la dépense ou de la recette, c’est-à-dire au “quoi”. Classer les dépenses par nature signifie que les recettes et les dépenses sont regroupées selon leur identité financière. Le numéro est un numéro de chapitre. Exemples de chapitre : Charges à caractère général, Charges financières…(voir plan de compte)<br />Ex : None</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Entre 1 et 9 caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="libellé-de-la-nature-de-la-dépense-ou-de-la-recette---propriété-bgt_nature_label">Libellé de la nature de la dépense ou de la recette - Propriété <code class="highlighter-rouge">BGT_NATURE_LABEL</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce champ correspond à la colonne LIBELLE de la liste des chapitres du plan de compte par nature<br />Ex : None</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="fonction-de-la-dépense-ou-de-la-recette---propriété-bgt_fonction">Fonction de la dépense ou de la recette - Propriété <code class="highlighter-rouge">BGT_FONCTION</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce champ correspond à la fonction de la dépense ou de la recette, c’est-à-dire le “pourquoi”. Classer les dépenses et les recettes par fonction consiste à les regrouper à partir de leurs destinations ou encore de leurs finalités. Le numéro est un numéro de chapitre. Exemples de fonction : Action sociale, Aménagement et environnement…(voir plan de compte).<br />Ex : None</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Entre 1 et 9 caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="libellé-de-la-fonction-de-la-dépense-ou-de-la-recette---propriété-bgt_fonction_label">Libellé de la fonction de la dépense ou de la recette - Propriété <code class="highlighter-rouge">BGT_FONCTION_LABEL</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce champ correspond à la colonne LIBELLE de la liste des chapitres du plan de compte par fonction<br />Ex : None</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="code-ou-libellé-de-lopération-budgétaire-votée---propriété-bgt_operation">Code ou libellé de l’opération budgétaire votée - Propriété <code class="highlighter-rouge">BGT_OPERATION</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce champ correspond à une opération budgétaire (un projet particulier) sur lequel on souhaite attirer l’attention notamment lors du vote. Dans le cas d’une opération “Pour Vote”, ce compte opération doit contenir uniquement des chiffres ; dans le cas d’une opération “Pour information”, c’est libre.<br />Ex : None</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="section-budgétaire---propriété-bgt_section">section budgétaire - Propriété <code class="highlighter-rouge">BGT_SECTION</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce champ correspond au type de recette ou de dépense. A partir du Plan de Compte, dans le tableau “Liste des comptes et utilisations”, utiliser le ContNat comme code et voir le chapitre correspondant dans la colonne RR ou DR pour une recette ou une dépense respectivement. Pour savoir s’il s’agit de Fonctionnement ou d’Investissement, regarder dans le tableau “Liste des chapitres” : utiliser le code de chapitre et regarder la colonne SECTION.<br />Ex : None</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>investissement</li>
+        <li>fonctionnement</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<h4 id="type-opération-budgétaire---propriété-bgt_opbudg">type opération budgétaire - Propriété <code class="highlighter-rouge">BGT_OPBUDG</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce champ permet de distinguer les opérations d’ordre budgétaire des opérations réelles. Opérations d’ordre : qui ne donnent pas lieu à encaissement ou décaissement ; à la différence des opérations réelles.<br />Ex : None</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>réel</li>
+        <li>ordre</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<h4 id="code-recette--dépense---propriété-bgt_codrd">Code recette / dépense - Propriété <code class="highlighter-rouge">BGT_CODRD</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce champ permet de déterminer le sens (recette 0 - dépense 1) du crédit concerné.<br />Ex : None</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>recette</li>
+        <li>dépense</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<h4 id="montant-signé-des-réalisations-budgétaires---propriété-bgt_mtreal">Montant signé des réalisations budgétaires - Propriété <code class="highlighter-rouge">BGT_MTREAL</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce champ correspond au montant réalisé (en dépense ou en recette). Ce champ est à renseigner uniquement pour un compte administratif<br />Ex : None</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : nombre réel</li>
+  </ul>
+</blockquote>
+
+<h4 id="montant-du-budget-précédent---propriété-bgt_mtbudgprec">Montant du budget précédent - Propriété <code class="highlighter-rouge">BGT_MTBUDGPREC</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce champ correspond au montant prévu lors de l’exercice précédent. Ce champ permet de voir les évolutions des montants entre le budget prévisionnel (BP), les décisions modificatives et le compte administratif qui consacre la réalité des montants effectivement engagés (payés ou reçus).<br />Ex : None</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : nombre réel</li>
+  </ul>
+</blockquote>
+
+<h4 id="montant-restant-à-réaliser-n-1---propriété-bgt_mtrarprec">Montant restant à réaliser N-1 - Propriété <code class="highlighter-rouge">BGT_MTRARPREC</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce champ est correspond aux montant des reprises des résultats des exercices précédents. Ce champ est rempli uniquement au BP/BS/DM et au CA pour présenter les restes à réaliser des exercice précédents.<br />Ex : None</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : nombre réel</li>
+  </ul>
+</blockquote>
+
+<h4 id="montant-propositions-nouvelles---propriété-bgt_mtpropnouv">Montant “Propositions nouvelles” - Propriété <code class="highlighter-rouge">BGT_MTPROPNOUV</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce champ correspond au montant des recettes ou dépenses nouvelles non prévues dans les étapes budgétaires précédentes.<br />Ex : None</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : nombre réel</li>
+  </ul>
+</blockquote>
+
+<h4 id="montant-budget-voté---propriété-bgt_mtprev">montant budget voté - Propriété <code class="highlighter-rouge">BGT_MTPREV</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce champ correspond au montant prévu lors des exercices BP/BS/DM pécédents. En présence d’une valeur dans ce champ, celui-ci doit obligatoirement être valorisée soit du montant prévu soit d’un montant égal à zéro<br />Ex : None</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : nombre réel</li>
+  </ul>
+</blockquote>
+
+<h4 id="crédits-ouverts-à-larticle---propriété-bgt_credouv">crédits ouverts à l’article - Propriété <code class="highlighter-rouge">BGT_CREDOUV</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce champ correspond au montant des crédits de paiement disponibles pour effectuer des dépenses sur cet article<br />Ex : None</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : nombre réel</li>
+  </ul>
+</blockquote>
+
+<h4 id="montant-reste-à-réaliser-exercice---propriété-bgt_mtrar3112">Montant reste à réaliser exercice - Propriété <code class="highlighter-rouge">BGT_MTRAR3112</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce champ est utilisé pour le compte administratif. Il peut également être utilisé au BP/BS/DM pour présenter les informations du compte administratif des années précédentes<br />Ex : None</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : nombre réel</li>
+  </ul>
+</blockquote>
+
+<h4 id="article-spécialisé---propriété-bgt_artspe">Article spécialisé - Propriété <code class="highlighter-rouge">BGT_ARTSPE</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce champ permet d’isoler des articles au moment du vote du budget.<br />Ex : None</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>non spécialisé</li>
+        <li>spécialisé</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
 
       
 

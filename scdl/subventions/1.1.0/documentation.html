@@ -315,117 +315,159 @@
 
 <h3 id="modèle-de-données">Modèle de données</h3>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nom</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Exemple</th>
-      <th>Propriétés</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>nomAttribuant (Nom de l’attribuant)</td>
-      <td>chaîne de caractères</td>
-      <td>Nom officiel de l’organisme attribuant la subvention</td>
-      <td>Région Bretagne</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>idAttribuant (Identification de l’attribuant)</td>
-      <td>chaîne de caractères</td>
-      <td>Identifiant du Système d’Identification du Répertoire des Etablissements (SIRET)</td>
-      <td>23350001600040</td>
-      <td>Valeur obligatoire, Motif : <code class="highlighter-rouge">^\d{14}$</code></td>
-    </tr>
-    <tr>
-      <td>dateConvention (Date de la convention de subvention)</td>
-      <td>date</td>
-      <td>Date de la convention au format AAAA-MM-JJ (ISO 8601)</td>
-      <td>2017-06-27</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>referenceDecision (Référence de la décision)</td>
-      <td>chaîne de caractères</td>
-      <td>Identifiant interne de l’acte matérialisant la décision d’attribution de la subvention</td>
-      <td>Z34507</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>nomBeneficiaire (Nom du bénéficiaire)</td>
-      <td>chaîne de caractères</td>
-      <td>Nom officiel (raison sociale) du bénéficiaire de la subvention</td>
-      <td>Rodriguez SA</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>idBeneficiaire (Identification du bénéficiaire)</td>
-      <td>chaîne de caractères</td>
-      <td>Identifiant du Système d’Identification du Répertoire des Etablissements (SIRET)</td>
-      <td>81223113200026</td>
-      <td>Valeur obligatoire, Motif : <code class="highlighter-rouge">^\d{14}$</code></td>
-    </tr>
-    <tr>
-      <td>objet (Objet de la subvention)</td>
-      <td>chaîne de caractères</td>
-      <td>Description de l’objet de la subvention</td>
-      <td>Aide à l’embauche</td>
-      <td>Valeur obligatoire, Taille maximale : 256</td>
-    </tr>
-    <tr>
-      <td>montant (Montant total de la subvention)</td>
-      <td>nombre réel</td>
-      <td>Montant total de la subvention avant répartition entre les bénéficiaires</td>
-      <td>22000.80</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>nature (Nature de la subvention)</td>
-      <td>chaîne de caractères</td>
-      <td>Liste de plusieurs choix possibles séparés par des point-virgules</td>
-      <td>aide en numéraire;aide en nature</td>
-      <td>Valeur obligatoire, Valeurs autorisées : aide en numéraire, aide en nature, aide en numéraire;aide en nature, aide en nature;aide en numéraire</td>
-    </tr>
-    <tr>
-      <td>conditionsVersement (Conditions de versement de la subvention)</td>
-      <td>chaîne de caractères</td>
-      <td>Description des conditions de versement de la subvention. Valeur parmi ‘unique’, ‘échelonné’ ou texte libre.</td>
-      <td> </td>
-      <td>Valeur obligatoire, Taille maximale : 256</td>
-    </tr>
-    <tr>
-      <td>datesPeriodeVersement (Date ou période de versement)</td>
-      <td>chaîne de caractères</td>
-      <td>Si le versement est unique et que la date précise est connue, alors il s’agit d’une date au format AAAA-MM-JJ (ISO 8601). Si le versement est échelonné (ou que la date précise de versement unique est inconnue), alors il s’agit d’une période exprimée au format AAAA-MM-JJ/AAAA-MM-JJ (ISO 8601).</td>
-      <td>2017-12-14</td>
-      <td>Valeur obligatoire, Motif : <code class="highlighter-rouge">^[0-9]{4}\-[0-9]{2}\-[0-9]{2}(\/[0-9]{4}\-[0-9]{2}\-[0-9]{2})?$</code></td>
-    </tr>
-    <tr>
-      <td>idRAE (Numéro unique de référencement dans le Répertoire des Aides aux Entreprises)</td>
-      <td>chaîne de caractères</td>
-      <td>Numéro unique RAE communiqué par le service aides-entreprises.fr</td>
-      <td>12345</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>notificationUE (Aide d’Etat notifiée à la Commission européenne)</td>
-      <td>booléen</td>
-      <td>Valeurs considérées comme vraies : [‘oui’]Valeurs considérées comme fausses : [‘non’]Booléen : oui ou non</td>
-      <td>oui</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>pourcentageSubvention (Pourcentage du montant total de la subvention attribuée au bénéficiaire)</td>
-      <td>nombre réel</td>
-      <td>Pourcentage exprimé sous la forme d’un nombre avec un point comme séparateur de décimales</td>
-      <td>0.8</td>
-      <td>Valeur obligatoire, Valeur minimale : 0, Valeur maximale : 1</td>
-    </tr>
-  </tbody>
-</table>
+<h4 id="nom-de-lattribuant---propriété-nomattribuant">Nom de l’attribuant - Propriété <code class="highlighter-rouge">nomAttribuant</code></h4>
+
+<blockquote>
+  <p><em>Description : Nom officiel de l’organisme attribuant la subvention<br />Ex : Région Bretagne</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="identification-de-lattribuant---propriété-idattribuant">Identification de l’attribuant - Propriété <code class="highlighter-rouge">idAttribuant</code></h4>
+
+<blockquote>
+  <p><em>Description : Identifiant du Système d’Identification du Répertoire des Etablissements (SIRET)<br />Ex : 23350001600040</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^\d{14}$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="date-de-la-convention-de-subvention---propriété-dateconvention">Date de la convention de subvention - Propriété <code class="highlighter-rouge">dateConvention</code></h4>
+
+<blockquote>
+  <p><em>Description : Date de la convention au format AAAA-MM-JJ (ISO 8601)<br />Ex : 2017-06-27</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : date</li>
+  </ul>
+</blockquote>
+
+<h4 id="référence-de-la-décision---propriété-referencedecision">Référence de la décision - Propriété <code class="highlighter-rouge">referenceDecision</code></h4>
+
+<blockquote>
+  <p><em>Description : Identifiant interne de l’acte matérialisant la décision d’attribution de la subvention<br />Ex : Z34507</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="nom-du-bénéficiaire---propriété-nombeneficiaire">Nom du bénéficiaire - Propriété <code class="highlighter-rouge">nomBeneficiaire</code></h4>
+
+<blockquote>
+  <p><em>Description : Nom officiel (raison sociale) du bénéficiaire de la subvention<br />Ex : Rodriguez SA</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="identification-du-bénéficiaire---propriété-idbeneficiaire">Identification du bénéficiaire - Propriété <code class="highlighter-rouge">idBeneficiaire</code></h4>
+
+<blockquote>
+  <p><em>Description : Identifiant du Système d’Identification du Répertoire des Etablissements (SIRET)<br />Ex : 81223113200026</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^\d{14}$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="objet-de-la-subvention---propriété-objet">Objet de la subvention - Propriété <code class="highlighter-rouge">objet</code></h4>
+
+<blockquote>
+  <p><em>Description : Description de l’objet de la subvention<br />Ex : Aide à l’embauche</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Moins de 256 caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="montant-total-de-la-subvention---propriété-montant">Montant total de la subvention - Propriété <code class="highlighter-rouge">montant</code></h4>
+
+<blockquote>
+  <p><em>Description : Montant total de la subvention avant répartition entre les bénéficiaires<br />Ex : 22000.80</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : nombre réel</li>
+  </ul>
+</blockquote>
+
+<h4 id="nature-de-la-subvention---propriété-nature">Nature de la subvention - Propriété <code class="highlighter-rouge">nature</code></h4>
+
+<blockquote>
+  <p><em>Description : Liste de plusieurs choix possibles séparés par des point-virgules<br />Ex : aide en numéraire;aide en nature</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>aide en numéraire</li>
+        <li>aide en nature</li>
+        <li>aide en numéraire;aide en nature</li>
+        <li>aide en nature;aide en numéraire</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<h4 id="conditions-de-versement-de-la-subvention---propriété-conditionsversement">Conditions de versement de la subvention - Propriété <code class="highlighter-rouge">conditionsVersement</code></h4>
+
+<blockquote>
+  <p>*Description : Description des conditions de versement de la subvention. Valeur parmi ‘unique’, ‘échelonné’ ou texte libre.<br />Ex : *</p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Moins de 256 caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="date-ou-période-de-versement---propriété-datesperiodeversement">Date ou période de versement - Propriété <code class="highlighter-rouge">datesPeriodeVersement</code></h4>
+
+<blockquote>
+  <p><em>Description : Si le versement est unique et que la date précise est connue, alors il s’agit d’une date au format AAAA-MM-JJ (ISO 8601). Si le versement est échelonné (ou que la date précise de versement unique est inconnue), alors il s’agit d’une période exprimée au format AAAA-MM-JJ/AAAA-MM-JJ (ISO 8601).<br />Ex : 2017-12-14</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^[0-9]{4}\-[0-9]{2}\-[0-9]{2}(\/[0-9]{4}\-[0-9]{2}\-[0-9]{2})?$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="numéro-unique-de-référencement-dans-le-répertoire-des-aides-aux-entreprises---propriété-idrae">Numéro unique de référencement dans le Répertoire des Aides aux Entreprises - Propriété <code class="highlighter-rouge">idRAE</code></h4>
+
+<blockquote>
+  <p><em>Description : Numéro unique RAE communiqué par le service aides-entreprises.fr<br />Ex : 12345</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="aide-detat-notifiée-à-la-commission-européenne---propriété-notificationue">Aide d’Etat notifiée à la Commission européenne - Propriété <code class="highlighter-rouge">notificationUE</code></h4>
+
+<blockquote>
+  <p><em>Description : Booléen : oui ou non<br />Ex : oui</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="pourcentage-du-montant-total-de-la-subvention-attribuée-au-bénéficiaire---propriété-pourcentagesubvention">Pourcentage du montant total de la subvention attribuée au bénéficiaire - Propriété <code class="highlighter-rouge">pourcentageSubvention</code></h4>
+
+<blockquote>
+  <p><em>Description : Pourcentage exprimé sous la forme d’un nombre avec un point comme séparateur de décimales<br />Ex : 0.8</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : nombre réel</li>
+    <li>Valeur entre 0 et 1</li>
+  </ul>
+</blockquote>
 
       
 

@@ -336,145 +336,203 @@
 
 <h3 id="modèle-de-données">Modèle de données</h3>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nom</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Exemple</th>
-      <th>Propriétés</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>id_lieu</td>
-      <td>chaîne de caractères</td>
-      <td>Identifiant du lieu de covoiturage, délivré par le point d’accès national</td>
-      <td>35238-C-001</td>
-      <td>Valeur obligatoire, Motif : <code class="highlighter-rouge">^([013-9]\d|2[AB1-9])\d{3}-C-\d{3}$</code></td>
-    </tr>
-    <tr>
-      <td>nom_lieu</td>
-      <td>chaîne de caractères</td>
-      <td>Le nom du lieu de covoiturage. Recommandation : inutile de répéter la nature du type de covoiturage</td>
-      <td>Les Romains</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>ad_lieu</td>
-      <td>chaîne de caractères</td>
-      <td>L’adresse du lieu compréhensible par le grand public pour assurer la coordination entre le passager et le conducteur. Exemple : “3, rue de la gare” ; pour les lieux proches des sorties d’autoroute ou de nationale : “A11 sortie 7 Le Mans Nord” ; pour les zones rurales sans adresse : “croisement de route 1 - route 2” ou “le long de route X après le passage à niveau”</td>
-      <td>3, rue de la Gare</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>com_lieu</td>
-      <td>chaîne de caractères</td>
-      <td>La commune / le lieu-dit du covoiturage</td>
-      <td>Rouen</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>insee</td>
-      <td>chaîne de caractères</td>
-      <td>Le code INSEE de la commune d’implantation</td>
-      <td>76540</td>
-      <td>Valeur obligatoire, Motif : <code class="highlighter-rouge">^([013-9]\d|2[AB1-9])\d{3}$</code></td>
-    </tr>
-    <tr>
-      <td>type</td>
-      <td>chaîne de caractères</td>
-      <td>Le type de lieu de covoiturage</td>
-      <td>Parking</td>
-      <td>Valeur obligatoire, Valeurs autorisées : Aire de covoiturage, Sortie d’autoroute, Parking, Supermarché, Parking relais, Délaissé routier</td>
-    </tr>
-    <tr>
-      <td>date_maj</td>
-      <td>date (format <code class="highlighter-rouge">%Y-%m-%d</code>)</td>
-      <td>Date de dernière mise à jour des données. Notation ISO 8601, format AAAA-MM-DD</td>
-      <td>2016-10-31</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>ouvert</td>
-      <td>booléen</td>
-      <td>Le lieu est-il ouvert</td>
-      <td>true</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>source</td>
-      <td>chaîne de caractères</td>
-      <td>SIREN de l’entité ayant fourni la donnée</td>
-      <td>225300011</td>
-      <td>Valeur obligatoire, Motif : <code class="highlighter-rouge">^\d{9}$</code></td>
-    </tr>
-    <tr>
-      <td>Xlong</td>
-      <td>nombre réel</td>
-      <td>La longitude en degrés décimaux (point comme séparateur décimal, avec au moins 4 chiffres après le point décimal) de la localisation de l’entrée du lieu de covoiturage exprimée dans le système de coordonnées WGS84</td>
-      <td>1.452323</td>
-      <td>Valeur obligatoire, Valeur minimale : -180, Valeur maximale : 180</td>
-    </tr>
-    <tr>
-      <td>Ylat</td>
-      <td>nombre réel</td>
-      <td>La latitude en degrés décimaux (point comme séparateur décimal, avec au moins 4 chiffres après le point décimal) de la localisation de l’entrée du lieu de covoiturage exprimée dans le système de coordonnées WGS84</td>
-      <td>46.59698</td>
-      <td>Valeur obligatoire, Valeur minimale : -90, Valeur maximale : 90</td>
-    </tr>
-    <tr>
-      <td>nbre_pl</td>
-      <td>nombre entier</td>
-      <td>Le nombre de places réservées au stationnement disponibles</td>
-      <td>42</td>
-      <td>Valeur optionnelle, Valeur minimale : 0</td>
-    </tr>
-    <tr>
-      <td>nbre_pmr</td>
-      <td>nombre entier</td>
-      <td>Le nombre de places PMR disponibles</td>
-      <td>3</td>
-      <td>Valeur optionnelle, Valeur minimale : 0</td>
-    </tr>
-    <tr>
-      <td>duree</td>
-      <td>nombre entier</td>
-      <td>Si il existe une restriction sur la durée de stationnement autorisée, la durée maximale de stationnement autorisée exprimée en minutes</td>
-      <td>60</td>
-      <td>Valeur optionnelle, Valeur minimale : 0</td>
-    </tr>
-    <tr>
-      <td>horaires</td>
-      <td>chaîne de caractères</td>
-      <td>Ce champ permet de renseigner, si l’information est connue, les jours et horaires d’ouverture de l’équipement</td>
-      <td>Mo-Fr 08:00-20:00</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>proprio</td>
-      <td>chaîne de caractères</td>
-      <td>Le nom de l’aménageur, c’est-à-dire de l’entité publique ou privée propriétaire des infrastructures</td>
-      <td>Département</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>lumiere</td>
-      <td>booléen</td>
-      <td>Un éclairage nocture est-il présent</td>
-      <td> </td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>comm</td>
-      <td>chaîne de caractères</td>
-      <td>Commentaires éventuels sur les commodités mises à disposition du grand public comme : le numéro de téléphone unique qui indique les services disponibles au moment de l’arrivée sur l’aire pour réaliser le dernier kilomètre ; la présence de prises 220V ou USB ; accès à du réseau (télécom, WiFi) ; sanitaires ; intermodalité en transports</td>
-      <td>Présence de sanitaires et accès à de l’eau courante</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-  </tbody>
-</table>
+<h4 id="propriété-id_lieu">Propriété <code class="highlighter-rouge">id_lieu</code></h4>
+
+<blockquote>
+  <p><em>Description : Identifiant du lieu de covoiturage, délivré par le point d’accès national<br />Ex : 35238-C-001</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^([013-9]\d|2[AB1-9])\d{3}-C-\d{3}$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-nom_lieu">Propriété <code class="highlighter-rouge">nom_lieu</code></h4>
+
+<blockquote>
+  <p><em>Description : Le nom du lieu de covoiturage. Recommandation : inutile de répéter la nature du type de covoiturage<br />Ex : Les Romains</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-ad_lieu">Propriété <code class="highlighter-rouge">ad_lieu</code></h4>
+
+<blockquote>
+  <p><em>Description : L’adresse du lieu compréhensible par le grand public pour assurer la coordination entre le passager et le conducteur. Exemple : “3, rue de la gare” ; pour les lieux proches des sorties d’autoroute ou de nationale : “A11 sortie 7 Le Mans Nord” ; pour les zones rurales sans adresse : “croisement de route 1 - route 2” ou “le long de route X après le passage à niveau”<br />Ex : 3, rue de la Gare</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-com_lieu">Propriété <code class="highlighter-rouge">com_lieu</code></h4>
+
+<blockquote>
+  <p><em>Description : La commune / le lieu-dit du covoiturage<br />Ex : Rouen</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-insee">Propriété <code class="highlighter-rouge">insee</code></h4>
+
+<blockquote>
+  <p><em>Description : Le code INSEE de la commune d’implantation<br />Ex : 76540</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^([013-9]\d|2[AB1-9])\d{3}$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-type">Propriété <code class="highlighter-rouge">type</code></h4>
+
+<blockquote>
+  <p><em>Description : Le type de lieu de covoiturage<br />Ex : Parking</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>Aire de covoiturage</li>
+        <li>Sortie d’autoroute</li>
+        <li>Parking</li>
+        <li>Supermarché</li>
+        <li>Parking relais</li>
+        <li>Délaissé routier</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-date_maj">Propriété <code class="highlighter-rouge">date_maj</code></h4>
+
+<blockquote>
+  <p><em>Description : Date de dernière mise à jour des données. Notation ISO 8601, format AAAA-MM-DD<br />Ex : 2016-10-31</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : date (format <code class="highlighter-rouge">%Y-%m-%d</code>)</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-ouvert">Propriété <code class="highlighter-rouge">ouvert</code></h4>
+
+<blockquote>
+  <p><em>Description : Le lieu est-il ouvert<br />Ex : true</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-source">Propriété <code class="highlighter-rouge">source</code></h4>
+
+<blockquote>
+  <p><em>Description : SIREN de l’entité ayant fourni la donnée<br />Ex : 225300011</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^\d{9}$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-xlong">Propriété <code class="highlighter-rouge">Xlong</code></h4>
+
+<blockquote>
+  <p><em>Description : La longitude en degrés décimaux (point comme séparateur décimal, avec au moins 4 chiffres après le point décimal) de la localisation de l’entrée du lieu de covoiturage exprimée dans le système de coordonnées WGS84<br />Ex : 1.452323</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : nombre réel</li>
+    <li>Valeur entre -180 et 180</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-ylat">Propriété <code class="highlighter-rouge">Ylat</code></h4>
+
+<blockquote>
+  <p><em>Description : La latitude en degrés décimaux (point comme séparateur décimal, avec au moins 4 chiffres après le point décimal) de la localisation de l’entrée du lieu de covoiturage exprimée dans le système de coordonnées WGS84<br />Ex : 46.59698</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : nombre réel</li>
+    <li>Valeur entre -90 et 90</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-nbre_pl">Propriété <code class="highlighter-rouge">nbre_pl</code></h4>
+
+<blockquote>
+  <p><em>Description : Le nombre de places réservées au stationnement disponibles<br />Ex : 42</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : nombre entier</li>
+    <li>Valeur supérieur à 0</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-nbre_pmr">Propriété <code class="highlighter-rouge">nbre_pmr</code></h4>
+
+<blockquote>
+  <p><em>Description : Le nombre de places PMR disponibles<br />Ex : 3</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : nombre entier</li>
+    <li>Valeur supérieur à 0</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-duree">Propriété <code class="highlighter-rouge">duree</code></h4>
+
+<blockquote>
+  <p><em>Description : Si il existe une restriction sur la durée de stationnement autorisée, la durée maximale de stationnement autorisée exprimée en minutes<br />Ex : 60</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : nombre entier</li>
+    <li>Valeur supérieur à 0</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-horaires">Propriété <code class="highlighter-rouge">horaires</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce champ permet de renseigner, si l’information est connue, les jours et horaires d’ouverture de l’équipement<br />Ex : Mo-Fr 08:00-20:00</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-proprio">Propriété <code class="highlighter-rouge">proprio</code></h4>
+
+<blockquote>
+  <p><em>Description : Le nom de l’aménageur, c’est-à-dire de l’entité publique ou privée propriétaire des infrastructures<br />Ex : Département</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-lumiere">Propriété <code class="highlighter-rouge">lumiere</code></h4>
+
+<blockquote>
+  <p><em>Description : Un éclairage nocture est-il présent<br />Ex : False</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-comm">Propriété <code class="highlighter-rouge">comm</code></h4>
+
+<blockquote>
+  <p><em>Description : Commentaires éventuels sur les commodités mises à disposition du grand public comme : le numéro de téléphone unique qui indique les services disponibles au moment de l’arrivée sur l’aire pour réaliser le dernier kilomètre ; la présence de prises 220V ou USB ; accès à du réseau (télécom, WiFi) ; sanitaires ; intermodalité en transports<br />Ex : Présence de sanitaires et accès à de l’eau courante</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
 
       
   

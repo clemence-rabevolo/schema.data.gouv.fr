@@ -304,47 +304,46 @@
 
 <h3 id="modèle-de-données">Modèle de données</h3>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nom</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Exemple</th>
-      <th>Propriétés</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>siretAcheteur</td>
-      <td>chaîne de caractères</td>
-      <td>Le numéro SIRET de l’acheteur</td>
-      <td>79248336400024</td>
-      <td>Valeur obligatoire, Valeur unique, Motif : <code class="highlighter-rouge">^\d{14}$</code></td>
-    </tr>
-    <tr>
-      <td>urlProfilAcheteur</td>
-      <td>chaîne de caractères (format <code class="highlighter-rouge">uri</code>)</td>
-      <td>L’adresse URL du profil d’acheteur</td>
-      <td>http://monacheteur.com/profil</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>urlDCAT</td>
-      <td>chaîne de caractères (format <code class="highlighter-rouge">uri</code>)</td>
-      <td>L’adresse URL du catalogue DCAT qui répertorie les données</td>
-      <td>http://dcat.monacheteur.com/catalog.ttl</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>coordonnees</td>
-      <td>chaîne de caractères</td>
-      <td>Les coordonnées de l’acheteur concerné</td>
-      <td>Service Achat, DINSIC, 20 avenue de Ségur, 75007 Paris</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-  </tbody>
-</table>
+<h4 id="propriété-siretacheteur">Propriété <code class="highlighter-rouge">siretAcheteur</code></h4>
+
+<blockquote>
+  <p><em>Description : Le numéro SIRET de l’acheteur<br />Ex : 79248336400024</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^\d{14}$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-urlprofilacheteur">Propriété <code class="highlighter-rouge">urlProfilAcheteur</code></h4>
+
+<blockquote>
+  <p><em>Description : L’adresse URL du profil d’acheteur<br />Ex : http://monacheteur.com/profil</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères (format <code class="highlighter-rouge">uri</code>)</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-urldcat">Propriété <code class="highlighter-rouge">urlDCAT</code></h4>
+
+<blockquote>
+  <p><em>Description : L’adresse URL du catalogue DCAT qui répertorie les données<br />Ex : http://dcat.monacheteur.com/catalog.ttl</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères (format <code class="highlighter-rouge">uri</code>)</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-coordonnees">Propriété <code class="highlighter-rouge">coordonnees</code></h4>
+
+<blockquote>
+  <p><em>Description : Les coordonnées de l’acheteur concerné<br />Ex : Service Achat, DINSIC, 20 avenue de Ségur, 75007 Paris</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
 
       
 

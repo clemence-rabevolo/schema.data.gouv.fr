@@ -325,138 +325,176 @@
 
 <h3 id="modèle-de-données">Modèle de données</h3>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nom</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Exemple</th>
-      <th>Propriétés</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>n_amenageur</td>
-      <td>chaîne de caractères</td>
-      <td>Le nom de l’aménageur, c’est à dire de l’entité publique ou privée propriétaire des infrastructures</td>
-      <td>Société X, Entité Y</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>n_operateur</td>
-      <td>chaîne de caractères</td>
-      <td>Le nom de l’opérateur qui opère le réseau d’infrastructure (l’aménageur ou un tiers auquel a été confié la responsabilité par délégation)</td>
-      <td>Société X, Entité Y</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>n_enseigne</td>
-      <td>chaîne de caractères</td>
-      <td>Le nom commercial du réseau</td>
-      <td>Réseau de recharge ABC</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>id_station</td>
-      <td>chaîne de caractères</td>
-      <td>L’identifiant de la station délivré selon les modalités définies à l’article 10 du décret n° 2017-26 du 12 janvier 2017</td>
-      <td>FR<em>A68</em>P68021*A</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>n_station</td>
-      <td>chaîne de caractères</td>
-      <td>le nom de la station</td>
-      <td>Picpus, Belleville, Villiers</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>ad_station</td>
-      <td>chaîne de caractères</td>
-      <td>L’adresse complète de la station : [numéro] [rue], [code postal] [ville]</td>
-      <td>1 avenue de la Paix, 75001 Paris</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>code_insee</td>
-      <td>chaîne de caractères</td>
-      <td>Le code INSEE de la commune d’implantation</td>
-      <td>06088, 2B002 (pour une commune corse)</td>
-      <td>Valeur obligatoire, Motif : <code class="highlighter-rouge">^([013-9]\d|2[AB1-9])\d{3}$</code></td>
-    </tr>
-    <tr>
-      <td>Xlongitude</td>
-      <td>nombre réel</td>
-      <td>La longitude en degrés décimaux (point comme séparateur décimal) de la localisation de la station exprimée dans le système de coordonnées WGS84</td>
-      <td>7.48710500</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>Ylatitude</td>
-      <td>nombre réel</td>
-      <td>La latitude en degrés décimaux (point comme séparateur décimal) de la localisation de la station exprimée le système de coordonnées WGS84</td>
-      <td>47.63495500</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>nbre_pdc</td>
-      <td>nombre entier</td>
-      <td>Le nombre de points de recharge sur la station</td>
-      <td>1, 10</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>id_pdc</td>
-      <td>chaîne de caractères</td>
-      <td>L’identifiant du point de recharge délivré selon les modalités définies à l’article 10 du décret n° 2017-26 du 12 janvier 2017</td>
-      <td>FR<em>A68</em>E68021<em>A</em>B1*D</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>puiss_max</td>
-      <td>nombre réel</td>
-      <td>La puissance maximale délivrée à chaque point de recharge, exprimée en kW, en fonction du contrat d’abonnement de puissance de la station et du type de connecteur</td>
-      <td>22.00</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>type_prise</td>
-      <td>chaîne de caractères</td>
-      <td>Les types de prises ou de connecteurs disponibles sur chaque point de charge</td>
-      <td>E/F, T2</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>acces_recharge</td>
-      <td>chaîne de caractères</td>
-      <td>Modalités d’accès à la recharge</td>
-      <td>Payant, Gratuit, Sur abonnement</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>accessibilité</td>
-      <td>chaîne de caractères</td>
-      <td>Amplitude d’ouverture de la station</td>
-      <td>24/24 7/7 jours</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>observations</td>
-      <td>chaîne de caractères</td>
-      <td>Champ destiné à préciser les modalités d’accès à la recharge, l’accessibilité, le tarif, les horaires d’ouverture, …</td>
-      <td>Recharge uniquement disponible pendant les horaires d’ouverture du Centre Commercial XY</td>
-      <td>Valeur optionnelle</td>
-    </tr>
-    <tr>
-      <td>date_maj</td>
-      <td>date (format <code class="highlighter-rouge">%Y/%m/%d</code>)</td>
-      <td>Date de mise à jour des données</td>
-      <td>2018/08/08, 2015/12/30</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-  </tbody>
-</table>
+<h4 id="propriété-n_amenageur">Propriété <code class="highlighter-rouge">n_amenageur</code></h4>
+
+<blockquote>
+  <p><em>Description : Le nom de l’aménageur, c’est à dire de l’entité publique ou privée propriétaire des infrastructures<br />Ex : Société X, Entité Y</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-n_operateur">Propriété <code class="highlighter-rouge">n_operateur</code></h4>
+
+<blockquote>
+  <p><em>Description : Le nom de l’opérateur qui opère le réseau d’infrastructure (l’aménageur ou un tiers auquel a été confié la responsabilité par délégation)<br />Ex : Société X, Entité Y</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-n_enseigne">Propriété <code class="highlighter-rouge">n_enseigne</code></h4>
+
+<blockquote>
+  <p><em>Description : Le nom commercial du réseau<br />Ex : Réseau de recharge ABC</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-id_station">Propriété <code class="highlighter-rouge">id_station</code></h4>
+
+<blockquote>
+  <p><em>Description : L’identifiant de la station délivré selon les modalités définies à l’article 10 du décret n° 2017-26 du 12 janvier 2017<br />Ex : FR</em>A68<em>P68021</em>A*</p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-n_station">Propriété <code class="highlighter-rouge">n_station</code></h4>
+
+<blockquote>
+  <p><em>Description : le nom de la station<br />Ex : Picpus, Belleville, Villiers</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-ad_station">Propriété <code class="highlighter-rouge">ad_station</code></h4>
+
+<blockquote>
+  <p><em>Description : L’adresse complète de la station : [numéro] [rue], [code postal] [ville]<br />Ex : 1 avenue de la Paix, 75001 Paris</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-code_insee">Propriété <code class="highlighter-rouge">code_insee</code></h4>
+
+<blockquote>
+  <p><em>Description : Le code INSEE de la commune d’implantation<br />Ex : 06088, 2B002 (pour une commune corse)</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^([013-9]\d|2[AB1-9])\d{3}$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-xlongitude">Propriété <code class="highlighter-rouge">Xlongitude</code></h4>
+
+<blockquote>
+  <p><em>Description : La longitude en degrés décimaux (point comme séparateur décimal) de la localisation de la station exprimée dans le système de coordonnées WGS84<br />Ex : 7.48710500</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : nombre réel</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-ylatitude">Propriété <code class="highlighter-rouge">Ylatitude</code></h4>
+
+<blockquote>
+  <p><em>Description : La latitude en degrés décimaux (point comme séparateur décimal) de la localisation de la station exprimée le système de coordonnées WGS84<br />Ex : 47.63495500</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : nombre réel</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-nbre_pdc">Propriété <code class="highlighter-rouge">nbre_pdc</code></h4>
+
+<blockquote>
+  <p><em>Description : Le nombre de points de recharge sur la station<br />Ex : 1, 10</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : nombre entier</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-id_pdc">Propriété <code class="highlighter-rouge">id_pdc</code></h4>
+
+<blockquote>
+  <p><em>Description : L’identifiant du point de recharge délivré selon les modalités définies à l’article 10 du décret n° 2017-26 du 12 janvier 2017<br />Ex : FR</em>A68<em>E68021</em>A<em>B1</em>D*</p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-puiss_max">Propriété <code class="highlighter-rouge">puiss_max</code></h4>
+
+<blockquote>
+  <p><em>Description : La puissance maximale délivrée à chaque point de recharge, exprimée en kW, en fonction du contrat d’abonnement de puissance de la station et du type de connecteur<br />Ex : 22.00</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : nombre réel</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-type_prise">Propriété <code class="highlighter-rouge">type_prise</code></h4>
+
+<blockquote>
+  <p><em>Description : Les types de prises ou de connecteurs disponibles sur chaque point de charge<br />Ex : E/F, T2</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-acces_recharge">Propriété <code class="highlighter-rouge">acces_recharge</code></h4>
+
+<blockquote>
+  <p><em>Description : Modalités d’accès à la recharge<br />Ex : Payant, Gratuit, Sur abonnement</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-accessibilité">Propriété <code class="highlighter-rouge">accessibilité</code></h4>
+
+<blockquote>
+  <p><em>Description : Amplitude d’ouverture de la station<br />Ex : 24/24 7/7 jours</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-observations">Propriété <code class="highlighter-rouge">observations</code></h4>
+
+<blockquote>
+  <p><em>Description : Champ destiné à préciser les modalités d’accès à la recharge, l’accessibilité, le tarif, les horaires d’ouverture, …<br />Ex : Recharge uniquement disponible pendant les horaires d’ouverture du Centre Commercial XY</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-date_maj">Propriété <code class="highlighter-rouge">date_maj</code></h4>
+
+<blockquote>
+  <p><em>Description : Date de mise à jour des données<br />Ex : 2018/08/08, 2015/12/30</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : date (format <code class="highlighter-rouge">%Y/%m/%d</code>)</li>
+  </ul>
+</blockquote>
 
       
   

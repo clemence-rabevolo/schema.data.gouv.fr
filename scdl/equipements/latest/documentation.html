@@ -310,166 +310,241 @@
 
 <h3 id="modèle-de-données">Modèle de données</h3>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nom</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Exemple</th>
-      <th>Propriétés</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>COLL_NOM (Nom de la collectivité)</td>
-      <td>chaîne de caractères</td>
-      <td>Nom officiel de la collectivité sur le territoire de laquelle sont situés les équipements collectifs publics répertoriés dans le jeu de données. Ce nom est limité à 140 caractères maximum.</td>
-      <td>Département du Val-de-Marne</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>COLL_SIRET (Code SIRET de la collectivité)</td>
-      <td>chaîne de caractères</td>
-      <td>Identifiant du <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27identification_du_r%C3%A9pertoire_des_%C3%A9tablissements">Système d’Identification du Répertoire des Etablissements</a> (SIRET) de la collectivité sur le territoire de laquelle sont situés les équipements collectifs publics répertoriés dans le jeu de données. Il est composé de 9 chiffres SIREN + 5 chiffres NIC d’un seul tenant.</td>
-      <td>22940028800010</td>
-      <td>Valeur obligatoire, Motif : <code class="highlighter-rouge">^\d{14}$</code></td>
-    </tr>
-    <tr>
-      <td>EQUIP_UID (Identifiant unique de l’équipement)</td>
-      <td>chaîne de caractères (format <code class="highlighter-rouge">uuid</code>)</td>
-      <td>Cet identifiant unique est constitué du <a href="https://fr.wikipedia.org/wiki/Code_Insee">code INSEE de la commune</a> où est implanté l’équipement sur 5 caractères (incluant ‘A’ ou ‘B’ pour la Corse) suivi du code d’identification de l’équipement (EQUIP_CODE), séparés par un tiret du milieu. Il s’agit donc d’une chaîne de 18 caractères qui permet d’identifier chacun des équipements référencés de manière univoque.</td>
-      <td>94059-01010401-001</td>
-      <td>Valeur obligatoire, Taille maximale : 18</td>
-    </tr>
-    <tr>
-      <td>EQUIP_THEME (Thème de classement de l’équipement)</td>
-      <td>chaîne de caractères</td>
-      <td>Les entrées de la <a href="https://docs.google.com/spreadsheets/d/157WPWMUDC6w58Aep1dgWzzunKEjzSd-QmyuEHa8RFqc">nomenclature des équipements collectifs publics</a> sont divisées en 10 grandes familles. Les intitulés de ces grandes familles sont utilisés pour classer les équipements par thème. Ce champ doit donc être renseigné à partir d’une des valeurs suivantes : ‘Equipement administratif’, ‘Equipement de justice’, ‘Equipement sanitaire’, ‘Equipement social et d’animation’, ‘Equipement sportif et de loisirs’, ‘Equipement d’enseignement’, ‘Equipement cultuel’, ‘Equipement culturel’, ‘Equipement de mobilité’, ou ‘Autre équipement’.</td>
-      <td>Equipement administratif</td>
-      <td>Valeur obligatoire, Valeurs autorisées : Equipement administratif, Equipement de justice, Equipement sanitaire, Equipement social et d’animation, Equipement sportif et de loisirs, Equipement d’enseignement, Equipement cultuel, Equipement culturel, Equipement de mobilité, Autre équipement</td>
-    </tr>
-    <tr>
-      <td>EQUIP_CODE (Code d’identification de l’équipement)</td>
-      <td>chaîne de caractères</td>
-      <td>Le code d’identification de l’équipement est constitué du code sur 8 chiffres des niveaux 3 ou 4 (quand il existe) de la <a href="https://docs.google.com/spreadsheets/d/157WPWMUDC6w58Aep1dgWzzunKEjzSd-QmyuEHa8RFqc">nomenclature des équipements collectifs publics</a>, suivi d’un numéro d’ordre sur 3 chiffres (de ‘001’ minimum à ‘999’ maximum), séparés par un tiret du milieu. Il est utilisé pour construire l’identifiant unique de l’équipement (EQUIP_UID). En fonction du niveau et donc du code choisi dans la nomenclature, un des termes associés doit être reporté en tant que valeur pour définir le type d’équipement (EQUIP_TYPE).</td>
-      <td>01010401-001</td>
-      <td>Valeur obligatoire, Taille maximale : 12</td>
-    </tr>
-    <tr>
-      <td>EQUIP_TYPE (Type d’équipement)</td>
-      <td>chaîne de caractères</td>
-      <td>Le type d’équipement correspond à un des termes associés au code choisi dans la <a href="https://docs.google.com/spreadsheets/d/157WPWMUDC6w58Aep1dgWzzunKEjzSd-QmyuEHa8RFqc">nomenclature des équipements collectifs publics</a> pour identifier l’équipement dans EQUIP_CODE. Il s’agit donc de renseigner ce champ avec une valeur, jugée la plus pertinente pour désigner l’équipement, dans la limite de 140 caractères maximum en prenant soin d’échapper ou de supprimer les éventuelles virgules.</td>
-      <td>Mairie</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>EQUIP_NOM (Nom complet de l’équipement)</td>
-      <td>chaîne de caractères</td>
-      <td>Ce champ permet de nommer l’équipement collectif public par son nom d’usage complet afin de préciser ou compléter, si nécessaire, le terme utilisé pour désigner le type, dans la limite de 256 caractères maximum.</td>
-      <td>Hôtel de ville du Plessis-Trévise</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>ADR_NUMERO (Numéro d’adresse complet)</td>
-      <td>chaîne de caractères</td>
-      <td>Ce champ désigne le numéro d’adresse dans la voie suivi, si nécessaire, d’une information suffixée qui complète et précise le numéro d’adresse. Cette information suffixée peut être un indice de répétition (‘bis’, ‘ter’, ‘qua’, ‘qui’, etc… codés sur 3 caractères en minuscules) ou un complément comme le nom d’entrée d’immeuble (‘a’, ‘b’, ‘c’, ‘a1’, ‘b2’, ‘lesmimosas’, etc… codés en minuscules non accentuées, sans espace ni limite du nombre de caractères). Dans le cas des voies ou des lieux-dits sans adresse, la valeur ‘99999’ est attendue. Dans le cas d’une adresse indiquant un intervalle entre deux numéros, ces derniers sont séparés par une barre oblique.</td>
-      <td>‘36’ pour un numéro sans suffixe ou ‘36 bis’ pour un numéro avec un indice de répétition ou ‘36/38’ pour un intervalle entre deux numéros</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>ADR_NOMVOIE (Nom complet de la voie)</td>
-      <td>chaîne de caractères</td>
-      <td>Ce champ contient la concaténation du type et du nom de la voie ou le nom d’un lieu-dit, exprimés en majuscules et minuscules accentuées.</td>
-      <td>Avenue Ardouin</td>
-      <td>Valeur obligatoire, Taille minimale : 3, Motif : <code class="highlighter-rouge">^[a-zA-Z0-9\-\'\s\d\u00C0-\u00FF]+$</code></td>
-    </tr>
-    <tr>
-      <td>ADR_CODEPOSTAL (Code postal)</td>
-      <td>chaîne de caractères</td>
-      <td>Elément de l’adresse qui désigne le code postal de la commune où est implanté l’équipement collectif public.</td>
-      <td>94420</td>
-      <td>Valeur obligatoire, Taille maximale : 5</td>
-    </tr>
-    <tr>
-      <td>ADR_COMMUNE (Commune)</td>
-      <td>chaîne de caractères</td>
-      <td>Elément de l’adresse qui désigne le nom de la commune où est implanté l’équipement collectif public.</td>
-      <td>Le Plessis-Trévise</td>
-      <td>Valeur obligatoire, Motif : <code class="highlighter-rouge">^[A-Za-z\s\-\u00C0-\u00FF]+$</code></td>
-    </tr>
-    <tr>
-      <td>ADR_CLE_INTEROP (Clé d’interopérabilité de l’adresse)</td>
-      <td>chaîne de caractères</td>
-      <td>Cette clé est identique à celle décrite dans le modèle <a href="https://scdl.opendatafrance.net/docs/schemas/scdl-adresses.html">Base adresse locale</a>. Elle combine le <a href="https://fr.wikipedia.org/wiki/Code_Insee">code INSEE de la commune</a> sur 5 caractères (incluant ‘A’ ou ‘B’ pour la Corse) + le code de voie issu du <a href="https://fr.wikipedia.org/wiki/FANTOIR">FANTOIR</a> de la DGFiP sur 4 caractères + le numéro d’adresse sur 5 caractères préfixé par des zéros + un suffixe s’il existe, qui peut être un indice de répétition (‘bis’, ‘ter’, ‘qua’, ‘qui’, etc… codés sur 3 caractères) et/ou un complément (‘a’, ‘b’, ‘c’, ‘a1’, ‘b2’, ‘lesmimosas’, etc… sans limitation du nombre de caractères). Chaque élément est séparé par un tiret du bas et les lettres sont en minuscules.</td>
-      <td>94059_0040_00036</td>
-      <td>Taille minimale : 16, Motif : <code class="highlighter-rouge">^[A-Za-z0-9_]+$</code></td>
-    </tr>
-    <tr>
-      <td>ERP_ID (Type d’Etablissement Recevant du Public)</td>
-      <td>chaîne de caractères</td>
-      <td>Si l’équipement collectif public est un ERP et que son code d’identification, le plus souvent géré par les SDIS ou les DDT référents, est connu, ce champ peut être renseigné.</td>
-      <td>94059-AvenueArdouin-36</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>ERP_TYPE (Type d’Etablissement Recevant du Public)</td>
-      <td>chaîne de caractères</td>
-      <td>Les <a href="https://fr.wikipedia.org/wiki/%C3%89tablissement_recevant_du_public_en_droit_fran%C3%A7ais">Etablissements Recevant du Public</a> (ERP) installés dans un bâtiment et les établissements spéciaux sont classés par type en fonction de leur activité ou de la nature de leur exploitation. Le type est symbolisé par une à trois lettre(s) en majuscule dans le respect de <a href="https://www.legifrance.gouv.fr/affichTexte.do;?cidTexte=LEGITEXT000020303557">l’article GN1 de l’Arrêté du 25 juin 1980</a>. Si l’équipement collectif public est un ERP, ce champ peut être renseigné à partir d’une des valeurs suivantes :  ‘J’, ‘L’, ‘M’, ‘N’, ‘O’, ‘P’, ‘R’, ‘S’, ‘T’, ‘U’, ‘V’, ‘W’, ‘X’, ‘Y’ pour les ERP installés dans un bâtiment et ‘PA’, ‘CTS’, ‘SG’, ‘PS’, ‘GA’, ‘OA’, ‘EF’, ‘REF’ pour les établissements spéciaux. Dans le cas d’un ERP couvrant plusieurs types, les valeurs sont séparées par un point-virgule.</td>
-      <td>‘W’ pour un ERP de type unique ou ‘W;L’ pour un ERP couvrant plusieurs types</td>
-      <td>Taille maximale : 10</td>
-    </tr>
-    <tr>
-      <td>ERP_CATEGORIE (Catégorie d’Etablissement Recevant du Public)</td>
-      <td>nombre entier</td>
-      <td>Les <a href="https://fr.wikipedia.org/wiki/%C3%89tablissement_recevant_du_public_en_droit_fran%C3%A7ais">Etablissements Recevant du Public</a> (ERP) sont classés par catégorie en fonction de leur capacité d’accueil. La catégorie est symbolisée par un chiffre de 1 à 5 dans le respect de <a href="https://www.legifrance.gouv.fr/affichCodeArticle.do?cidTexte=LEGITEXT000006074096&amp;idArticle=LEGIARTI000006896108">l’article R123-19 du Code de la construction et de l’habitation</a>. Si l’équipement collectif public est un ERP, ce champ peut être renseigné.</td>
-      <td>5</td>
-      <td>Valeur minimale : 1, Valeur maximale : 5</td>
-    </tr>
-    <tr>
-      <td>EQUIP_LAT (Latitude)</td>
-      <td>nombre réel</td>
-      <td>Coordonnée de latitude exprimée en <a href="https://fr.wikipedia.org/wiki/WGS_84">WGS 84</a> permettant de localiser l’équipement collectif public. Le signe de séparation entre les parties entière et décimale du nombre est le point.</td>
-      <td>48.808989</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>EQUIP_LONG (Longitude)</td>
-      <td>nombre réel</td>
-      <td>Un ou plusieurs mot(s) clé(s) utilisé(s) pour décrire le jeu de données en minuscules non accentuées. S’il y en a plusieurs, le séparateur est le point-virgule.</td>
-      <td>2.572875</td>
-      <td>Valeur obligatoire</td>
-    </tr>
-    <tr>
-      <td>EQUIP_OUVERTURE (Jours et horaires d’ouverture)</td>
-      <td>chaîne de caractères</td>
-      <td>Ce champ permet de renseigner, si l’information est connue, les jours et horaires d’ouverture de l’équipement en respectant le <a href="https://wiki.openstreetmap.org/wiki/FR:Key:opening_hours">format utilisé pour la clé ‘opening_hours’</a> dans OpenStreetMap. Un outil comme <a href="http://projets.pavie.info/yohours/">YoHours</a> facilite la transformation des jours et horaires d’ouverture dans ce format. Celui-ci pouvant contenir des virgules comme signes de séparation, il est nécessaire d’entourer les valeurs de la chaîne de caractères par des guillemets doubles.</td>
-      <td>Mo-Fr 08:30-12:00,13:30-17:30; Sa 08:30-12:00</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>EQUIP_TEL (Téléphone)</td>
-      <td>chaîne de caractères</td>
-      <td>Ce champ permet de renseigner, si l’information est connue, le numéro de téléphone (du gestionnaire) de l’équipement exprimé en suivant le <a href="http://publications.europa.eu/code/fr/fr-390300.htm">code de rédaction interinstitutionnel européen</a>.</td>
-      <td>+33 140633900</td>
-      <td>Taille maximale : 13</td>
-    </tr>
-    <tr>
-      <td>EQUIP_EMAIL (Adresse email)</td>
-      <td>chaîne de caractères (format <code class="highlighter-rouge">email</code>)</td>
-      <td>Ce champ permet de renseigner, si l’information est connue, l’adresse email (du gestionnaire) de l’équipement.</td>
-      <td>contact@leplessistrevise.fr</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>EQUIP_WEB (Adresse du site web)</td>
-      <td>chaîne de caractères (format <code class="highlighter-rouge">uri</code>)</td>
-      <td>Ce champ permet de renseigner, si l’information est connue, l’url d’accès au site web (du gestionnaire) de l’équipement.</td>
-      <td>https://www.leplessistrevise.fr</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
+<h4 id="nom-de-la-collectivité---propriété-coll_nom">Nom de la collectivité - Propriété <code class="highlighter-rouge">COLL_NOM</code></h4>
+
+<blockquote>
+  <p><em>Description : Nom officiel de la collectivité sur le territoire de laquelle sont situés les équipements collectifs publics répertoriés dans le jeu de données. Ce nom est limité à 140 caractères maximum.<br />Ex : Département du Val-de-Marne</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="code-siret-de-la-collectivité---propriété-coll_siret">Code SIRET de la collectivité - Propriété <code class="highlighter-rouge">COLL_SIRET</code></h4>
+
+<blockquote>
+  <p><em>Description : Identifiant du <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27identification_du_r%C3%A9pertoire_des_%C3%A9tablissements">Système d’Identification du Répertoire des Etablissements</a> (SIRET) de la collectivité sur le territoire de laquelle sont situés les équipements collectifs publics répertoriés dans le jeu de données. Il est composé de 9 chiffres SIREN + 5 chiffres NIC d’un seul tenant.<br />Ex : 22940028800010</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^\d{14}$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="identifiant-unique-de-léquipement---propriété-equip_uid">Identifiant unique de l’équipement - Propriété <code class="highlighter-rouge">EQUIP_UID</code></h4>
+
+<blockquote>
+  <p><em>Description : Cet identifiant unique est constitué du <a href="https://fr.wikipedia.org/wiki/Code_Insee">code INSEE de la commune</a> où est implanté l’équipement sur 5 caractères (incluant ‘A’ ou ‘B’ pour la Corse) suivi du code d’identification de l’équipement (EQUIP_CODE), séparés par un tiret du milieu. Il s’agit donc d’une chaîne de 18 caractères qui permet d’identifier chacun des équipements référencés de manière univoque.<br />Ex : 94059-01010401-001</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères (format <code class="highlighter-rouge">uuid</code>)</li>
+    <li>Moins de 18 caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="thème-de-classement-de-léquipement---propriété-equip_theme">Thème de classement de l’équipement - Propriété <code class="highlighter-rouge">EQUIP_THEME</code></h4>
+
+<blockquote>
+  <p><em>Description : Les entrées de la <a href="https://docs.google.com/spreadsheets/d/157WPWMUDC6w58Aep1dgWzzunKEjzSd-QmyuEHa8RFqc">nomenclature des équipements collectifs publics</a> sont divisées en 10 grandes familles. Les intitulés de ces grandes familles sont utilisés pour classer les équipements par thème. Ce champ doit donc être renseigné à partir d’une des valeurs suivantes : ‘Equipement administratif’, ‘Equipement de justice’, ‘Equipement sanitaire’, ‘Equipement social et d’animation’, ‘Equipement sportif et de loisirs’, ‘Equipement d’enseignement’, ‘Equipement cultuel’, ‘Equipement culturel’, ‘Equipement de mobilité’, ou ‘Autre équipement’.<br />Ex : Equipement administratif</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>Equipement administratif</li>
+        <li>Equipement de justice</li>
+        <li>Equipement sanitaire</li>
+        <li>Equipement social et d’animation</li>
+        <li>Equipement sportif et de loisirs</li>
+        <li>Equipement d’enseignement</li>
+        <li>Equipement cultuel</li>
+        <li>Equipement culturel</li>
+        <li>Equipement de mobilité</li>
+        <li>Autre équipement</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<h4 id="code-didentification-de-léquipement---propriété-equip_code">Code d’identification de l’équipement - Propriété <code class="highlighter-rouge">EQUIP_CODE</code></h4>
+
+<blockquote>
+  <p><em>Description : Le code d’identification de l’équipement est constitué du code sur 8 chiffres des niveaux 3 ou 4 (quand il existe) de la <a href="https://docs.google.com/spreadsheets/d/157WPWMUDC6w58Aep1dgWzzunKEjzSd-QmyuEHa8RFqc">nomenclature des équipements collectifs publics</a>, suivi d’un numéro d’ordre sur 3 chiffres (de ‘001’ minimum à ‘999’ maximum), séparés par un tiret du milieu. Il est utilisé pour construire l’identifiant unique de l’équipement (EQUIP_UID). En fonction du niveau et donc du code choisi dans la nomenclature, un des termes associés doit être reporté en tant que valeur pour définir le type d’équipement (EQUIP_TYPE).<br />Ex : 01010401-001</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Moins de 12 caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="type-déquipement---propriété-equip_type">Type d’équipement - Propriété <code class="highlighter-rouge">EQUIP_TYPE</code></h4>
+
+<blockquote>
+  <p><em>Description : Le type d’équipement correspond à un des termes associés au code choisi dans la <a href="https://docs.google.com/spreadsheets/d/157WPWMUDC6w58Aep1dgWzzunKEjzSd-QmyuEHa8RFqc">nomenclature des équipements collectifs publics</a> pour identifier l’équipement dans EQUIP_CODE. Il s’agit donc de renseigner ce champ avec une valeur, jugée la plus pertinente pour désigner l’équipement, dans la limite de 140 caractères maximum en prenant soin d’échapper ou de supprimer les éventuelles virgules.<br />Ex : Mairie</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="nom-complet-de-léquipement---propriété-equip_nom">Nom complet de l’équipement - Propriété <code class="highlighter-rouge">EQUIP_NOM</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce champ permet de nommer l’équipement collectif public par son nom d’usage complet afin de préciser ou compléter, si nécessaire, le terme utilisé pour désigner le type, dans la limite de 256 caractères maximum.<br />Ex : Hôtel de ville du Plessis-Trévise</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="numéro-dadresse-complet---propriété-adr_numero">Numéro d’adresse complet - Propriété <code class="highlighter-rouge">ADR_NUMERO</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce champ désigne le numéro d’adresse dans la voie suivi, si nécessaire, d’une information suffixée qui complète et précise le numéro d’adresse. Cette information suffixée peut être un indice de répétition (‘bis’, ‘ter’, ‘qua’, ‘qui’, etc… codés sur 3 caractères en minuscules) ou un complément comme le nom d’entrée d’immeuble (‘a’, ‘b’, ‘c’, ‘a1’, ‘b2’, ‘lesmimosas’, etc… codés en minuscules non accentuées, sans espace ni limite du nombre de caractères). Dans le cas des voies ou des lieux-dits sans adresse, la valeur ‘99999’ est attendue. Dans le cas d’une adresse indiquant un intervalle entre deux numéros, ces derniers sont séparés par une barre oblique.<br />Ex : ‘36’ pour un numéro sans suffixe ou ‘36 bis’ pour un numéro avec un indice de répétition ou ‘36/38’ pour un intervalle entre deux numéros</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="nom-complet-de-la-voie---propriété-adr_nomvoie">Nom complet de la voie - Propriété <code class="highlighter-rouge">ADR_NOMVOIE</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce champ contient la concaténation du type et du nom de la voie ou le nom d’un lieu-dit, exprimés en majuscules et minuscules accentuées.<br />Ex : Avenue Ardouin</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Plus de 3 caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^[a-zA-Z0-9\-\'\s\d\u00C0-\u00FF]+$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="code-postal---propriété-adr_codepostal">Code postal - Propriété <code class="highlighter-rouge">ADR_CODEPOSTAL</code></h4>
+
+<blockquote>
+  <p><em>Description : Elément de l’adresse qui désigne le code postal de la commune où est implanté l’équipement collectif public.<br />Ex : 94420</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Moins de 5 caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="commune---propriété-adr_commune">Commune - Propriété <code class="highlighter-rouge">ADR_COMMUNE</code></h4>
+
+<blockquote>
+  <p><em>Description : Elément de l’adresse qui désigne le nom de la commune où est implanté l’équipement collectif public.<br />Ex : Le Plessis-Trévise</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^[A-Za-z\s\-\u00C0-\u00FF]+$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="clé-dinteropérabilité-de-ladresse---propriété-adr_cle_interop">Clé d’interopérabilité de l’adresse - Propriété <code class="highlighter-rouge">ADR_CLE_INTEROP</code></h4>
+
+<blockquote>
+  <p><em>Description : Cette clé est identique à celle décrite dans le modèle <a href="https://scdl.opendatafrance.net/docs/schemas/scdl-adresses.html">Base adresse locale</a>. Elle combine le <a href="https://fr.wikipedia.org/wiki/Code_Insee">code INSEE de la commune</a> sur 5 caractères (incluant ‘A’ ou ‘B’ pour la Corse) + le code de voie issu du <a href="https://fr.wikipedia.org/wiki/FANTOIR">FANTOIR</a> de la DGFiP sur 4 caractères + le numéro d’adresse sur 5 caractères préfixé par des zéros + un suffixe s’il existe, qui peut être un indice de répétition (‘bis’, ‘ter’, ‘qua’, ‘qui’, etc… codés sur 3 caractères) et/ou un complément (‘a’, ‘b’, ‘c’, ‘a1’, ‘b2’, ‘lesmimosas’, etc… sans limitation du nombre de caractères). Chaque élément est séparé par un tiret du bas et les lettres sont en minuscules.<br />Ex : 94059_0040_00036</em></p>
+  <ul>
+    <li>None</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Plus de 16 caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^[A-Za-z0-9_]+$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="type-detablissement-recevant-du-public---propriété-erp_id">Type d’Etablissement Recevant du Public - Propriété <code class="highlighter-rouge">ERP_ID</code></h4>
+
+<blockquote>
+  <p><em>Description : Si l’équipement collectif public est un ERP et que son code d’identification, le plus souvent géré par les SDIS ou les DDT référents, est connu, ce champ peut être renseigné.<br />Ex : 94059-AvenueArdouin-36</em></p>
+  <ul>
+    <li>None</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="type-detablissement-recevant-du-public---propriété-erp_type">Type d’Etablissement Recevant du Public - Propriété <code class="highlighter-rouge">ERP_TYPE</code></h4>
+
+<blockquote>
+  <p><em>Description : Les <a href="https://fr.wikipedia.org/wiki/%C3%89tablissement_recevant_du_public_en_droit_fran%C3%A7ais">Etablissements Recevant du Public</a> (ERP) installés dans un bâtiment et les établissements spéciaux sont classés par type en fonction de leur activité ou de la nature de leur exploitation. Le type est symbolisé par une à trois lettre(s) en majuscule dans le respect de <a href="https://www.legifrance.gouv.fr/affichTexte.do;?cidTexte=LEGITEXT000020303557">l’article GN1 de l’Arrêté du 25 juin 1980</a>. Si l’équipement collectif public est un ERP, ce champ peut être renseigné à partir d’une des valeurs suivantes :  ‘J’, ‘L’, ‘M’, ‘N’, ‘O’, ‘P’, ‘R’, ‘S’, ‘T’, ‘U’, ‘V’, ‘W’, ‘X’, ‘Y’ pour les ERP installés dans un bâtiment et ‘PA’, ‘CTS’, ‘SG’, ‘PS’, ‘GA’, ‘OA’, ‘EF’, ‘REF’ pour les établissements spéciaux. Dans le cas d’un ERP couvrant plusieurs types, les valeurs sont séparées par un point-virgule.<br />Ex : ‘W’ pour un ERP de type unique ou ‘W;L’ pour un ERP couvrant plusieurs types</em></p>
+  <ul>
+    <li>None</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Moins de 10 caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="catégorie-detablissement-recevant-du-public---propriété-erp_categorie">Catégorie d’Etablissement Recevant du Public - Propriété <code class="highlighter-rouge">ERP_CATEGORIE</code></h4>
+
+<blockquote>
+  <p><em>Description : Les <a href="https://fr.wikipedia.org/wiki/%C3%89tablissement_recevant_du_public_en_droit_fran%C3%A7ais">Etablissements Recevant du Public</a> (ERP) sont classés par catégorie en fonction de leur capacité d’accueil. La catégorie est symbolisée par un chiffre de 1 à 5 dans le respect de <a href="https://www.legifrance.gouv.fr/affichCodeArticle.do?cidTexte=LEGITEXT000006074096&amp;idArticle=LEGIARTI000006896108">l’article R123-19 du Code de la construction et de l’habitation</a>. Si l’équipement collectif public est un ERP, ce champ peut être renseigné.<br />Ex : 5</em></p>
+  <ul>
+    <li>None</li>
+    <li>Type : nombre entier</li>
+    <li>Valeur entre 1 et 5</li>
+  </ul>
+</blockquote>
+
+<h4 id="latitude---propriété-equip_lat">Latitude - Propriété <code class="highlighter-rouge">EQUIP_LAT</code></h4>
+
+<blockquote>
+  <p><em>Description : Coordonnée de latitude exprimée en <a href="https://fr.wikipedia.org/wiki/WGS_84">WGS 84</a> permettant de localiser l’équipement collectif public. Le signe de séparation entre les parties entière et décimale du nombre est le point.<br />Ex : 48.808989</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : nombre réel</li>
+  </ul>
+</blockquote>
+
+<h4 id="longitude---propriété-equip_long">Longitude - Propriété <code class="highlighter-rouge">EQUIP_LONG</code></h4>
+
+<blockquote>
+  <p><em>Description : Un ou plusieurs mot(s) clé(s) utilisé(s) pour décrire le jeu de données en minuscules non accentuées. S’il y en a plusieurs, le séparateur est le point-virgule.<br />Ex : 2.572875</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : nombre réel</li>
+  </ul>
+</blockquote>
+
+<h4 id="jours-et-horaires-douverture---propriété-equip_ouverture">Jours et horaires d’ouverture - Propriété <code class="highlighter-rouge">EQUIP_OUVERTURE</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce champ permet de renseigner, si l’information est connue, les jours et horaires d’ouverture de l’équipement en respectant le <a href="https://wiki.openstreetmap.org/wiki/FR:Key:opening_hours">format utilisé pour la clé ‘opening_hours’</a> dans OpenStreetMap. Un outil comme <a href="http://projets.pavie.info/yohours/">YoHours</a> facilite la transformation des jours et horaires d’ouverture dans ce format. Celui-ci pouvant contenir des virgules comme signes de séparation, il est nécessaire d’entourer les valeurs de la chaîne de caractères par des guillemets doubles.<br />Ex : Mo-Fr 08:30-12:00,13:30-17:30; Sa 08:30-12:00</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="téléphone---propriété-equip_tel">Téléphone - Propriété <code class="highlighter-rouge">EQUIP_TEL</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce champ permet de renseigner, si l’information est connue, le numéro de téléphone (du gestionnaire) de l’équipement exprimé en suivant le <a href="http://publications.europa.eu/code/fr/fr-390300.htm">code de rédaction interinstitutionnel européen</a>.<br />Ex : +33 140633900</em></p>
+  <ul>
+    <li>None</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Moins de 13 caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="adresse-email---propriété-equip_email">Adresse email - Propriété <code class="highlighter-rouge">EQUIP_EMAIL</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce champ permet de renseigner, si l’information est connue, l’adresse email (du gestionnaire) de l’équipement.<br />Ex : contact@leplessistrevise.fr</em></p>
+  <ul>
+    <li>None</li>
+    <li>Type : chaîne de caractères (format <code class="highlighter-rouge">email</code>)</li>
+  </ul>
+</blockquote>
+
+<h4 id="adresse-du-site-web---propriété-equip_web">Adresse du site web - Propriété <code class="highlighter-rouge">EQUIP_WEB</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce champ permet de renseigner, si l’information est connue, l’url d’accès au site web (du gestionnaire) de l’équipement.<br />Ex : https://www.leplessistrevise.fr</em></p>
+  <ul>
+    <li>None</li>
+    <li>Type : chaîne de caractères (format <code class="highlighter-rouge">uri</code>)</li>
+  </ul>
+</blockquote>
 
       
 
