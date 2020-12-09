@@ -410,7 +410,7 @@
 <blockquote>
   <p><em>Description : Année de l’exercice budgétaire sur lequel s’applique la décision si celle-ci a un impact budgétaire. Format AAAA pour une année ou AAAA/AAAA pour un intervalle entre deux années suivant la norme internationale <a href="https://fr.wikipedia.org/wiki/ISO_8601">ISO 8601</a>.<br />Ex : ‘2017’ pour une année ou ‘2017/2018’ pour un intervalle</em></p>
   <ul>
-    <li>None</li>
+    <li>Valeur optionnelle</li>
     <li>Type : chaîne de caractères</li>
     <li>Motif : <code class="highlighter-rouge">^[0-9]{4}(\/[0-9]{4})?$</code></li>
   </ul>
@@ -421,7 +421,7 @@
 <blockquote>
   <p><em>Description : Ce champ ne peut être renseigné que si la délibération engendre une affection budgétaire.<br />Ex : Budget annexe déchets-collecte et traitement</em></p>
   <ul>
-    <li>None</li>
+    <li>Valeur optionnelle</li>
     <li>Type : chaîne de caractères</li>
   </ul>
 </blockquote>
@@ -431,7 +431,7 @@
 <blockquote>
   <p><em>Description : Cet identifiant dépend de l’entité concernée. Pour les préfectures, il est codé ‘PREFNNN’ sur 7 caractères. Pour les sous-préfectures, il est codé ‘SPREFNNNM’ sur 9 caractères. Pour les SGAR, il est codé ‘SGARNNN’ sur 7 caractères. ‘NNN’ correspond au numéro sur 3 caractères du département préfixé par ‘0’ et inclant ‘A’ et ‘B’ pour les départements corses. ‘M’ correspond au numéro sur un chiffre de l’arrondissement.<br />Ex : PREF038</em></p>
   <ul>
-    <li>None</li>
+    <li>Valeur optionnelle</li>
     <li>Type : chaîne de caractères</li>
   </ul>
 </blockquote>
@@ -441,7 +441,7 @@
 <blockquote>
   <p><em>Description : Date d’enregistrement de la délibération au contrôle de légalité au format AAAA-MM-JJ suivant la norme internationale <a href="https://fr.wikipedia.org/wiki/ISO_8601">ISO 8601</a>. Ce champ ne peut être renseigné que si la délibération a effectivement été transmise et que sa date d’enregistrement est connue.<br />Ex : 2017-02-03</em></p>
   <ul>
-    <li>None</li>
+    <li>Valeur optionnelle</li>
     <li>Type : date</li>
   </ul>
 </blockquote>
@@ -451,7 +451,7 @@
 <blockquote>
   <p><em>Description : Décompte de l’effectif total des représentants élus susceptibles de participer au vote.<br />Ex : 43</em></p>
   <ul>
-    <li>None</li>
+    <li>Valeur optionnelle</li>
     <li>Type : nombre entier</li>
   </ul>
 </blockquote>
@@ -461,7 +461,7 @@
 <blockquote>
   <p><em>Description : Décompte de l’effectif total des élus ayant réellement participé au vote (exclusion des absents)<br />Ex : 40</em></p>
   <ul>
-    <li>None</li>
+    <li>Valeur optionnelle</li>
     <li>Type : nombre entier</li>
   </ul>
 </blockquote>
@@ -471,7 +471,7 @@
 <blockquote>
   <p><em>Description : Décompte du nombre total de votes ‘Pour’.<br />Ex : 25</em></p>
   <ul>
-    <li>None</li>
+    <li>Valeur optionnelle</li>
     <li>Type : nombre entier</li>
   </ul>
 </blockquote>
@@ -481,7 +481,7 @@
 <blockquote>
   <p><em>Description : Décompte du nombre total de votes ‘Contre’.<br />Ex : 10</em></p>
   <ul>
-    <li>None</li>
+    <li>Valeur optionnelle</li>
     <li>Type : nombre entier</li>
   </ul>
 </blockquote>
@@ -491,7 +491,7 @@
 <blockquote>
   <p><em>Description : Décompte du nombre total d’abstentions.<br />Ex : 5</em></p>
   <ul>
-    <li>None</li>
+    <li>Valeur optionnelle</li>
     <li>Type : nombre entier</li>
   </ul>
 </blockquote>
@@ -501,7 +501,7 @@
 <blockquote>
   <p><em>Description : Si la collectivité dispose d’une version électronique de la délibération et la publie en ligne, ce lien correspond à l’adresse permettant de consulter ou de télécharger le document.<br />Ex : https://data.maville.fr/deliberations/files/200417_1.pdf</em></p>
   <ul>
-    <li>None</li>
+    <li>Valeur optionnelle</li>
     <li>Type : chaîne de caractères (format <code class="highlighter-rouge">uri</code>)</li>
   </ul>
 </blockquote>
