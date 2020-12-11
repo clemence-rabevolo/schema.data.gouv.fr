@@ -309,51 +309,233 @@
 <h3 id="modèle-de-données">Modèle de données</h3>
 
 <h5 id="liste-des-propriétés">Liste des propriétés</h5>
-<p>| Propriété | Type | Obligatoire |
-| – | – | – |
-| <a href="#nom-donné-au-dae---propriété-nom">nom</a> | chaîne de caractères  | Oui |
-| <a href="#latitude---propriété-lat_coor1">lat_coor1</a> | nombre réel  | Oui |
-| <a href="#latitude---propriété-long_coor1">long_coor1</a> | nombre réel  | Oui |
-| <a href="#numéro-de-la-voie---propriété-adr_num">adr_num</a> | chaîne de caractères  | Non |
-| <a href="#type-et-nom-de-la-voie---propriété-adr_voie">adr_voie</a> | chaîne de caractères  | Non |
-| <a href="#code-postal-de-la-commune-d'implantation-du-dae---propriété-com_cp">com_cp</a> | chaîne de caractères  | Non |
-| <a href="#code-insee-de-la-commune-d'implantation-du-dae---propriété-com_insee">com_insee</a> | chaîne de caractères  | Non |
-| <a href="#nom-de-la-commune-d'implantation-du-dae---propriété-com_nom">com_nom</a> | chaîne de caractères  | Non |
-| <a href="#environnement-d'accès-du-dae---propriété-acc">acc</a> | chaîne de caractères  | Oui |
-| <a href="#propriété-acc_lib">acc_lib</a> | booléen  | Oui |
-| <a href="#propriété-acc_pcsec">acc_pcsec</a> | booléen  | Non |
-| <a href="#propriété-acc_acc">acc_acc</a> | booléen  | Non |
-| <a href="#etage-d'accessibilité-du-dae---propriété-acc_etg">acc_etg</a> | chaîne de caractères  | Non |
-| <a href="#complément-d'information-sur-l'accès-au-dae---propriété-acc_complt">acc_complt</a> | chaîne de caractères  | Non |
-| <a href="#photo-1-du-dae-dans-son-environnement.-il-est-préconisé-un-plan-large-pour-que-le-dae-soit-visible-dans-son-environnement.-la-photo-déposée-devra-être-libre-de-droit,-sous-format-open-source---propriété-photo1">photo1</a> | chaîne de caractères  | Non |
-| <a href="#photo-2-du-dae-dans-son-environnement.-il-est-préconisé-un-plan-large-pour-que-le-dae-soit-visible-dans-son-environnement.-la-photo-déposée-devra-être-libre-de-droit,-sous-format-open-source---propriété-photo2">photo2</a> | chaîne de caractères  | Non |
-| <a href="#pour-les-dae-non-disponibles-7j/7,-détail-de-la-disponibilité-de-l'appareil---propriété-disp_j">disp_j</a> | chaîne de caractères  | Oui |
-| <a href="#pour-les-dae-non-disponibles-24h/24,-détail-de-la-disponibilité-de-l'appareil---propriété-disp_h">disp_h</a> | chaîne de caractères  | Oui |
-| <a href="#complément-d'information-sur-la-disponibilité-du-dae---propriété-disp_complt">disp_complt</a> | chaîne de caractères  | Non |
-| <a href="#numéro-de-téléphone-1-sur-le-site-d'implantation-du-dae---propriété-tel1">tel1</a> | chaîne de caractères  | Oui |
-| <a href="#numéro-2-de-téléphone-1-sur-le-site-d'implantation-du-dae---propriété-tel2">tel2</a> | chaîne de caractères  | Non |
-| <a href="#adresse-email-de-contact-du-site-où-le-dae-a-été-implanté---propriété-site_email">site_email</a> | chaîne de caractères (format <code class="highlighter-rouge">email</code>) | Non |
-| <a href="#date-d'installation-du-dae---propriété-date_instal">date_instal</a> | date  | Non |
-| <a href="#etat-de-fonctionnement-du-dae---propriété-etat_fonct">etat_fonct</a> | chaîne de caractères  | Oui |
-| <a href="#numéro-siren-du-fabricant-du-dae---propriété-fab_siren">fab_siren</a> | chaîne de caractères  | Non |
-| <a href="#raison-sociale-du-fabricant-du-dae---propriété-fab_rais">fab_rais</a> | chaîne de caractères  | Oui |
-| <a href="#numéro-siren-du-mainteneur-du-dae---propriété-mnt_siren">mnt_siren</a> | chaîne de caractères  | Non |
-| <a href="#raison-sociale-du-mainteneur-du-dae---propriété-mnt_rais">mnt_rais</a> | chaîne de caractères  | Non |
-| <a href="#nom-du-modèle-de-dae---propriété-modele">modele</a> | chaîne de caractères  | Oui |
-| <a href="#numéro-de-série-du-dae---propriété-num_serie">num_serie</a> | chaîne de caractères  | Oui |
-| <a href="#identifiant-unique-du-dispositif-(iud-européen)---propriété-id_euro">id_euro</a> | chaîne de caractères  | Non |
-| <a href="#présence-d'électrodes-pédiatriques---propriété-lc_ped">lc_ped</a> | booléen  | Non |
-| <a href="#date-de-péremption-des-électrodes-pédiatriques-exprimée-au-format-iso-8601---propriété-dtpr_lcped">dtpr_lcped</a> | date  | Non |
-| <a href="#date-de-péremption-des-électrodes-adultes-exprimée-au-format-iso-8601---propriété-dtpr_lcad">dtpr_lcad</a> | date  | Non |
-| <a href="#date-de-péremption-de-la-batterie-exprimée-au-format-iso-8601---propriété-dtpr_bat">dtpr_bat</a> | date  | Non |
-| <a href="#fréquence-de-la-maintenance---propriété-freq_mnt">freq_mnt</a> | chaîne de caractères  | Non |
-| <a href="#dispositif-de-surveillance-à-distance-du-dae---propriété-dispsurv">dispsurv</a> | booléen  | Non |
-| <a href="#date-de-la-dernière-maintenance-du-dae---propriété-dermnt">dermnt</a> | date  | Oui |
-| <a href="#numéro-siren-de-l'exploitant-du-dae---propriété-expt_siren">expt_siren</a> | chaîne de caractères  | Oui |
-| <a href="#raison-sociale-de-l'exploitant-du-dae---propriété-expt_rais">expt_rais</a> | chaîne de caractères  | Oui |
-| <a href="#numéro-de-téléphone-1-de-l'exploitant---propriété-expt_tel1">expt_tel1</a> | chaîne de caractères  | Oui |
-| <a href="#numéro-de-téléphone-2-de-l'exploitant---propriété-expt_tel2">expt_tel2</a> | chaîne de caractères  | Non |
-| <a href="#adresse-électronique-de-l'exploitant---propriété-expt_email">expt_email</a> | chaîne de caractères (format <code class="highlighter-rouge">email</code>) | Oui |</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriété</th>
+      <th>Type</th>
+      <th>Obligatoire</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#nom-donné-au-dae---propriété-nom">nom</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#latitude---propriété-lat_coor1">lat_coor1</a></td>
+      <td>nombre réel</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#latitude---propriété-long_coor1">long_coor1</a></td>
+      <td>nombre réel</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#numéro-de-la-voie---propriété-adr_num">adr_num</a></td>
+      <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#type-et-nom-de-la-voie---propriété-adr_voie">adr_voie</a></td>
+      <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#code-postal-de-la-commune-d'implantation-du-dae---propriété-com_cp">com_cp</a></td>
+      <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#code-insee-de-la-commune-d'implantation-du-dae---propriété-com_insee">com_insee</a></td>
+      <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#nom-de-la-commune-d'implantation-du-dae---propriété-com_nom">com_nom</a></td>
+      <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#environnement-d'accès-du-dae---propriété-acc">acc</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-acc_lib">acc_lib</a></td>
+      <td>booléen</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-acc_pcsec">acc_pcsec</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-acc_acc">acc_acc</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#etage-d'accessibilité-du-dae---propriété-acc_etg">acc_etg</a></td>
+      <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#complément-d'information-sur-l'accès-au-dae---propriété-acc_complt">acc_complt</a></td>
+      <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#photo-1-du-dae-dans-son-environnement.-il-est-préconisé-un-plan-large-pour-que-le-dae-soit-visible-dans-son-environnement.-la-photo-déposée-devra-être-libre-de-droit,-sous-format-open-source---propriété-photo1">photo1</a></td>
+      <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#photo-2-du-dae-dans-son-environnement.-il-est-préconisé-un-plan-large-pour-que-le-dae-soit-visible-dans-son-environnement.-la-photo-déposée-devra-être-libre-de-droit,-sous-format-open-source---propriété-photo2">photo2</a></td>
+      <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#pour-les-dae-non-disponibles-7j/7,-détail-de-la-disponibilité-de-l'appareil---propriété-disp_j">disp_j</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#pour-les-dae-non-disponibles-24h/24,-détail-de-la-disponibilité-de-l'appareil---propriété-disp_h">disp_h</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#complément-d'information-sur-la-disponibilité-du-dae---propriété-disp_complt">disp_complt</a></td>
+      <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#numéro-de-téléphone-1-sur-le-site-d'implantation-du-dae---propriété-tel1">tel1</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#numéro-2-de-téléphone-1-sur-le-site-d'implantation-du-dae---propriété-tel2">tel2</a></td>
+      <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#adresse-email-de-contact-du-site-où-le-dae-a-été-implanté---propriété-site_email">site_email</a></td>
+      <td>chaîne de caractères (format <code class="highlighter-rouge">email</code>)</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#date-d'installation-du-dae---propriété-date_instal">date_instal</a></td>
+      <td>date</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#etat-de-fonctionnement-du-dae---propriété-etat_fonct">etat_fonct</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#numéro-siren-du-fabricant-du-dae---propriété-fab_siren">fab_siren</a></td>
+      <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#raison-sociale-du-fabricant-du-dae---propriété-fab_rais">fab_rais</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#numéro-siren-du-mainteneur-du-dae---propriété-mnt_siren">mnt_siren</a></td>
+      <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#raison-sociale-du-mainteneur-du-dae---propriété-mnt_rais">mnt_rais</a></td>
+      <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#nom-du-modèle-de-dae---propriété-modele">modele</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#numéro-de-série-du-dae---propriété-num_serie">num_serie</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#identifiant-unique-du-dispositif-(iud-européen)---propriété-id_euro">id_euro</a></td>
+      <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#présence-d'électrodes-pédiatriques---propriété-lc_ped">lc_ped</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#date-de-péremption-des-électrodes-pédiatriques-exprimée-au-format-iso-8601---propriété-dtpr_lcped">dtpr_lcped</a></td>
+      <td>date</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#date-de-péremption-des-électrodes-adultes-exprimée-au-format-iso-8601---propriété-dtpr_lcad">dtpr_lcad</a></td>
+      <td>date</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#date-de-péremption-de-la-batterie-exprimée-au-format-iso-8601---propriété-dtpr_bat">dtpr_bat</a></td>
+      <td>date</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#fréquence-de-la-maintenance---propriété-freq_mnt">freq_mnt</a></td>
+      <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#dispositif-de-surveillance-à-distance-du-dae---propriété-dispsurv">dispsurv</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#date-de-la-dernière-maintenance-du-dae---propriété-dermnt">dermnt</a></td>
+      <td>date</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#numéro-siren-de-l'exploitant-du-dae---propriété-expt_siren">expt_siren</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#raison-sociale-de-l'exploitant-du-dae---propriété-expt_rais">expt_rais</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#numéro-de-téléphone-1-de-l'exploitant---propriété-expt_tel1">expt_tel1</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#numéro-de-téléphone-2-de-l'exploitant---propriété-expt_tel2">expt_tel2</a></td>
+      <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#adresse-électronique-de-l'exploitant---propriété-expt_email">expt_email</a></td>
+      <td>chaîne de caractères (format <code class="highlighter-rouge">email</code>)</td>
+      <td>Oui</td>
+    </tr>
+  </tbody>
+</table>
 
 <h4 id="nom-donné-au-dae---propriété-nom">Nom donné au DAE - Propriété <code class="highlighter-rouge">nom</code></h4>
 

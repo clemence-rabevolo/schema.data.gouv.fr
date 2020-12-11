@@ -317,28 +317,118 @@
 <h3 id="modèle-de-données">Modèle de données</h3>
 
 <h5 id="liste-des-propriétés">Liste des propriétés</h5>
-<p>| Propriété | Type | Obligatoire |
-| – | – | – |
-| <a href="#nom-de-la-collectivité---propriété-coll_nom">COLL_NOM</a> | chaîne de caractères  | Oui |
-| <a href="#code-siret-de-la-collectivité---propriété-coll_siret">COLL_SIRET</a> | chaîne de caractères  | Oui |
-| <a href="#identifiant-du-jeu-de-donnée---propriété-id">ID</a> | chaîne de caractères  | Oui |
-| <a href="#titre-du-jeu-de-données---propriété-titre">TITRE</a> | chaîne de caractères  | Oui |
-| <a href="#description-du-jeu-de-données---propriété-description">DESCRIPTION</a> | chaîne de caractères  | Oui |
-| <a href="#thème-du-jeu-de-données---propriété-theme">THEME</a> | chaîne de caractères  | Oui |
-| <a href="#nom-du-producteur---propriété-producteur_nom">PRODUCTEUR_NOM</a> | chaîne de caractères  | Oui |
-| <a href="#code-siret-du-producteur---propriété-producteur_siret">PRODUCTEUR_SIRET</a> | chaîne de caractères  | Oui |
-| <a href="#maille-de-couverture-spatiale---propriété-couv_spat_maille">COUV_SPAT_MAILLE</a> | chaîne de caractères  | Oui |
-| <a href="#nom-de-couverture-spatiale---propriété-couv_spat_nom">COUV_SPAT_NOM</a> | chaîne de caractères  | Oui |
-| <a href="#date-de-début-de-la-couverture-temporelle---propriété-couv_temp_debut">COUV_TEMP_DEBUT</a> | date  | Oui |
-| <a href="#date-de-fin-de-la-couverture-temporelle---propriété-couv_temp_fin">COUV_TEMP_FIN</a> | date  | Oui |
-| <a href="#date-de-la-première-publication---propriété-date_publ">DATE_PUBL</a> | date  | Oui |
-| <a href="#fréquence-de-la-mise-à-jour---propriété-freq_maj">FREQ_MAJ</a> | chaîne de caractères  | Oui |
-| <a href="#date-de-la-dernière-mise-à-jour---propriété-date_maj">DATE_MAJ</a> | date  | Oui |
-| <a href="#mots-clés---propriété-mots_cles">MOTS_CLES</a> | chaîne de caractères  | Oui |
-| <a href="#licence-appliquée-sur-le-jeu-de-données---propriété-licence">LICENCE</a> | chaîne de caractères  | Oui |
-| <a href="#nombre-de-ressource(s)---propriété-nombre_ressources">NOMBRE_RESSOURCES</a> | nombre entier  | Oui |
-| <a href="#format(s)-des-ressources---propriété-format_ressources">FORMAT_RESSOURCES</a> | chaîne de caractères  | Oui |
-| <a href="#url-d'accès---propriété-url">URL</a> | chaîne de caractères (format <code class="highlighter-rouge">uri</code>) | Oui |</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriété</th>
+      <th>Type</th>
+      <th>Obligatoire</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#nom-de-la-collectivité---propriété-coll_nom">COLL_NOM</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#code-siret-de-la-collectivité---propriété-coll_siret">COLL_SIRET</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#identifiant-du-jeu-de-donnée---propriété-id">ID</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#titre-du-jeu-de-données---propriété-titre">TITRE</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#description-du-jeu-de-données---propriété-description">DESCRIPTION</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#thème-du-jeu-de-données---propriété-theme">THEME</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#nom-du-producteur---propriété-producteur_nom">PRODUCTEUR_NOM</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#code-siret-du-producteur---propriété-producteur_siret">PRODUCTEUR_SIRET</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#maille-de-couverture-spatiale---propriété-couv_spat_maille">COUV_SPAT_MAILLE</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#nom-de-couverture-spatiale---propriété-couv_spat_nom">COUV_SPAT_NOM</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#date-de-début-de-la-couverture-temporelle---propriété-couv_temp_debut">COUV_TEMP_DEBUT</a></td>
+      <td>date</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#date-de-fin-de-la-couverture-temporelle---propriété-couv_temp_fin">COUV_TEMP_FIN</a></td>
+      <td>date</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#date-de-la-première-publication---propriété-date_publ">DATE_PUBL</a></td>
+      <td>date</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#fréquence-de-la-mise-à-jour---propriété-freq_maj">FREQ_MAJ</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#date-de-la-dernière-mise-à-jour---propriété-date_maj">DATE_MAJ</a></td>
+      <td>date</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#mots-clés---propriété-mots_cles">MOTS_CLES</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#licence-appliquée-sur-le-jeu-de-données---propriété-licence">LICENCE</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#nombre-de-ressource(s)---propriété-nombre_ressources">NOMBRE_RESSOURCES</a></td>
+      <td>nombre entier</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#format(s)-des-ressources---propriété-format_ressources">FORMAT_RESSOURCES</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#url-d'accès---propriété-url">URL</a></td>
+      <td>chaîne de caractères (format <code class="highlighter-rouge">uri</code>)</td>
+      <td>Oui</td>
+    </tr>
+  </tbody>
+</table>
 
 <h4 id="nom-de-la-collectivité---propriété-coll_nom">Nom de la collectivité - Propriété <code class="highlighter-rouge">COLL_NOM</code></h4>
 

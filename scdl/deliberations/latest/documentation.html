@@ -341,25 +341,103 @@
 <h3 id="modèle-de-données">Modèle de données</h3>
 
 <h5 id="liste-des-propriétés">Liste des propriétés</h5>
-<p>| Propriété | Type | Obligatoire |
-| – | – | – |
-| <a href="#nom-de-la-collectivité---propriété-coll_nom">COLL_NOM</a> | chaîne de caractères  | Oui |
-| <a href="#code-siret-de-la-collectivité---propriété-coll_siret">COLL_SIRET</a> | chaîne de caractères  | Oui |
-| <a href="#identifiant-de-la-délibération---propriété-delib_id">DELIB_ID</a> | chaîne de caractères  | Oui |
-| <a href="#date-d'adoption-de-la-délibération---propriété-delib_date">DELIB_DATE</a> | date  | Oui |
-| <a href="#code-de-matière-issu-de-la-nomenclature-actes---propriété-delib_matiere_code">DELIB_MATIERE_CODE</a> | chaîne de caractères  | Oui |
-| <a href="#nom-de-matière---propriété-delib_matiere_nom">DELIB_MATIERE_NOM</a> | chaîne de caractères  | Oui |
-| <a href="#objet-de-la-délibération---propriété-delib_objet">DELIB_OBJET</a> | chaîne de caractères  | Oui |
-| <a href="#année-du-budget---propriété-budget_annee">BUDGET_ANNEE</a> | chaîne de caractères  | None |
-| <a href="#nom-du-budget---propriété-budget_nom">BUDGET_NOM</a> | chaîne de caractères  | Non |
-| <a href="#identifiant-de-l'entité-exerçant-le-contrôle-de-légalité---propriété-pref_id">PREF_ID</a> | chaîne de caractères  | Non |
-| <a href="#date-d'enregistrement-de-la-délibération-auprès-du-contrôle-de-légalité---propriété-pref_date">PREF_DATE</a> | date  | Non |
-| <a href="#effectif-théorique-des-votants---propriété-vote_effectif">VOTE_EFFECTIF</a> | nombre entier  | Non |
-| <a href="#effectif-réel-des-votants---propriété-vote_reel">VOTE_REEL</a> | nombre entier  | Non |
-| <a href="#pour---propriété-vote_pour">VOTE_POUR</a> | nombre entier  | Non |
-| <a href="#contre---propriété-vote_contre">VOTE_CONTRE</a> | nombre entier  | Non |
-| <a href="#abstention---propriété-vote_abstention">VOTE_ABSTENTION</a> | nombre entier  | Non |
-| <a href="#lien-vers-le-document-de-la-délibération---propriété-delib_url">DELIB_URL</a> | chaîne de caractères (format <code class="highlighter-rouge">uri</code>) | Non |</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriété</th>
+      <th>Type</th>
+      <th>Obligatoire</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#nom-de-la-collectivité---propriété-coll_nom">COLL_NOM</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#code-siret-de-la-collectivité---propriété-coll_siret">COLL_SIRET</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#identifiant-de-la-délibération---propriété-delib_id">DELIB_ID</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#date-d'adoption-de-la-délibération---propriété-delib_date">DELIB_DATE</a></td>
+      <td>date</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#code-de-matière-issu-de-la-nomenclature-actes---propriété-delib_matiere_code">DELIB_MATIERE_CODE</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#nom-de-matière---propriété-delib_matiere_nom">DELIB_MATIERE_NOM</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#objet-de-la-délibération---propriété-delib_objet">DELIB_OBJET</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#année-du-budget---propriété-budget_annee">BUDGET_ANNEE</a></td>
+      <td>chaîne de caractères</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td><a href="#nom-du-budget---propriété-budget_nom">BUDGET_NOM</a></td>
+      <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#identifiant-de-l'entité-exerçant-le-contrôle-de-légalité---propriété-pref_id">PREF_ID</a></td>
+      <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#date-d'enregistrement-de-la-délibération-auprès-du-contrôle-de-légalité---propriété-pref_date">PREF_DATE</a></td>
+      <td>date</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#effectif-théorique-des-votants---propriété-vote_effectif">VOTE_EFFECTIF</a></td>
+      <td>nombre entier</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#effectif-réel-des-votants---propriété-vote_reel">VOTE_REEL</a></td>
+      <td>nombre entier</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#pour---propriété-vote_pour">VOTE_POUR</a></td>
+      <td>nombre entier</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#contre---propriété-vote_contre">VOTE_CONTRE</a></td>
+      <td>nombre entier</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#abstention---propriété-vote_abstention">VOTE_ABSTENTION</a></td>
+      <td>nombre entier</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#lien-vers-le-document-de-la-délibération---propriété-delib_url">DELIB_URL</a></td>
+      <td>chaîne de caractères (format <code class="highlighter-rouge">uri</code>)</td>
+      <td>Non</td>
+    </tr>
+  </tbody>
+</table>
 
 <h4 id="nom-de-la-collectivité---propriété-coll_nom">Nom de la collectivité - Propriété <code class="highlighter-rouge">COLL_NOM</code></h4>
 
