@@ -253,7 +253,7 @@
       
       
       
-      <h2>etalab/schema-amenagements-cyclables <small><span class="label">0.2.2</span></small></h2>
+      <h2>etalab/schema-amenagements-cyclables <small><span class="label">0.2.3</span></small></h2>
       
       <div class="text-quote">
         <ul>
@@ -263,7 +263,7 @@
           
             
             <li>
-              <a href="/schemas/etalab/schema-amenagements-cyclables/0.2.2/schema_amenagements_cyclables.json">Schéma Schema des aménagements cyclables 0.2.2 (format jsonschema)</a>
+              <a href="/schemas/etalab/schema-amenagements-cyclables/0.2.3/schema_amenagements_cyclables.json">Schéma Schema des aménagements cyclables 0.2.3 (format jsonschema)</a>
             </li>
             
           
@@ -272,6 +272,12 @@
           <li>Versions disponibles :
             <ul>
             
+            
+              <li>
+                <a href="/etalab/schema-amenagements-cyclables/0.2.3.html">
+                  0.2.3
+                </a>
+              </li>
             
               <li>
                 <a href="/etalab/schema-amenagements-cyclables/0.2.2.html">
@@ -339,7 +345,6 @@ Elle recense les aménagements cyclables d’une collectivité en permettant à 
   <li>le code INSEE de la commune ;</li>
   <li>la géolocalisation des aménagements cyclables ;</li>
   <li>le type d’aménagement cyclable ;</li>
-  <li>le sens de circulation des cyclistes ;</li>
   <li>la vitesse de circulation des véhicules motorisés dans le trafic adjacent.</li>
 </ul>
 
@@ -349,13 +354,14 @@ Elle recense les aménagements cyclables d’une collectivité en permettant à 
 
 <p>Les jeux de données seront publiées au format GeoJSON. Certains champs sont obligatoires et d’autres optionnels. Les champs obligatoires doivent être complétés. Les champs optionnels peuvent être vides si la donnée n’est pas disponible. La colonne doit toutefois être présente.</p>
 
-<h2 id="production-et-transmission-des-données">Production et transmission des données</h2>
-
 <p>Les producteurs pourront saisir leurs données sur :</p>
 <ul>
   <li>des outils internes ;</li>
-  <li>l’outil développé par Vélo &amp; Territoires ;</li>
-  <li>OpenStreetMap (OSM).</li>
+  <li>OpenStreetMpa (OSM);</li>
+  <li>les outils développés par Vélo &amp; Territoires à savoir 
+un WebSIG 
+Un gabarit au format shapefile pour QGIS
+Un script SQL pour la création d’une base de données Postgres/PostGIS « vierge ».</li>
 </ul>
 
 <p>Dans le but de maintenir à jour un répertoire consolidé des aménagements cyclables en France, les collectivités sont invitées à transmettre systématiquement les données relatives à leurs aménagements. 
@@ -363,10 +369,11 @@ Elles peuvent ajouter le mot-clef “aménagement cyclable” lors de la publica
 Lees producteurs pourront :</p>
 <ul>
   <li>publier directement sur data.gouv.fr ;</li>
-  <li>déléguer la publication des données à Vélo &amp; Territoires si les données ont été saisie sur leur outil.</li>
+  <li>déléguer la publication des données à Vélo &amp; Territoires si les données ont été saisie sur leur WebSIG ;</li>
+  <li>publier sur OpenStreetMap et Géovélo se chargera de la publication avec une conversion vers le schéma.</li>
 </ul>
 
-<p>Nous préconisons aux producteurs de données de publier leurs fichiers avec la règle de nommage suivante : amenagementcyclable_nom_AAAAMMJJ.geojson avec nom étant le nom de la collectivité productrice des données, par exemple AménagementCyclable_Ain_20191013.geojson</p>
+<p>Nous préconisons aux producteurs de données de publier leurs fichiers avec la règle de nommage suivante : amenagementcyclable_nom.geojson avec nom étant le nom de la collectivité productrice des données, par exemple AménagementCyclable_Ain.geojson</p>
 
 <p>En cas de mise à jour d’un fichier déjà intégré à la base consolidée, il est recommandé de prévenir l’équipe transport.data.gouv.fr qui s’assurera de l’actualisation du fichier en question et de son intégration dans la base consolidée.</p>
 
@@ -374,24 +381,20 @@ Lees producteurs pourront :</p>
 
 <p>Cette base de données ainsi construite est issue de l’assemblage de fichiers de données transmis par des producteurs. Nous tenons à les remercier pour leur travail de normalisation des fichiers.</p>
 
-<p>Deux bases seront publiées sur transport.data.gouv.fr :</p>
+<p>Trois bases seront publiées sur transport.data.gouv.fr :</p>
 <ul>
   <li>une base nationale regroupant les données publiées par les collectivités sur data.gouv.fr ;</li>
-  <li>une base rassemblant les données publiées sur OSM. Vélo &amp; Territoires sera en charge de l’extraction de ces données.</li>
+  <li>une base rassemblant les données publiées sur OSM. Géovélo sera en charge de l’extraction de ces données et de leur mise à jour mensuelle ;</li>
+  <li>une base nationale consolidant les données publiées par les collectivités sur data.gouv.ft et celles publiées sur OSM.</li>
 </ul>
 
 <h2 id="mise-à-jour">Mise-à-jour</h2>
 
-<p>La consolidation de la base sera effectuée en continu par transport.data.gouv.fr à partir des fichiers publiés sur data.gouv avec le tag “aménagements cyclables” par les producteurs et Vélo &amp; Territoires.  des fichiers importés depuis OpenStreetMap ou directement transmis par mail. De nouvelles versions seront publiées lorsque de nouveaux aménagements cyclables seront recensés ou mis-à-jour par les producteurs de données. Cette mise à jour se fait à partir du fichier communiqué précédemment et en reprenant, en les modifiant le cas échéant, les données existantes. Le fichier principal du dataset constitue ainsi systématiquement la dernière mise-à-jour.</p>
+<p>La consolidation de la base sera effectuée en continu par transport.data.gouv.fr à partir des fichiers publiés sur data.gouv avec le tag “aménagements cyclables” par les producteurs, Vélo &amp; Territoires et Géovélo. De nouvelles versions seront publiées lorsque de nouveaux aménagements cyclables seront recensés ou mis-à-jour par les producteurs. Cette mise à jour se fait à partir du fichier communiqué précédemment et en reprenant, en les modifiant le cas échéant, les données existantes. Le fichier principal du dataset constitue ainsi systématiquement la dernière mise-à-jour.</p>
 
 <h2 id="conditions-dutilisation">Conditions d’utilisation</h2>
 
 <p>Comme indiqué dans les métadonnées, le fichier et ses mises-à-jour sont distribués sous la licence ODbL. Cela signifie que vous pouvez télécharger librement cette base, la réutiliser, la modifier, l’utiliser commercialement, etc, tant que vous en mentionnez la source (par exemple dans les mentions légales de votre application) et que vous repartagez les modifications, améliorations et corrections éventuelles dans les mêmes conditions que cette base (licence ODbL). Plus d’informations ici.</p>
-
-<h3 id="fichiers-dexemples">Fichiers d’exemples</h3>
-
-<p>Vous pouvez télécharger des fichiers gabarits d’exemple ci-dessous.
-Un fichier au format JSON.</p>
 
 <p>Nous tenons à remercier les membres du groupe de travail pour leur investissement dans l’élaboration de ce schéma.</p>
 
