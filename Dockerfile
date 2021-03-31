@@ -24,8 +24,11 @@ RUN locale-gen
 RUN mkdir -p repos
 RUN rm -rf data
 
+RUN python --version
+
 ARG CACHEBUST=1
 RUN python main.py
+
 RUN wget -O /tmp/schema-catalog.json https://opendataschema.frama.io/catalog/schema-catalog.json
 RUN jsonschema /tmp/schema-catalog.json -i data/schemas.json
 
