@@ -1,6 +1,5 @@
 FROM python:3.9
 
-
 RUN \
   apt-get update && \
   apt-get install -y ruby-full
@@ -14,7 +13,7 @@ RUN python --version
 
 WORKDIR /aggregateur
 
-RUN python -m venv venv
+RUN python -m venv venv 
 RUN . venv/bin/activate
 RUN pip install -r requirements.txt
 
@@ -24,9 +23,13 @@ RUN echo "fr_FR.UTF-8 UTF-8" | tee -a /etc/locale.gen
 RUN locale-gen
 RUN mkdir -p repos
 RUN rm -rf data
+
+ARG CACHEBUST=1
 RUN python main.py
 RUN wget -O /tmp/schema-catalog.json https://opendataschema.frama.io/catalog/schema-catalog.json
 RUN jsonschema /tmp/schema-catalog.json -i data/schemas.json
+
+ARG CACHEBUST=1
 RUN python issues.py
 
 WORKDIR /api
@@ -34,6 +37,8 @@ RUN python -m venv venv
 RUN . venv/bin/activate
 RUN pip install -r requirements.txt
 RUN mkdir api
+
+ARG CACHEBUST=1
 RUN python recommendations.py > api/recommendations.json
 
 RUN apt-get install -y nodejs \
@@ -56,12 +61,17 @@ USER rubyapp
 
 WORKDIR /web
 RUN npm install
+
+ARG CACHEBUST=1
 RUN bundle install --path vendor/bundle
+ARG CACHEBUST=1
 RUN ./build-local.sh
 
 USER root
 
+ARG CACHEBUST=1
 RUN cp -r /web/_site/* /usr/share/nginx/html/
+ARG CACHEBUST=1
 RUN cp -r /web/_site/* /var/www/html/
 
 # Append "daemon off;" to the beginning of the configuration
