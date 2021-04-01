@@ -21,7 +21,11 @@ RUN apt-get install -y locales
 
 RUN echo "fr_FR.UTF-8 UTF-8" | tee -a /etc/locale.gen
 RUN locale-gen
+
+ARG CACHEBUST=1
 RUN mkdir -p repos
+
+ARG CACHEBUST=1
 RUN rm -rf data
 
 RUN python --version
