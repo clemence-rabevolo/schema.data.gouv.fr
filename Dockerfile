@@ -9,8 +9,6 @@ COPY ./aggregateur /aggregateur
 COPY ./api /api
 COPY ./web /web
 
-RUN python --version
-
 WORKDIR /aggregateur
 
 RUN python -m venv venv 
