@@ -1,11 +1,11 @@
-title: schema.data.gouv.fr
+title: schemadatagouvpreprod.app.etalab.studio
 description: >
     schema.data.gouv.fr est l'initiative de la mission Etalab de référencement des schémas de données publiques pour la France.
 
 twitter_username: etalab
 github_username:  etalab
 github_repository: etalab/schema.data.gouv.fr
-url: https://schema.data.gouv.fr
+url: https://schemadatagouvpreprod.app.etalab.studio
 lang: fr
 permalink: pretty
 
