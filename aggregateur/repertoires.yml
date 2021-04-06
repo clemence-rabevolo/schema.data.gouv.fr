@@ -1,5 +1,5 @@
 schema-sdirve:
-  url: https://github.com/geoffreyaldebert/schema-sdirve
+  url: https://github.com/etalab/schema-sdirve
   type: tableschema
   email: schema@data.gouv.fr
 irve:
