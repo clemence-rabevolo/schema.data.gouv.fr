@@ -4,8 +4,6 @@ RUN \
   apt-get update && \
   apt-get install -y ruby-full
 
-RUN python --version
-
 COPY ./aggregateur /aggregateur
 COPY ./api /api
 COPY ./web /web
