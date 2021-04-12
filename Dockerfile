@@ -8,7 +8,7 @@ COPY ./aggregateur /aggregateur
 COPY ./api /api
 COPY ./web /web
 
-RUN ls -la
+RUN ls -a
 
 WORKDIR /aggregateur
 
