@@ -77,3 +77,8 @@ hautes-remunerations:
   url: https://github.com/etalab/schema-hautes-remunerations
   type: tableschema
   email: schema@data.gouv.fr
+datatourisme:
+  url: https://framagit.org/datatourisme/ontology.git
+  type: other
+  email: schema@data.gouv.fr
+  external_doc: https://www.datatourisme.gouv.fr/ontology/core/
