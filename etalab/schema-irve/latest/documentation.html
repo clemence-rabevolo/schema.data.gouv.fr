@@ -265,7 +265,7 @@
       
       
       
-      <h2>etalab/schema-irve <small><span class="label">1.0.3</span></small></h2>
+      <h2>etalab/schema-irve <small><span class="label">2.0.0</span></small></h2>
       
       <div class="badge-container">
         
@@ -283,7 +283,7 @@
           
             
             <li>
-              <a href="/schemas/etalab/schema-irve/1.0.3/schema.json">Schéma Infrastructures de recharge pour véhicules électriques 1.0.3 (format tableschema)</a>
+              <a href="/schemas/etalab/schema-irve/2.0.0/schema.json">Schéma Infrastructures de recharge pour véhicules électriques 2.0.0 (format tableschema)</a>
             </li>
             
           
@@ -292,6 +292,12 @@
           <li>Versions disponibles :
             <ul>
             
+            
+              <li>
+                <a href="/etalab/schema-irve/2.0.0.html">
+                  2.0.0
+                </a>
+              </li>
             
               <li>
                 <a href="/etalab/schema-irve/1.0.3.html">
@@ -325,7 +331,7 @@
       
       
       <div class="form__group" style="margin-top: 3em">
-        <a href="/etalab/schema-irve/1.0.3/documentation.html" title="Documentation du modèle de données" class="button icon-button">
+        <a href="/etalab/schema-irve/2.0.0/documentation.html" title="Documentation du modèle de données" class="button icon-button">
           <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M4 22v-20h16v11.543c0 4.107-6 2.457-6 2.457s1.518 6-2.638 6h-7.362zm18-7.614v-14.386h-20v24h10.189c3.163 0 9.811-7.223 9.811-9.614zm-5-1.386h-10v-1h10v1zm0-4h-10v1h10v-1zm0-3h-10v1h10v-1z"/></svg>
           Lire la documentation
         </a>
@@ -335,7 +341,7 @@
           Saisir des données
         </a>
 
-        <a href="https://validata.etalab.studio/table-schema?schema_url=https://schema.data.gouv.fr/schemas/etalab/schema-irve/1.0.3/schema.json" title="Valider des données" class="button icon-button">
+        <a href="https://validata.etalab.studio/table-schema?schema_url=https://schema.data.gouv.fr/schemas/etalab/schema-irve/2.0.0/schema.json" title="Valider des données" class="button icon-button">
           <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
           Valider des données
         </a>
@@ -351,8 +357,7 @@
 <ul>
   <li>Schéma créé le : 29/06/2018</li>
   <li>Site web : https://github.com/etalab/schema-irve</li>
-  <li>Version : 1.0.3</li>
-  <li>Clé primaire : <code class="highlighter-rouge">id_pdc</code></li>
+  <li>Version : 2.0.0</li>
 </ul>
 
 <h3 id="modèle-de-données">Modèle de données</h3>
@@ -369,48 +374,73 @@
   </thead>
   <tbody>
     <tr>
-      <td><a href="#propriété-n_amenageur">n_amenageur</a></td>
+      <td><a href="#propriété-nom_amenageur">nom_amenageur</a></td>
+      <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-siren_amenageur">siren_amenageur</a></td>
       <td>chaîne de caractères</td>
       <td>Oui</td>
     </tr>
     <tr>
-      <td><a href="#propriété-n_operateur">n_operateur</a></td>
+      <td><a href="#propriété-contact_amenageur">contact_amenageur</a></td>
+      <td>chaîne de caractères (format <code class="highlighter-rouge">email</code>)</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-nom_operateur">nom_operateur</a></td>
+      <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-contact_operateur">contact_operateur</a></td>
+      <td>chaîne de caractères (format <code class="highlighter-rouge">email</code>)</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-telephone_operateur">telephone_operateur</a></td>
+      <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-nom_enseigne">nom_enseigne</a></td>
       <td>chaîne de caractères</td>
       <td>Oui</td>
     </tr>
     <tr>
-      <td><a href="#propriété-n_enseigne">n_enseigne</a></td>
+      <td><a href="#propriété-id_station_itinerance">id_station_itinerance</a></td>
       <td>chaîne de caractères</td>
       <td>Oui</td>
     </tr>
     <tr>
-      <td><a href="#propriété-id_station">id_station</a></td>
+      <td><a href="#propriété-id_station_local">id_station_local</a></td>
+      <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-nom_station">nom_station</a></td>
       <td>chaîne de caractères</td>
       <td>Oui</td>
     </tr>
     <tr>
-      <td><a href="#propriété-n_station">n_station</a></td>
+      <td><a href="#propriété-implantation_station">implantation_station</a></td>
       <td>chaîne de caractères</td>
       <td>Oui</td>
     </tr>
     <tr>
-      <td><a href="#propriété-ad_station">ad_station</a></td>
+      <td><a href="#propriété-adresse_station">adresse_station</a></td>
       <td>chaîne de caractères</td>
       <td>Oui</td>
     </tr>
     <tr>
-      <td><a href="#propriété-code_insee">code_insee</a></td>
+      <td><a href="#propriété-code_insee_commune">code_insee_commune</a></td>
       <td>chaîne de caractères</td>
       <td>Oui</td>
     </tr>
     <tr>
-      <td><a href="#propriété-xlongitude">Xlongitude</a></td>
-      <td>nombre réel</td>
-      <td>Oui</td>
-    </tr>
-    <tr>
-      <td><a href="#propriété-ylatitude">Ylatitude</a></td>
-      <td>nombre réel</td>
+      <td><a href="#propriété-coordonneesxy">coordonneesXY</a></td>
+      <td>point géographique (format <code class="highlighter-rouge">array</code>)</td>
       <td>Oui</td>
     </tr>
     <tr>
@@ -419,28 +449,113 @@
       <td>Oui</td>
     </tr>
     <tr>
-      <td><a href="#propriété-id_pdc">id_pdc</a></td>
+      <td><a href="#propriété-id_pdc_itinerance">id_pdc_itinerance</a></td>
       <td>chaîne de caractères</td>
       <td>Oui</td>
     </tr>
     <tr>
-      <td><a href="#propriété-puiss_max">puiss_max</a></td>
+      <td><a href="#propriété-id_pdc_local">id_pdc_local</a></td>
+      <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-puissance_nominale">puissance_nominale</a></td>
       <td>nombre réel</td>
       <td>Oui</td>
     </tr>
     <tr>
-      <td><a href="#propriété-type_prise">type_prise</a></td>
+      <td><a href="#propriété-prise_type_ef">prise_type_ef</a></td>
+      <td>booléen</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-prise_type_2">prise_type_2</a></td>
+      <td>booléen</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-prise_type_combo_ccs">prise_type_combo_ccs</a></td>
+      <td>booléen</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-prise_type_chademo">prise_type_chademo</a></td>
+      <td>booléen</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-prise_type_autre">prise_type_autre</a></td>
+      <td>booléen</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-gratuit">gratuit</a></td>
+      <td>booléen</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-paiement_acte">paiement_acte</a></td>
+      <td>booléen</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-paiement_cb">paiement_cb</a></td>
+      <td>booléen</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-paiement_autre">paiement_autre</a></td>
+      <td>booléen</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-tarification">tarification</a></td>
+      <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-condition_acces">condition_acces</a></td>
       <td>chaîne de caractères</td>
       <td>Oui</td>
     </tr>
     <tr>
-      <td><a href="#propriété-acces_recharge">acces_recharge</a></td>
+      <td><a href="#propriété-reservation">reservation</a></td>
+      <td>booléen</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-horaires">horaires</a></td>
       <td>chaîne de caractères</td>
       <td>Oui</td>
     </tr>
     <tr>
-      <td><a href="#propriété-accessibilité">accessibilité</a></td>
+      <td><a href="#propriété-accessibilite_pmr">accessibilite_pmr</a></td>
       <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-restriction_gabarit">restriction_gabarit</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-station_deux_roues">station_deux_roues</a></td>
+      <td>booléen</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-raccordement">raccordement</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-num_pdl">num_pdl</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-date_mise_en_service">date_mise_en_service</a></td>
+      <td>date (format <code class="highlighter-rouge">%Y-%m-%d</code>)</td>
       <td>Oui</td>
     </tr>
     <tr>
@@ -450,76 +565,152 @@
     </tr>
     <tr>
       <td><a href="#propriété-date_maj">date_maj</a></td>
-      <td>date (format <code class="highlighter-rouge">%Y/%m/%d</code>)</td>
+      <td>date (format <code class="highlighter-rouge">%Y-%m-%d</code>)</td>
       <td>Oui</td>
     </tr>
   </tbody>
 </table>
 
-<h4 id="propriété-n_amenageur">Propriété <code class="highlighter-rouge">n_amenageur</code></h4>
+<h4 id="propriété-nom_amenageur">Propriété <code class="highlighter-rouge">nom_amenageur</code></h4>
 
 <blockquote>
-  <p><em>Description : Le nom de l’aménageur, c’est à dire de l’entité publique ou privée propriétaire des infrastructures<br />Ex : Société X, Entité Y</em></p>
+  <p><em>Description : La dénomination sociale du nom de l’aménageur, c’est à dire de l’entité publique ou privée propriétaire des infrastructures. Vous pouvez accéder à cette dénomination exacte sur le site annuaire-entreprises.data.gouv.fr. Ce champs n’est pas obligatoire car il sera automatiquement renseigné lors de la constitution du fichier global de consolidation des IRVE.<br />Ex : Société X, Entité Y</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-siren_amenageur">Propriété <code class="highlighter-rouge">siren_amenageur</code></h4>
+
+<blockquote>
+  <p><em>Description : Le numero SIREN de l’aménageur issue de la base SIRENE des entreprises. Vous pouvez récupérer cet identifiant sur le site annuaire-entreprises.data.gouv.fr.<br />Ex : 130025265</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^\d{9}$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-contact_amenageur">Propriété <code class="highlighter-rouge">contact_amenageur</code></h4>
+
+<blockquote>
+  <p><em>Description : Adresse courriel de l’aménageur. Favoriser les adresses génériques de contact. Cette adresse sera utilisée par les services de l’Etat en cas d’anomalie ou de besoin de mise à jour des données.<br />Ex : contact@societe-amenageur.com</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères (format <code class="highlighter-rouge">email</code>)</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-nom_operateur">Propriété <code class="highlighter-rouge">nom_operateur</code></h4>
+
+<blockquote>
+  <p><em>Description : La dénomination sociale de l’opérateur. L’opérateur est la personne qui exploite l’infrastructure de recharger pour le compte d’un aménageur dans le cadre d’un contrat ou pour son propre compte s’il est l’aménageur. Vous pouvez accéder à cette dénomination exacte sur le site annuaire-entreprises.data.gouv.fr.<br />Ex : Société X, Entité Y</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-contact_operateur">Propriété <code class="highlighter-rouge">contact_operateur</code></h4>
+
+<blockquote>
+  <p><em>Description : Adresse courriel de l’opérateur. Favoriser les adresses génériques de contact.<br />Ex : contact@societe-operateur.com</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères (format <code class="highlighter-rouge">email</code>)</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-telephone_operateur">Propriété <code class="highlighter-rouge">telephone_operateur</code></h4>
+
+<blockquote>
+  <p><em>Description : Numéro de téléphone permettant de contacter l’opérateur.<br />Ex : 0111111111</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-nom_enseigne">Propriété <code class="highlighter-rouge">nom_enseigne</code></h4>
+
+<blockquote>
+  <p><em>Description : Le nom commercial du réseau.<br />Ex : Réseau de recharge ABC</em></p>
   <ul>
     <li>Valeur obligatoire</li>
     <li>Type : chaîne de caractères</li>
   </ul>
 </blockquote>
 
-<h4 id="propriété-n_operateur">Propriété <code class="highlighter-rouge">n_operateur</code></h4>
+<h4 id="propriété-id_station_itinerance">Propriété <code class="highlighter-rouge">id_station_itinerance</code></h4>
 
 <blockquote>
-  <p><em>Description : Le nom de l’opérateur qui opère le réseau d’infrastructure (l’aménageur ou un tiers auquel a été confié la responsabilité par délégation)<br />Ex : Société X, Entité Y</em></p>
+  <p><em>Description : L’identifiant de la station délivré selon les modalités définies à l’article 10 du décret n° 2017-26 du 12 janvier 2017. Ne pas ajouter les séparateurs *. Si la station n’est pas en itinérance, merci d’indiquer “Non concerné”.<br />Ex : FRA68P68021001</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">(?:(?:^|,)(^FR[A-Z0-9]{4,33}$|Non concerné))+$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-id_station_local">Propriété <code class="highlighter-rouge">id_station_local</code></h4>
+
+<blockquote>
+  <p><em>Description : Identifiant de la station utilisé localement. Si vous n’avez pas d’identifiant unique et que vous souhaitez en récupérer un, vous pouvez vous rendre sur https://heidi.app.etalab.studio. En cas de station qui n’est pas ouverte à l’itinérance, cet identifiant est indispensable.<br />Ex : 01F2KMMRZVQ5FQY882PCJQAPQ0</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-nom_station">Propriété <code class="highlighter-rouge">nom_station</code></h4>
+
+<blockquote>
+  <p><em>Description : Le nom de la station.<br />Ex : Picpus, Belleville, Villiers</em></p>
   <ul>
     <li>Valeur obligatoire</li>
     <li>Type : chaîne de caractères</li>
   </ul>
 </blockquote>
 
-<h4 id="propriété-n_enseigne">Propriété <code class="highlighter-rouge">n_enseigne</code></h4>
+<h4 id="propriété-implantation_station">Propriété <code class="highlighter-rouge">implantation_station</code></h4>
 
 <blockquote>
-  <p><em>Description : Le nom commercial du réseau<br />Ex : Réseau de recharge ABC</em></p>
+  <p><em>Description : Le type d’implantation de la station. 
+Pour une station sur voirie, sélectionner “Voirie”. 
+Pour un parking public, (en ouvrage, en enclos, etc.), sélectionner “Parking public”. Ces parkings sont généralement en gestion directe ou déléguée de la collectivité territoriale. 
+Pour un parking privé à usage public / parking ouvert (ex: zone commerciale), sélectionner “Parking privé à usage public”. 
+Pour un parking réservé à la clientèle, aux usagers, sélectionnez “Parking privé réservé à la clientèle” (il s’agit d’un choix de l’aménageur public ou privé sur l’utilisation de son parking. Ex: hôtel, commerce, éventuellement certains bâtiments publics). 
+Pour une station dédiée à la recharge rapide dont la durée d’utilisation est généralement limitée à la recharge principalement rapide et dont la première fonction de la station est la recharge et non le stationnement, sélectionner “Station dédiée à la recharge rapide” (ex : aires de service sur axes routiers, stations services, etc.).<br />Ex : Parking public</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>Voirie</li>
+        <li>Parking public</li>
+        <li>Parking privé à usage public</li>
+        <li>Parking privé réservé à la clientèle</li>
+        <li>Station dédiée à la recharge rapide</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-adresse_station">Propriété <code class="highlighter-rouge">adresse_station</code></h4>
+
+<blockquote>
+  <p><em>Description : L’adresse complète de la station : [numéro] [rue] [code postal] [ville].<br />Ex : 1 avenue de la Paix 75001 Paris</em></p>
   <ul>
     <li>Valeur obligatoire</li>
     <li>Type : chaîne de caractères</li>
   </ul>
 </blockquote>
 
-<h4 id="propriété-id_station">Propriété <code class="highlighter-rouge">id_station</code></h4>
+<h4 id="propriété-code_insee_commune">Propriété <code class="highlighter-rouge">code_insee_commune</code></h4>
 
 <blockquote>
-  <p><em>Description : L’identifiant de la station délivré selon les modalités définies à l’article 10 du décret n° 2017-26 du 12 janvier 2017<br />Ex : FR</em>A68<em>P68021</em>A*</p>
-  <ul>
-    <li>Valeur obligatoire</li>
-    <li>Type : chaîne de caractères</li>
-  </ul>
-</blockquote>
-
-<h4 id="propriété-n_station">Propriété <code class="highlighter-rouge">n_station</code></h4>
-
-<blockquote>
-  <p><em>Description : le nom de la station<br />Ex : Picpus, Belleville, Villiers</em></p>
-  <ul>
-    <li>Valeur obligatoire</li>
-    <li>Type : chaîne de caractères</li>
-  </ul>
-</blockquote>
-
-<h4 id="propriété-ad_station">Propriété <code class="highlighter-rouge">ad_station</code></h4>
-
-<blockquote>
-  <p><em>Description : L’adresse complète de la station : [numéro] [rue], [code postal] [ville]<br />Ex : 1 avenue de la Paix, 75001 Paris</em></p>
-  <ul>
-    <li>Valeur obligatoire</li>
-    <li>Type : chaîne de caractères</li>
-  </ul>
-</blockquote>
-
-<h4 id="propriété-code_insee">Propriété <code class="highlighter-rouge">code_insee</code></h4>
-
-<blockquote>
-  <p><em>Description : Le code INSEE de la commune d’implantation<br />Ex : 06088, 2B002 (pour une commune corse)</em></p>
+  <p><em>Description : Le code INSEE de la commune d’implantation.<br />Ex : 06088, 2B002 (pour une commune corse)</em></p>
   <ul>
     <li>Valeur obligatoire</li>
     <li>Type : chaîne de caractères</li>
@@ -527,83 +718,270 @@
   </ul>
 </blockquote>
 
-<h4 id="propriété-xlongitude">Propriété <code class="highlighter-rouge">Xlongitude</code></h4>
+<h4 id="propriété-coordonneesxy">Propriété <code class="highlighter-rouge">coordonneesXY</code></h4>
 
 <blockquote>
-  <p><em>Description : La longitude en degrés décimaux (point comme séparateur décimal) de la localisation de la station exprimée dans le système de coordonnées WGS84<br />Ex : 7.48710500</em></p>
+  <p><em>Description : La latitude et la longitude en degrés décimaux (point comme séparateur décimal) de la localisation de la station exprimée dans le système de coordonnées WGS84 au format [lat,lon].<br />Ex : [48.345345,7.48710500]</em></p>
   <ul>
     <li>Valeur obligatoire</li>
-    <li>Type : nombre réel</li>
-  </ul>
-</blockquote>
-
-<h4 id="propriété-ylatitude">Propriété <code class="highlighter-rouge">Ylatitude</code></h4>
-
-<blockquote>
-  <p><em>Description : La latitude en degrés décimaux (point comme séparateur décimal) de la localisation de la station exprimée le système de coordonnées WGS84<br />Ex : 47.63495500</em></p>
-  <ul>
-    <li>Valeur obligatoire</li>
-    <li>Type : nombre réel</li>
+    <li>Type : point géographique (format <code class="highlighter-rouge">array</code>)</li>
   </ul>
 </blockquote>
 
 <h4 id="propriété-nbre_pdc">Propriété <code class="highlighter-rouge">nbre_pdc</code></h4>
 
 <blockquote>
-  <p><em>Description : Le nombre de points de recharge sur la station<br />Ex : 1, 10</em></p>
+  <p><em>Description : Le nombre de points de recharge sur la station.<br />Ex : 1, 10</em></p>
   <ul>
     <li>Valeur obligatoire</li>
     <li>Type : nombre entier</li>
+    <li>Valeur supérieur à 0</li>
   </ul>
 </blockquote>
 
-<h4 id="propriété-id_pdc">Propriété <code class="highlighter-rouge">id_pdc</code></h4>
+<h4 id="propriété-id_pdc_itinerance">Propriété <code class="highlighter-rouge">id_pdc_itinerance</code></h4>
 
 <blockquote>
-  <p><em>Description : L’identifiant du point de recharge délivré selon les modalités définies à l’article 10 du décret n° 2017-26 du 12 janvier 2017<br />Ex : FR</em>A68<em>E68021</em>A<em>B1</em>D*</p>
+  <p><em>Description : L’identifiant du point de recharge délivré selon les modalités définies à l’article 10 du décret n° 2017-26 du 12 janvier 2017. Ne pas mettre de séparateur * ou -. Si le point de recharge n’est pas en itinérance, merci d’indiquer “Non concerné”.<br />Ex : FRA68P680210015</em></p>
   <ul>
     <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">(?:(?:^|,)(^FR[A-Z0-9]{4,33}$|Non concerné))+$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-id_pdc_local">Propriété <code class="highlighter-rouge">id_pdc_local</code></h4>
+
+<blockquote>
+  <p><em>Description : Identifiant du point de recharge utilisé localement. Si vous n’avez pas d’identifiant unique et que vous souhaitez en récupérer un, vous pouvez vous rendre sur https://heidi.app.etalab.studio. En cas de point de recharge qui n’est pas ouvert à l’itinérance, cet identifiant est indispensable.<br />Ex : 01F2KNFARDSJG7KEH1YHG4033M</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
     <li>Type : chaîne de caractères</li>
   </ul>
 </blockquote>
 
-<h4 id="propriété-puiss_max">Propriété <code class="highlighter-rouge">puiss_max</code></h4>
+<h4 id="propriété-puissance_nominale">Propriété <code class="highlighter-rouge">puissance_nominale</code></h4>
 
 <blockquote>
-  <p><em>Description : La puissance maximale délivrée à chaque point de recharge, exprimée en kW, en fonction du contrat d’abonnement de puissance de la station et du type de connecteur<br />Ex : 22.00</em></p>
+  <p><em>Description : Puissance maximale en kW que peut recevoir un véhicule connecté au point de recharge, déterminée en prenant en compte les capacités techniques propres du point, la puissance souscrite au réseau de distribution et les caractéristiques de l’installation comme le câblage par exemple, mais sans prendre en compte ni les limitations du connecteur ni celles du véhicule.<br />Ex : 22.00</em></p>
   <ul>
     <li>Valeur obligatoire</li>
     <li>Type : nombre réel</li>
+    <li>Valeur supérieur à 0</li>
   </ul>
 </blockquote>
 
-<h4 id="propriété-type_prise">Propriété <code class="highlighter-rouge">type_prise</code></h4>
+<h4 id="propriété-prise_type_ef">Propriété <code class="highlighter-rouge">prise_type_ef</code></h4>
 
 <blockquote>
-  <p><em>Description : Les types de prises ou de connecteurs disponibles sur chaque point de charge<br />Ex : E/F, T2</em></p>
+  <p><em>Description : Disponibilité d’une prise de type E/F sur le point de recharge. Indiquer “true” si vrai, “false” si faux.<br />Ex : False</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-prise_type_2">Propriété <code class="highlighter-rouge">prise_type_2</code></h4>
+
+<blockquote>
+  <p><em>Description : Disponibilité d’une prise de type 2 sur le point de recharge. Indiquer “true” si vrai, “false” si faux.<br />Ex : False</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-prise_type_combo_ccs">Propriété <code class="highlighter-rouge">prise_type_combo_ccs</code></h4>
+
+<blockquote>
+  <p><em>Description : Disponibilité d’une prise de type Combo / CCS sur le point de recharge. Indiquer “true” si vrai, “false” si faux.<br />Ex : False</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-prise_type_chademo">Propriété <code class="highlighter-rouge">prise_type_chademo</code></h4>
+
+<blockquote>
+  <p><em>Description : Disponibilité d’une prise de type Chademo sur le point de recharge. Indiquer “true” si vrai, “false” si faux.<br />Ex : False</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-prise_type_autre">Propriété <code class="highlighter-rouge">prise_type_autre</code></h4>
+
+<blockquote>
+  <p><em>Description : Disponibilité d’une prise d’un autre type sur le point de recharge. Indiquer “true” si vrai, “false” si faux. Le ou les types de prises sont à préciser dans le champs “observations”.<br />Ex : False</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-gratuit">Propriété <code class="highlighter-rouge">gratuit</code></h4>
+
+<blockquote>
+  <p><em>Description : Gratuité de la recharge. Indiquer “true” si vrai, “false” si faux.<br />Ex : False</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-paiement_acte">Propriété <code class="highlighter-rouge">paiement_acte</code></h4>
+
+<blockquote>
+  <p><em>Description : Possibilité de paiement à l’acte (sans identification ni abonnement). Indiquer “true” si vrai, “false” si faux.<br />Ex : False</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-paiement_cb">Propriété <code class="highlighter-rouge">paiement_cb</code></h4>
+
+<blockquote>
+  <p><em>Description : Possibilité de paiement par carte bancaire (présence d’un terminal de paiement avec une CB). Indiquer “true” si vrai, “false” si faux.<br />Ex : False</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-paiement_autre">Propriété <code class="highlighter-rouge">paiement_autre</code></h4>
+
+<blockquote>
+  <p><em>Description : Possibilité de paiement par un autre moyen (qui peut être préciser dans le champs “observation”. Indiquer “true” si vrai, “false” si faux.<br />Ex : False</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-tarification">Propriété <code class="highlighter-rouge">tarification</code></h4>
+
+<blockquote>
+  <p><em>Description : Toutes informations pouvant être apportées concernant les tarification(s) pratiquée(s).<br />Ex : 0,40€ / kwh pour les non abonnés.</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-condition_acces">Propriété <code class="highlighter-rouge">condition_acces</code></h4>
+
+<blockquote>
+  <p><em>Description : Eventuelles conditions d’accès à la station, hors gabarit. Dans le cas d’un accès libre sans contrainte matérielle physique (ex : absence de barrière), indiquer “Accès libre”. 
+Dans le cas d’un accès limité / réservé qui nécessite une identification ou passage d’une barrière, indiquer “Accès réservé” (ce type d’accès inclut les IRVE sur le réseau autoroutier payant - passage péage).<br />Ex : Accès libre</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>Accès libre</li>
+        <li>Accès réservé</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-reservation">Propriété <code class="highlighter-rouge">reservation</code></h4>
+
+<blockquote>
+  <p><em>Description : Possibilité de réservation à l’avance d’un point de recharge. Indiquer “true” si vrai, “false” si faux.<br />Ex : False</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-horaires">Propriété <code class="highlighter-rouge">horaires</code></h4>
+
+<blockquote>
+  <p><em>Description : Amplitude d’ouverture de la station. Si ouverte sans interruption indiquer « 24/7» sinon indiquer les horaires sous cette forme : Mo-Fr 08:00-12:00,Mo-Fr 14:00-18:00,Th 08:00-18:00.<br />Ex : Mo-Fr 08:00-12:00,Mo-Fr 14:00-18:00,Th 08:00-18:00</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">(.*?)((\d{1,2}:\d{2})-(\d{1,2}:\d{2})|24/7)</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-accessibilite_pmr">Propriété <code class="highlighter-rouge">accessibilite_pmr</code></h4>
+
+<blockquote>
+  <p><em>Description : Accessibilité du point de recharge aux personnes à mobilité réduite. Dans le cas d’un point de recharge signalisé et réservé PMR, indiquer “Réservé PMR”. 
+Dans le cas d’une point de recharge non réservé PMR mais accessible PMR, indiquer “Accessible mais non réservé PMR”. 
+Dans le cas d’un point de recharge non accessible PMR, indiquer “Non accessible”<br />Ex : False</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>Réservé PMR</li>
+        <li>Accessible mais non réservé PMR</li>
+        <li>Non accessible</li>
+        <li>Accessibilité inconnue</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-restriction_gabarit">Propriété <code class="highlighter-rouge">restriction_gabarit</code></h4>
+
+<blockquote>
+  <p><em>Description : Toutes informations relatives aux restrictions d’accès liées au gabarit des véhicules.<br />Ex : Hauteur maximale 2m</em></p>
   <ul>
     <li>Valeur obligatoire</li>
     <li>Type : chaîne de caractères</li>
   </ul>
 </blockquote>
 
-<h4 id="propriété-acces_recharge">Propriété <code class="highlighter-rouge">acces_recharge</code></h4>
+<h4 id="propriété-station_deux_roues">Propriété <code class="highlighter-rouge">station_deux_roues</code></h4>
 
 <blockquote>
-  <p><em>Description : Modalités d’accès à la recharge<br />Ex : Payant, Gratuit, Sur abonnement</em></p>
+  <p><em>Description : La station est-elle réservée aux véhicules à deux roues ? Indiquer “true” si vrai, “false” si faux.<br />Ex : False</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-raccordement">Propriété <code class="highlighter-rouge">raccordement</code></h4>
+
+<blockquote>
+  <p><em>Description : Type de raccordement de la station au réseau de distribution d’électricité : direct (point de livraison exclusivement dédié à la station) ou indirect.<br />Ex : Direct</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>Direct</li>
+        <li>Indirect</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-num_pdl">Propriété <code class="highlighter-rouge">num_pdl</code></h4>
+
+<blockquote>
+  <p><em>Description : Numéro du point de livraison d’électricité, y compris en cas de raccordement indirect. Dans le cas d’un territoire desservi par ENEDIS, ce numéro doit compoter 14 chiffres.<br />Ex : 12345678912345</em></p>
   <ul>
     <li>Valeur obligatoire</li>
     <li>Type : chaîne de caractères</li>
   </ul>
 </blockquote>
 
-<h4 id="propriété-accessibilité">Propriété <code class="highlighter-rouge">accessibilité</code></h4>
+<h4 id="propriété-date_mise_en_service">Propriété <code class="highlighter-rouge">date_mise_en_service</code></h4>
 
 <blockquote>
-  <p><em>Description : Amplitude d’ouverture de la station<br />Ex : 24/24 7/7 jours</em></p>
+  <p><em>Description : Date de mise en service de la station<br />Ex : 2018-08-08, 2015-12-30</em></p>
   <ul>
     <li>Valeur obligatoire</li>
-    <li>Type : chaîne de caractères</li>
+    <li>Type : date (format <code class="highlighter-rouge">%Y-%m-%d</code>)</li>
   </ul>
 </blockquote>
 
@@ -623,7 +1001,7 @@
   <p><em>Description : Date de mise à jour des données<br />Ex : 2018/08/08, 2015/12/30</em></p>
   <ul>
     <li>Valeur obligatoire</li>
-    <li>Type : date (format <code class="highlighter-rouge">%Y/%m/%d</code>)</li>
+    <li>Type : date (format <code class="highlighter-rouge">%Y-%m-%d</code>)</li>
   </ul>
 </blockquote>
 
