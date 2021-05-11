@@ -360,9 +360,7 @@
 
 <h2 id="contexte">Contexte</h2>
 
-<p>Dans le but de constituer un répertoire national des Infrastructures de recharge pour véhicules électriques (IRVE), ouvert et accessible à tous, les collectivités locales porteuses d’un projet d’installation d’IRVE doivent, au fur et à mesure de la mise en service des stations, publier sur la plateforme data.gouv.fr les données statiques relatives à la localisation et aux caractéristiques techniques de ces installations selon les modalités définies dans <a href="https://www.legifrance.gouv.fr/jo_pdf.do?id=JORFTEXT000033860733">l’arrêté du 12 janvier 2017</a>.</p>
-
-<p>De fait, ce schéma a été élaboré par Etalab à partir des documents suivants :</p>
+<p>Dans le but de constituer un répertoire national des Infrastructures de recharge pour véhicules électriques (IRVE), ouvert et accessible à tous, les collectivités locales porteuses d’un projet d’installation d’IRVE doivent, au fur et à mesure de la mise en service des stations, publier sur la plateforme data.gouv.fr les données statiques relatives à la localisation et aux caractéristiques techniques de ces installations selon les modalités définies dans <a href="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000043475363">l’arrêté du 4 mai 2021</a>.</p>
 
 <ul>
   <li><strong>Documents de cadrage juridique</strong>
@@ -379,9 +377,32 @@
   </li>
 </ul>
 
+<h2 id="création-dun-fichier-de-données-conforme">Création d’un fichier de données conforme</h2>
+
+<p>Les données collectées doivent respecter un formalisme particulier (schéma de données) décrit sur <a href="https://schema.data.gouv.fr/etalab/schema-irve/latest/documentation.html">la section documentation</a> de cette page.</p>
+
+<p>Les données sont à remplir au format CSV, encodage UTF-8.</p>
+
+<p>Plusieurs solutions existent pour générer ce fichier CSV.</p>
+
+<h2 id="utilisation-de-notre-outil-daide-à-la-saisie">Utilisation de notre outil d’aide à la saisie</h2>
+
+<p>Pour être guidé pas à pas, merci de vous rendre sur la <a href="https://doc.transport.data.gouv.fr/producteurs/infrastructures-de-recharge-de-vehicules-electriques-irve">documentation officielle</a> de transport.data.gouv.fr, Point d’accès national aux données de transport.</p>
+
+<p>Pour faciliter le remplissage des données, Etalab met à disposition un générateur CSV conforme au schéma de données, vous permettant de remplir les différents champs demandés. Cet outil vous permet de vous assurer que les données que vous remplissez sont au bon format. Pour l’utiliser, rendez-vous sur <a href="https://publier.etalab.studio/select?schema=etalab%2Fschema-irve">publier.etalab.studio</a>, vous pourrez alors publier votre fichier à partir :</p>
+<ul>
+  <li>d’un fichier csv déjà existant. (vous pouvez partir de <a href="https://www.data.gouv.fr/fr/datasets/fichier-exemple-stations-de-recharge-de-vehicules-electriques/">ce fichier exemple</a>.</li>
+  <li>d’un formulaire</li>
+  <li>d’un tableur (encore en expérimentation)</li>
+</ul>
+
+<p>Une fois vos données chargées ou remplies, un formulaire vous proposera de les publier sur data.gouv.fr.</p>
+
 <h2 id="consolidation">Consolidation</h2>
 
 <p>Etalab réalise une consolidation des jeux de données IRVE déposés sur data.gouv.fr. Le code est <a href="https://github.com/etalab/notebooks/tree/master/irve">disponible ici</a>. Le fichier en résultant est <a href="https://www.data.gouv.fr/fr/datasets/5448d3e0c751df01f85d0572">publié ici sur data.gouv.fr</a>.</p>
+
+<p>Un nouveau fichier, contenant la base de consolidation des jeux de données IRVE obéissant au schéma 2.0.0 sera disponible pochainement sur cette même page.</p>
 
 <h2 id="voir-aussi">Voir aussi</h2>
 
