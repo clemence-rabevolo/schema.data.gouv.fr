@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+
+    <title>Documentation de Schéma des données d&#39;accessibilité des ERPs</title>
+    <meta name="description" content="acceslibre" />
+
+    <link rel="stylesheet" type="text/css" media="screen,projection" href="https://schema.data.gouv.fr/assets/css/template.css">
+    <link rel="stylesheet" type="text/css" media="screen,projection" href="https://schema.data.gouv.fr/assets/css/main.css">
+    <link rel="canonical" href="https://schema.data.gouv.fr/MTES-MCT/acceslibre-schema/latest/documentation.html" />
+    <link rel="alternate" type="application/rss+xml" title="schema.data.gouv.fr" href="/feed.xml" />
+</head>
+
+
+  <body>
+    <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <defs>
+
+        <symbol id="icon-mail">
+          <title>mail</title>
+          <path d="M29,4l-26,0c-1.65,0 -3,1.35 -3,3l0,20c0,1.65 1.35,3 3,3l26,0c1.65,0 3,-1.35 3,-3l0,-20c0,-1.65 -1.35,-3 -3,-3Zm-16.539,13.199l-8.461,6.59l0,-15.676l8.461,9.086Zm-6.949,-9.199l20.976,0l-10.488,7.875l-10.488,-7.875l0,0Zm7.278,9.553l3.21,3.447l3.21,-3.447l6.58,8.447l-19.579,0l6.58,-8.447l-0.001,0Zm6.749,-0.354l8.461,-9.086l0,15.676l-8.461,-6.59Z"/>
+        </symbol>
+
+        <symbol id="icon-fb">
+          <title>facebook</title>
+          <path d="M29,0l-26,0c-1.65,0 -3,1.35 -3,3l0,26c0,1.65 1.35,3 3,3l13,0l0,-14l-4,0l0,-4l4,0l0,-2c0,-3.306 2.694,-6 6,-6l4,0l0,4l-4,0c-1.1,0 -2,0.9 -2,2l0,2l6,0l-1,4l-5,0l0,14l9,0c1.65,0 3,-1.35 3,-3l0,-26c0,-1.65 -1.35,-3 -3,-3Z"/>
+        </symbol>
+
+        <symbol id="icon-github">
+          <title>github</title>
+          <path d="M16,0.395c-8.836,0 -16,7.163 -16,16c0,7.069 4.585,13.067 10.942,15.182c0.8,0.148 1.094,-0.347 1.094,-0.77c0,-0.381 -0.015,-1.642 -0.022,-2.979c-4.452,0.968 -5.391,-1.888 -5.391,-1.888c-0.728,-1.849 -1.776,-2.341 -1.776,-2.341c-1.452,-0.993 0.11,-0.973 0.11,-0.973c1.606,0.113 2.452,1.649 2.452,1.649c1.427,2.446 3.743,1.739 4.656,1.33c0.143,-1.034 0.558,-1.74 1.016,-2.14c-3.554,-0.404 -7.29,-1.777 -7.29,-7.907c0,-1.747 0.625,-3.174 1.649,-4.295c-0.166,-0.403 -0.714,-2.03 0.155,-4.234c0,0 1.344,-0.43 4.401,1.64c1.276,-0.355 2.645,-0.532 4.005,-0.539c1.359,0.006 2.729,0.184 4.008,0.539c3.054,-2.07 4.395,-1.64 4.395,-1.64c0.871,2.204 0.323,3.831 0.157,4.234c1.026,1.12 1.647,2.548 1.647,4.295c0,6.145 -3.743,7.498 -7.306,7.895c0.574,0.497 1.085,1.47 1.085,2.963c0,2.141 -0.019,3.864 -0.019,4.391c0,0.426 0.288,0.925 1.099,0.768c6.354,-2.118 10.933,-8.113 10.933,-15.18c0,-8.837 -7.164,-16 -16,-16l0,0Z"/>
+        </symbol>
+
+        <symbol id="icon-rss">
+          <title>rss</title>
+          <path d="M29,0l-26,0c-1.65,0 -3,1.35 -3,3l0,26c0,1.65 1.35,3 3,3l26,0c1.65,0 3,-1.35 3,-3l0,-26c0,-1.65 -1.35,-3 -3,-3Zm-20.281,25.975c-1.5,0 -2.719,-1.206 -2.719,-2.706c0,-1.488 1.219,-2.712 2.719,-2.712c1.506,0 2.719,1.225 2.719,2.712c0,1.5 -1.219,2.706 -2.719,2.706Zm6.825,0.025c0,-2.556 -0.994,-4.962 -2.794,-6.762c-1.806,-1.806 -4.2,-2.8 -6.75,-2.8l0,-3.912c7.425,0 13.475,6.044 13.475,13.475l-3.931,0l0,-0.001Zm6.944,0c0,-9.094 -7.394,-16.5 -16.481,-16.5l0,-3.912c11.25,0 20.406,9.162 20.406,20.413l-3.925,0l0,-0.001Z"/>
+        </symbol>
+
+        <symbol id="icon-rss">
+          <title>rss</title>
+          <path id="Checked-Icon" d="M13.23,0.307l-8.118,8.197l-3.345,-3.384c-0.405,-0.408 -1.06,-0.408 -1.464,0c-0.404,0.408 -0.404,1.071 0,1.479l4.055,4.101c0.208,0.21 0.481,0.31 0.754,0.305c0.272,0.005 0.545,-0.095 0.753,-0.305l8.829,-8.915c0.404,-0.408 0.404,-1.07 0,-1.478c-0.404,-0.409 -1.06,-0.409 -1.464,0Z"/>
+        </symbol>
+
+        <symbol id="icon-twitter">
+          <title>twitter</title>
+          <path d="M32,7.075c-1.175,0.525 -2.444,0.875 -3.769,1.031c1.356,-0.813 2.394,-2.1 2.887,-3.631c-1.269,0.75 -2.675,1.3 -4.169,1.594c-1.2,-1.275 -2.906,-2.069 -4.794,-2.069c-3.625,0 -6.563,2.938 -6.563,6.563c0,0.512 0.056,1.012 0.169,1.494c-5.456,-0.275 -10.294,-2.888 -13.531,-6.862c-0.563,0.969 -0.887,2.1 -0.887,3.3c0,2.275 1.156,4.287 2.919,5.463c-1.075,-0.031 -2.087,-0.331 -2.975,-0.819c0,0.025 0,0.056 0,0.081c0,3.181 2.263,5.838 5.269,6.437c-0.55,0.15 -1.131,0.231 -1.731,0.231c-0.425,0 -0.831,-0.044 -1.237,-0.119c0.838,2.606 3.263,4.506 6.131,4.563c-2.25,1.762 -5.075,2.813 -8.156,2.813c-0.531,0 -1.05,-0.031 -1.569,-0.094c2.913,1.869 6.362,2.95 10.069,2.95c12.075,0 18.681,-10.006 18.681,-18.681c0,-0.287 -0.006,-0.569 -0.019,-0.85c1.281,-0.919 2.394,-2.075 3.275,-3.394l0,-0.001Z"/>
+        </symbol>
+
+        <symbol id="icon-googleplus">
+          <title>google +</title>
+          <path d="M29 0H3C1.35 0 0 1.35 0 3v26c0 1.65 1.35 3 3 3h26c1.65 0 3-1.35 3-3V3c0-1.65-1.35-3-3-3zM12 24c-4.425 0-8-3.575-8-8s3.575-8 8-8c2.162 0 3.969.787 5.363 2.094l-2.175 2.088c-.594-.569-1.631-1.231-3.188-1.231-2.731 0-4.963 2.263-4.963 5.05s2.231 5.05 4.963 5.05c3.169 0 4.356-2.275 4.538-3.45h-4.537v-2.744h7.556c.069.4.125.8.125 1.325 0 4.575-3.063 7.819-7.681 7.819L12 24zm16-8h-2v2h-2v-2h-2v-2h2v-2h2v2h2v2z" fill="#fff" fill-rule="nonzero"/>
+        </symbol>
+
+        <symbol id="icon-cross">
+            <title>cross</title>
+            <path d="M10 0c5.519 0 10 4.481 10 10s-4.481 10-10 10S0 15.519 0 10 4.481 0 10 0zm3.975 7.56a4.673 4.673 0 0 0-1.535-1.535L10 8.465l-2.44-2.44A4.673 4.673 0 0 0 6.025 7.56L8.465 10l-2.44 2.44c.384.625.91 1.151 1.535 1.535l2.44-2.44 2.44 2.44a4.673 4.673 0 0 0 1.535-1.535L11.535 10l2.44-2.44z"/>
+        </symbol>
+
+        <symbol id="icon-link" viewBox="0 0 512 512">
+            <title>link</title>
+            <path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/>
+        </symbol>
+      </defs>
+    </svg>
+      
+<header class="navbar">
+  <div class="navbar__container">
+    <a class="navbar__home" href="/">
+      <img class="navbar__logo" src="/assets/images/logo-marianne.svg"
+        alt="schema.data.gouv.fr" /><span class="navbar__domain">schema</span><img src="/assets/images/pointdatagouvfr.svg" class="navbar__gouvfr" alt="gouv.fr" />
+    </a>
+    
+    <nav>
+      <ul class="nav__links">
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+    <div class="hero">
+  <div class="hero__container">
+    <h1 class="hero__title">schema.data.gouv.fr</h1>
+  </div>
+</div>
+
+
+<section class="documentation">
+  <nav class="side-pane" role="navigation">
+  <div class="return-datagouvfr">
+      <a href="https://www.data.gouv.fr" title="Aller sur data.gouv.fr">Aller sur data.gouv.fr</a>
+  </div>
+  <ul class="side-pane__menu">
+    
+    
+      
+      <a>Documentation</a>
+      
+      <li class="side-pane__dropdown unfolded">
+        <ul class="side-pane__submenu">
+        
+        <li >
+          <a class="side-pane__link" href="/documentation/schemas-investigation-construction">Schémas en investigation et en cours de construction</a>
+        </li>
+        
+        <li >
+          <a class="side-pane__link" href="/documentation/guide-producteur-schema">Guide : créer des schémas de données</a>
+        </li>
+        
+        <li >
+          <a class="side-pane__link" href="/documentation/ajouter-un-schema">Ajouter un schéma</a>
+        </li>
+        
+        <li >
+          <a class="side-pane__link" href="/documentation/validation-schemas">Validation des schémas</a>
+        </li>
+        
+        <li >
+          <a class="side-pane__link" href="/documentation/integration-autres-systemes">Intégration avec d&#39;autres systèmes</a>
+        </li>
+        
+        <li >
+          <a class="side-pane__link" href="/documentation/schemas-reglementaires">Schémas réglementaires</a>
+        </li>
+        
+        </ul>
+      </li>
+      
+    
+      
+      <a></a>
+      
+      <li class="side-pane__dropdown unfolded">
+        <ul class="side-pane__submenu">
+        
+        </ul>
+      </li>
+      
+    
+      
+    
+
+    <a>Schémas</a>
+    <li class="side-pane__dropdown unfolded">
+      <ul class="side-pane__submenu">
+        
+            
+            
+            <li >
+              <a class="side-pane__link" href="/139bercy/format-commande-publique/latest.html">Données essentielles des marchés publics français</a>
+            </li>
+        
+            
+            
+            <li class="active">
+              <a class="side-pane__link" href="/MTES-MCT/acceslibre-schema/latest.html">Schéma des données d'accessibilité des ERPs</a>
+            </li>
+        
+            
+            
+            <li >
+              <a class="side-pane__link" href="/NaturalSolutions/schema-arbre/latest.html">Schéma des attributs des arbres urbains</a>
+            </li>
+        
+            
+            
+            <li >
+              <a class="side-pane__link" href="/arsante/schema-dae/latest.html">DAE</a>
+            </li>
+        
+            
+            
+            <li >
+              <a class="side-pane__link" href="/etalab/schema-amenagements-cyclables/latest.html">Schéma d'aménagements cyclables</a>
+            </li>
+        
+            
+            
+            <li >
+              <a class="side-pane__link" href="/etalab/schema-bal/latest.html">Base Adresse Locale (BAL)</a>
+            </li>
+        
+            
+            
+            <li >
+              <a class="side-pane__link" href="/etalab/schema-decp-dpa/latest.html">Spécification du fichier de déclaration de profil d'acheteur</a>
+            </li>
+        
+            
+            
+            <li >
+              <a class="side-pane__link" href="/etalab/schema-hautes-remunerations/latest.html">Hautes rémunérations dans la fonction publique</a>
+            </li>
+        
+            
+            
+            <li >
+              <a class="side-pane__link" href="/etalab/schema-inclusion-numerique/latest.html">Lieux d’inclusion numérique</a>
+            </li>
+        
+            
+            
+            <li >
+              <a class="side-pane__link" href="/etalab/schema-irve/latest.html">Infrastructures de recharge pour véhicules électriques</a>
+            </li>
+        
+            
+            
+            <li >
+              <a class="side-pane__link" href="/etalab/schema-lieux-covoiturage/latest.html">Lieux de covoiturage</a>
+            </li>
+        
+            
+            
+            <li >
+              <a class="side-pane__link" href="/etalab/schema-stationnement/latest.html">Lieux de stationnement</a>
+            </li>
+        
+            
+            
+            <li >
+              <a class="side-pane__link" href="/etalab/schema-stationnement-cyclable/latest.html">Stationnement cyclable</a>
+            </li>
+        
+            
+            
+            <li >
+              <a class="side-pane__link" href="/metis-reseaux/infos-travaux/latest.html">Informations travaux</a>
+            </li>
+        
+            
+            
+            <li >
+              <a class="side-pane__link" href="/scdl/budget/latest.html">Budget des collectivités et établissements publics locaux</a>
+            </li>
+        
+            
+            
+            <li >
+              <a class="side-pane__link" href="/scdl/catalogue/latest.html">Catalogue simplifié</a>
+            </li>
+        
+            
+            
+            <li >
+              <a class="side-pane__link" href="/scdl/deliberations/latest.html">Délibérations</a>
+            </li>
+        
+            
+            
+            <li >
+              <a class="side-pane__link" href="/scdl/equipements/latest.html">Équipements</a>
+            </li>
+        
+            
+            
+            <li >
+              <a class="side-pane__link" href="/scdl/menus-collectifs/latest.html">Menus de la restauration collective</a>
+            </li>
+        
+            
+            
+            <li >
+              <a class="side-pane__link" href="/scdl/subventions/latest.html">Subventions</a>
+            </li>
+        
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+  <div class="main-pane">
+    <div class="markdown">
+      
+      
+      
+      <h2>MTES-MCT/acceslibre-schema <small><span class="label">0.0.1</span></small></h2>
+      
+      <div class="text-quote">
+        <ul>
+          
+          <li><a href="/MTES-MCT/acceslibre-schema/latest/changelog.html">Changements sur ce schéma</a></li>
+          
+          
+            
+            <li>
+              <a href="/schemas/MTES-MCT/acceslibre-schema/0.0.1/schema.json">Schéma Schéma des données d'accessibilité des ERPs 0.0.1 (format tableschema)</a>
+            </li>
+            
+          
+          <li><a href="https://github.com/MTES-MCT/acceslibre-schema" title="Page d'accueil du schéma">Répertoire Git du schéma</a></li>
+          <li>Contact : acceslibre@beta.gouv.fr</li>
+          <li>Versions disponibles :
+            <ul>
+            
+            
+              <li>
+                <a href="/MTES-MCT/acceslibre-schema/0.0.1.html">
+                  0.0.1
+                </a>
+              </li>
+            
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      
+      
+      <div class="form__group" style="margin-top: 3em">
+        <a href="/MTES-MCT/acceslibre-schema/0.0.1/documentation.html" title="Documentation du modèle de données" class="button icon-button">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M4 22v-20h16v11.543c0 4.107-6 2.457-6 2.457s1.518 6-2.638 6h-7.362zm18-7.614v-14.386h-20v24h10.189c3.163 0 9.811-7.223 9.811-9.614zm-5-1.386h-10v-1h10v1zm0-4h-10v1h10v-1zm0-3h-10v1h10v-1z"/></svg>
+          Lire la documentation
+        </a>
+
+        <a href="https://publier.etalab.studio/select?schema=MTES-MCT/acceslibre-schema" title="Saisir des données" class="button icon-button">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 13h-4v-1h4v1zm2.318-4.288l3.301 3.299-4.369.989 1.068-4.288zm11.682-5.062l-7.268 7.353-3.401-3.402 7.267-7.352 3.402 3.401zm-6 8.916v.977c0 4.107-6 2.457-6 2.457s1.518 6-2.638 6h-7.362v-20h14.056l1.977-2h-18.033v24h10.189c3.163 0 9.811-7.223 9.811-9.614v-3.843l-2 2.023z"/></svg>
+          Saisir des données
+        </a>
+
+        <a href="https://validata.etalab.studio/table-schema?schema_url=https://schema.data.gouv.fr/schemas/MTES-MCT/acceslibre-schema/0.0.1/schema.json" title="Valider des données" class="button icon-button">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+          Valider des données
+        </a>
+      </div>
+      
+      
+      <h2 id="acceslibre">acceslibre</h2>
+
+<p>Schéma des données d’accessibilité des ERPs</p>
+
+<p>Spécification du fichier d’échange relatif aux données d’accessibilité des Établissements Recevant du Public (ERP).</p>
+
+<ul>
+  <li>Schéma créé le : 10/03/2021</li>
+  <li>Site web : https://github.com/MTES-MCT/acceslibre-schema</li>
+  <li>Version : 0.0.1</li>
+  <li>Clé primaire : <code class="highlighter-rouge">id</code></li>
+</ul>
+
+<h3 id="modèle-de-données">Modèle de données</h3>
+
+<h5 id="liste-des-propriétés">Liste des propriétés</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriété</th>
+      <th>Type</th>
+      <th>Obligatoire</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#propriété-id">id</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-name">name</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-postal_code">postal_code</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-commune">commune</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-numero">numero</a></td>
+      <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-voie">voie</a></td>
+      <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-lieu_dit">lieu_dit</a></td>
+      <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-code_insee">code_insee</a></td>
+      <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-siret">siret</a></td>
+      <td>chaîne de caractères</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-coordinates">coordinates</a></td>
+      <td>point géographique</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#proximité-d'un-arrêt-de-transport-en-commun---propriété-transport_station_presence">transport_station_presence</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#stationnement-dans-l'erp---propriété-stationnement_presence">stationnement_presence</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#stationnements-adaptés-dans-l'erp---propriété-stationnement_pmr">stationnement_pmr</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#stationnement-à-proximité-de-l'erp---propriété-stationnement_ext_presence">stationnement_ext_presence</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#stationnements-pmr-à-proximité-de-l'erp---propriété-stationnement_ext_pmr">stationnement_ext_pmr</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#cheminement-extérieur---propriété-cheminement_ext_presence">cheminement_ext_presence</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#revêtement-extérieur---propriété-cheminement_ext_terrain_accidente">cheminement_ext_terrain_accidente</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#cheminement-extérieur-de-plain-pied---propriété-cheminement_ext_plain_pied">cheminement_ext_plain_pied</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#ascenseur/élévateur---propriété-cheminement_ext_ascenseur">cheminement_ext_ascenseur</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#nombre-de-marches---propriété-cheminement_ext_nombre_marches">cheminement_ext_nombre_marches</a></td>
+      <td>nombre entier</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#marches-ou-escalier-sécurisé(es)---propriété-cheminement_ext_reperage_marches">cheminement_ext_reperage_marches</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#sens-de-circulation-de-l'escalier---propriété-cheminement_ext_sens_marches">cheminement_ext_sens_marches</a></td>
+      <td>chaîne de caractères</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td><a href="#main-courante---propriété-cheminement_ext_main_courante">cheminement_ext_main_courante</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#rampe---propriété-cheminement_ext_rampe">cheminement_ext_rampe</a></td>
+      <td>chaîne de caractères</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td><a href="#pente---propriété-cheminement_ext_pente_presence">cheminement_ext_pente_presence</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#degré-de-difficulté-de-la-pente---propriété-cheminement_ext_pente_degre_difficulte">cheminement_ext_pente_degre_difficulte</a></td>
+      <td>chaîne de caractères</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td><a href="#longueur-de-la-pente---propriété-cheminement_ext_pente_longueur">cheminement_ext_pente_longueur</a></td>
+      <td>chaîne de caractères</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td><a href="#dévers---propriété-cheminement_ext_devers">cheminement_ext_devers</a></td>
+      <td>chaîne de caractères</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td><a href="#bande-de-guidage---propriété-cheminement_ext_bande_guidage">cheminement_ext_bande_guidage</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#rétrécissement-du-cheminement---propriété-cheminement_ext_retrecissement">cheminement_ext_retrecissement</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#entrée-facilement-repérable---propriété-entree_reperage">entree_reperage</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#entrée-vitrée---propriété-entree_vitree">entree_vitree</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#repérage-de-la-vitre---propriété-entree_vitree_vitrophanie">entree_vitree_vitrophanie</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#entrée-de-plain-pied---propriété-entree_plain_pied">entree_plain_pied</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#ascenseur/élévateur---propriété-entree_ascenseur">entree_ascenseur</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#nombre-de-marches---propriété-entree_marches">entree_marches</a></td>
+      <td>nombre entier</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#repérage-des-marches---propriété-entree_marches_reperage">entree_marches_reperage</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#main-courante---propriété-entree_marches_main_courante">entree_marches_main_courante</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#rampe---propriété-entree_marches_rampe">entree_marches_rampe</a></td>
+      <td>chaîne de caractères</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td><a href="#sens-de-circulation-de-l'escalier---propriété-entree_marches_sens">entree_marches_sens</a></td>
+      <td>chaîne de caractères</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td><a href="#dispositif-d'appel-à-l'entrée---propriété-entree_dispositif_appel">entree_dispositif_appel</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#type-de-dispositif-d'appel-à-l'entrée---propriété-entree_dispositif_appel_type">entree_dispositif_appel_type</a></td>
+      <td>liste</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#balise-sonore-à-l'entrée---propriété-entree_balise_sonore">entree_balise_sonore</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#aide-humaine---propriété-entree_aide_humaine">entree_aide_humaine</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#largeur-de-la-porte---propriété-entree_largeur_mini">entree_largeur_mini</a></td>
+      <td>nombre entier</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#entrée-spécifique-pmr---propriété-entree_pmr">entree_pmr</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#y-a-t-il-une-porte ?---propriété-entree_porte_presence">entree_porte_presence</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#manoeuvre-de-la-porte---propriété-entree_porte_manoeuvre">entree_porte_manoeuvre</a></td>
+      <td>chaîne de caractères</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td><a href="#type-de-porte---propriété-entree_porte_type">entree_porte_type</a></td>
+      <td>chaîne de caractères</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td><a href="#visibilité-de-la-zone-d'accueil---propriété-accueil_visibilite">accueil_visibilite</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#personnel-d'accueil---propriété-accueil_personnels">accueil_personnels</a></td>
+      <td>chaîne de caractères</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td><a href="#présence-d'équipements-d'aide-à-l'audition-et-à-la-communication---propriété-accueil_equipements_malentendants_presence">accueil_equipements_malentendants_presence</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#liste-des-équipements-d'aide-à-l'audition-et-à-la-communication---propriété-accueil_equipements_malentendants">accueil_equipements_malentendants</a></td>
+      <td>liste</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#cheminement-de-plain-pied-entre-l'entrée-et-l'accueil---propriété-accueil_cheminement_plain_pied">accueil_cheminement_plain_pied</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#ascenseur/élévateur---propriété-accueil_cheminement_ascenseur">accueil_cheminement_ascenseur</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#nombre-de-marches---propriété-accueil_cheminement_nombre_marches">accueil_cheminement_nombre_marches</a></td>
+      <td>nombre entier</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#repérage-des-marches-ou-de-l’escalier---propriété-accueil_cheminement_reperage_marches">accueil_cheminement_reperage_marches</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#main-courante---propriété-accueil_cheminement_main_courante">accueil_cheminement_main_courante</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#rampe---propriété-accueil_cheminement_rampe">accueil_cheminement_rampe</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#sens-de-circulation-de-l'escalier---propriété-accueil_cheminement_sens_marches">accueil_cheminement_sens_marches</a></td>
+      <td>chaîne de caractères</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td><a href="#rétrécissement-du-cheminement---propriété-accueil_retrecissement">accueil_retrecissement</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#sanitaires---propriété-sanitaires_presence">sanitaires_presence</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#sanitaires-adaptés---propriété-sanitaires_adaptes">sanitaires_adaptes</a></td>
+      <td>nombre entier</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#marques-ou-labels---propriété-labels">labels</a></td>
+      <td>liste</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#famille(s)-de-handicap-concernées(s)---propriété-labels_familles_handicap">labels_familles_handicap</a></td>
+      <td>liste</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#registre---propriété-registre_url">registre_url</a></td>
+      <td>chaîne de caractères (format <code class="highlighter-rouge">uri</code>)</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#conformité---propriété-conformite">conformite</a></td>
+      <td>booléen</td>
+      <td>Non</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="propriété-id">Propriété <code class="highlighter-rouge">id</code></h4>
+
+<blockquote>
+  <p><em>Description : Identifiant unique<br />Ex : 123e4567-e89b-12d3-a456-426614174000</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-name">Propriété <code class="highlighter-rouge">name</code></h4>
+
+<blockquote>
+  <p><em>Description : Nom de l’établissement<br />Ex : Mairie du 3e</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-postal_code">Propriété <code class="highlighter-rouge">postal_code</code></h4>
+
+<blockquote>
+  <p><em>Description : Code postal<br />Ex : 75017</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-commune">Propriété <code class="highlighter-rouge">commune</code></h4>
+
+<blockquote>
+  <p><em>Description : Nom de la commune<br />Ex : Paris 17</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-numero">Propriété <code class="highlighter-rouge">numero</code></h4>
+
+<blockquote>
+  <p><em>Description : Numero de la rue<br />Ex : 15</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-voie">Propriété <code class="highlighter-rouge">voie</code></h4>
+
+<blockquote>
+  <p><em>Description : Nom de la rue/voie<br />Ex : Rue Paul Chenavard</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-lieu_dit">Propriété <code class="highlighter-rouge">lieu_dit</code></h4>
+
+<blockquote>
+  <p><em>Description : Lieu-dit<br />Ex : Le petit Marché</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-code_insee">Propriété <code class="highlighter-rouge">code_insee</code></h4>
+
+<blockquote>
+  <p><em>Description : Code INSEE<br />Ex : 17877</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-siret">Propriété <code class="highlighter-rouge">siret</code></h4>
+
+<blockquote>
+  <p><em>Description : Le numero SIRET de l’ERP issue de la base SIRENE des entreprises. Vous pouvez récupérer cet identifiant sur le site annuaire-entreprises.data.gouv.fr.<br />Ex : 13002526564591</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Motif : <code class="highlighter-rouge">^\d{14}$</code></li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-coordinates">Propriété <code class="highlighter-rouge">coordinates</code></h4>
+
+<blockquote>
+  <p><em>Description : Coordonnées GPS<br />Ex : 90, 45</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : point géographique</li>
+  </ul>
+</blockquote>
+
+<h4 id="proximité-dun-arrêt-de-transport-en-commun---propriété-transport_station_presence">Proximité d’un arrêt de transport en commun - Propriété <code class="highlighter-rouge">transport_station_presence</code></h4>
+
+<blockquote>
+  <p><em>Description : Arrêt de transport en commun à proximité (moins de 200 mètres)<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="stationnement-dans-lerp---propriété-stationnement_presence">Stationnement dans l’ERP - Propriété <code class="highlighter-rouge">stationnement_presence</code></h4>
+
+<blockquote>
+  <p><em>Description : Présence de stationnement au sein de la parcelle de l’établissement<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="stationnements-adaptés-dans-lerp---propriété-stationnement_pmr">Stationnements adaptés dans l’ERP - Propriété <code class="highlighter-rouge">stationnement_pmr</code></h4>
+
+<blockquote>
+  <p><em>Description : Présence de stationnement adapté au sein de la parcelle de l’établissement<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="stationnement-à-proximité-de-lerp---propriété-stationnement_ext_presence">Stationnement à proximité de l’ERP - Propriété <code class="highlighter-rouge">stationnement_ext_presence</code></h4>
+
+<blockquote>
+  <p><em>Description : Présence de stationnement à proximité de l’établissement (moins de 200 mètres)<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="stationnements-pmr-à-proximité-de-lerp---propriété-stationnement_ext_pmr">Stationnements PMR à proximité de l’ERP - Propriété <code class="highlighter-rouge">stationnement_ext_pmr</code></h4>
+
+<blockquote>
+  <p><em>Description : Présence de stationnement adapté à proximité de l’établissement (moins de 200 mètres)<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="cheminement-extérieur---propriété-cheminement_ext_presence">Cheminement extérieur - Propriété <code class="highlighter-rouge">cheminement_ext_presence</code></h4>
+
+<blockquote>
+  <p><em>Description : L’accès à l’entrée depuis la voirie se fait par un cheminement extérieur<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="revêtement-extérieur---propriété-cheminement_ext_terrain_accidente">Revêtement extérieur - Propriété <code class="highlighter-rouge">cheminement_ext_terrain_accidente</code></h4>
+
+<blockquote>
+  <p><em>Description : Ce revêtement est stable (absence de pavés, gravillons, terre, herbe, sable, ou toute surface non stabilisée)<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="cheminement-extérieur-de-plain-pied---propriété-cheminement_ext_plain_pied">Cheminement extérieur de plain-pied - Propriété <code class="highlighter-rouge">cheminement_ext_plain_pied</code></h4>
+
+<blockquote>
+  <p><em>Description : L’accès à cet espace se fait de plain-pied (sans rupture de niveau)<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="ascenseurélévateur---propriété-cheminement_ext_ascenseur">Ascenseur/élévateur - Propriété <code class="highlighter-rouge">cheminement_ext_ascenseur</code></h4>
+
+<blockquote>
+  <p><em>Description : None<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="nombre-de-marches---propriété-cheminement_ext_nombre_marches">Nombre de marches - Propriété <code class="highlighter-rouge">cheminement_ext_nombre_marches</code></h4>
+
+<blockquote>
+  <p><em>Description : None<br />Ex : 0</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : nombre entier</li>
+  </ul>
+</blockquote>
+
+<h4 id="marches-ou-escalier-sécurisées---propriété-cheminement_ext_reperage_marches">Marches ou escalier sécurisé(es) - Propriété <code class="highlighter-rouge">cheminement_ext_reperage_marches</code></h4>
+
+<blockquote>
+  <p><em>Description : Nez de marche contrastés, bande d’éveil à la vigilance en haut de l’escalier et/ou première et dernière contremarches contrastées<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="sens-de-circulation-de-lescalier---propriété-cheminement_ext_sens_marches">Sens de circulation de l’escalier - Propriété <code class="highlighter-rouge">cheminement_ext_sens_marches</code></h4>
+
+<blockquote>
+  <p><em>Description : Sens de circulation des marches ou de l’escalier<br />Ex : Valeurs possibles: montant -&gt; Montant, descendant -&gt; Descendant</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>montant</li>
+        <li>descendant</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<h4 id="main-courante---propriété-cheminement_ext_main_courante">Main courante - Propriété <code class="highlighter-rouge">cheminement_ext_main_courante</code></h4>
+
+<blockquote>
+  <p><em>Description : None<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="rampe---propriété-cheminement_ext_rampe">Rampe - Propriété <code class="highlighter-rouge">cheminement_ext_rampe</code></h4>
+
+<blockquote>
+  <p><em>Description : Présence et type de rampe<br />Ex : Valeurs possibles: aucune -&gt; Aucune, fixe -&gt; Fixe, amovible -&gt; Amovible</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>aucune</li>
+        <li>fixe</li>
+        <li>amovible</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<h4 id="pente---propriété-cheminement_ext_pente_presence">Pente - Propriété <code class="highlighter-rouge">cheminement_ext_pente_presence</code></h4>
+
+<blockquote>
+  <p><em>Description : None<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="degré-de-difficulté-de-la-pente---propriété-cheminement_ext_pente_degre_difficulte">Degré de difficulté de la pente - Propriété <code class="highlighter-rouge">cheminement_ext_pente_degre_difficulte</code></h4>
+
+<blockquote>
+  <p><em>Description : None<br />Ex : Valeurs possibles: légère -&gt; Légère, importante -&gt; Importante</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>légère</li>
+        <li>importante</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<h4 id="longueur-de-la-pente---propriété-cheminement_ext_pente_longueur">Longueur de la pente - Propriété <code class="highlighter-rouge">cheminement_ext_pente_longueur</code></h4>
+
+<blockquote>
+  <p><em>Description : None<br />Ex : Valeurs possibles: courte -&gt; &lt; 0,5 mètres, moyenne -&gt; entre 0,5 et 2 mètres, longue -&gt; &gt; 2 mètres</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>courte</li>
+        <li>moyenne</li>
+        <li>longue</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<h4 id="dévers---propriété-cheminement_ext_devers">Dévers - Propriété <code class="highlighter-rouge">cheminement_ext_devers</code></h4>
+
+<blockquote>
+  <p><em>Description : None<br />Ex : Valeurs possibles: aucun -&gt; Aucun, léger -&gt; Léger, important -&gt; Important</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>aucun</li>
+        <li>léger</li>
+        <li>important</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<h4 id="bande-de-guidage---propriété-cheminement_ext_bande_guidage">Bande de guidage - Propriété <code class="highlighter-rouge">cheminement_ext_bande_guidage</code></h4>
+
+<blockquote>
+  <p><em>Description : Présence d’une bande de guidage au sol facilitant le déplacement d’une personne aveugle ou malvoyante<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="rétrécissement-du-cheminement---propriété-cheminement_ext_retrecissement">Rétrécissement du cheminement - Propriété <code class="highlighter-rouge">cheminement_ext_retrecissement</code></h4>
+
+<blockquote>
+  <p><em>Description : Un ou plusieurs rétrecissements (inférieurs à 80 cm) du chemin pour atteindre l’entrée<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="entrée-facilement-repérable---propriété-entree_reperage">Entrée facilement repérable - Propriété <code class="highlighter-rouge">entree_reperage</code></h4>
+
+<blockquote>
+  <p><em>Description : Présence d’éléments facilitant le repérage de l’entrée de l’établissement (numéro de rue à proximité, enseigne, végétaux, éléments architecturaux contrastés, etc)<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="entrée-vitrée---propriété-entree_vitree">Entrée vitrée - Propriété <code class="highlighter-rouge">entree_vitree</code></h4>
+
+<blockquote>
+  <p><em>Description : None<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="repérage-de-la-vitre---propriété-entree_vitree_vitrophanie">Repérage de la vitre - Propriété <code class="highlighter-rouge">entree_vitree_vitrophanie</code></h4>
+
+<blockquote>
+  <p><em>Description : Présence d’éléments contrastés permettant de visualiser les parties vitrées de l’entrée<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="entrée-de-plain-pied---propriété-entree_plain_pied">Entrée de plain-pied - Propriété <code class="highlighter-rouge">entree_plain_pied</code></h4>
+
+<blockquote>
+  <p><em>Description : L’entrée se fait de plain-pied (sans rupture de niveau)<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="ascenseurélévateur---propriété-entree_ascenseur">Ascenseur/élévateur - Propriété <code class="highlighter-rouge">entree_ascenseur</code></h4>
+
+<blockquote>
+  <p><em>Description : None<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="nombre-de-marches---propriété-entree_marches">Nombre de marches - Propriété <code class="highlighter-rouge">entree_marches</code></h4>
+
+<blockquote>
+  <p><em>Description : None<br />Ex : 0</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : nombre entier</li>
+  </ul>
+</blockquote>
+
+<h4 id="repérage-des-marches---propriété-entree_marches_reperage">Repérage des marches - Propriété <code class="highlighter-rouge">entree_marches_reperage</code></h4>
+
+<blockquote>
+  <p><em>Description : Nez de marche contrastés, bande d’éveil à la vigilance en haut de l’escalier et/ou première et dernière contremarches contrastées<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="main-courante---propriété-entree_marches_main_courante">Main courante - Propriété <code class="highlighter-rouge">entree_marches_main_courante</code></h4>
+
+<blockquote>
+  <p><em>Description : None<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="rampe---propriété-entree_marches_rampe">Rampe - Propriété <code class="highlighter-rouge">entree_marches_rampe</code></h4>
+
+<blockquote>
+  <p><em>Description : None<br />Ex : Valeurs possibles: aucune -&gt; Aucune, fixe -&gt; Fixe, amovible -&gt; Amovible</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>aucune</li>
+        <li>fixe</li>
+        <li>amovible</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<h4 id="sens-de-circulation-de-lescalier---propriété-entree_marches_sens">Sens de circulation de l’escalier - Propriété <code class="highlighter-rouge">entree_marches_sens</code></h4>
+
+<blockquote>
+  <p><em>Description : Sens de circulation des marches ou de l’escalier<br />Ex : Valeurs possibles: montant -&gt; Montant, descendant -&gt; Descendant</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>montant</li>
+        <li>descendant</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<h4 id="dispositif-dappel-à-lentrée---propriété-entree_dispositif_appel">Dispositif d’appel à l’entrée - Propriété <code class="highlighter-rouge">entree_dispositif_appel</code></h4>
+
+<blockquote>
+  <p><em>Description : Présence d’un dispositif comme une sonnette pour signaler sa présence<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="type-de-dispositif-dappel-à-lentrée---propriété-entree_dispositif_appel_type">Type de dispositif d’appel à l’entrée - Propriété <code class="highlighter-rouge">entree_dispositif_appel_type</code></h4>
+
+<blockquote>
+  <p><em>Description : Dispositifs d’appels présents<br />Ex : Valeurs possibles: bouton -&gt; Bouton d’appel, sonnette -&gt; Sonnette, interphone -&gt; Interphone, visiophone -&gt; Visiophone</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : liste</li>
+  </ul>
+</blockquote>
+
+<h4 id="balise-sonore-à-lentrée---propriété-entree_balise_sonore">Balise sonore à l’entrée - Propriété <code class="highlighter-rouge">entree_balise_sonore</code></h4>
+
+<blockquote>
+  <p><em>Description : None<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="aide-humaine---propriété-entree_aide_humaine">Aide humaine - Propriété <code class="highlighter-rouge">entree_aide_humaine</code></h4>
+
+<blockquote>
+  <p><em>Description : None<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="largeur-de-la-porte---propriété-entree_largeur_mini">Largeur de la porte - Propriété <code class="highlighter-rouge">entree_largeur_mini</code></h4>
+
+<blockquote>
+  <p><em>Description : Largeur minimale de la porte d’entrée<br />Ex : 0</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : nombre entier</li>
+  </ul>
+</blockquote>
+
+<h4 id="entrée-spécifique-pmr---propriété-entree_pmr">Entrée spécifique PMR - Propriété <code class="highlighter-rouge">entree_pmr</code></h4>
+
+<blockquote>
+  <p><em>Description : Présence d’une entrée secondaire spécifique dédiée aux personnes à mobilité réduite<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="y-a-t-il-une-porte---propriété-entree_porte_presence">Y a-t-il une porte ? - Propriété <code class="highlighter-rouge">entree_porte_presence</code></h4>
+
+<blockquote>
+  <p><em>Description : Présence d’une porte à l’entrée de l’établissement<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="manoeuvre-de-la-porte---propriété-entree_porte_manoeuvre">Manoeuvre de la porte - Propriété <code class="highlighter-rouge">entree_porte_manoeuvre</code></h4>
+
+<blockquote>
+  <p><em>Description : Mode d’ouverture de la porte<br />Ex : Valeurs possibles: battante -&gt; Porte battante, coulissante -&gt; Porte coulissante, tourniquet -&gt; Tourniquet, tambour -&gt; Porte tambour</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>battante</li>
+        <li>coulissante</li>
+        <li>tourniquet</li>
+        <li>tambour</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<h4 id="type-de-porte---propriété-entree_porte_type">Type de porte - Propriété <code class="highlighter-rouge">entree_porte_type</code></h4>
+
+<blockquote>
+  <p><em>Description : Type de porte<br />Ex : Valeurs possibles: manuelle -&gt; Manuelle, automatique -&gt; Automatique</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>manuelle</li>
+        <li>automatique</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<h4 id="visibilité-de-la-zone-daccueil---propriété-accueil_visibilite">Visibilité de la zone d’accueil - Propriété <code class="highlighter-rouge">accueil_visibilite</code></h4>
+
+<blockquote>
+  <p><em>Description : La zone d’accueil (guichet d’accueil, caisse, secrétariat, etc) est visible depuis l’entrée<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="personnel-daccueil---propriété-accueil_personnels">Personnel d’accueil - Propriété <code class="highlighter-rouge">accueil_personnels</code></h4>
+
+<blockquote>
+  <p><em>Description : None<br />Ex : Valeurs possibles: aucun -&gt; Aucun personnel, formés -&gt; Personnels sensibilisés ou formés, non-formés -&gt; Personnels non-formés</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>aucun</li>
+        <li>formés</li>
+        <li>non-formés</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<h4 id="présence-déquipements-daide-à-laudition-et-à-la-communication---propriété-accueil_equipements_malentendants_presence">Présence d’équipements d’aide à l’audition et à la communication - Propriété <code class="highlighter-rouge">accueil_equipements_malentendants_presence</code></h4>
+
+<blockquote>
+  <p><em>Description : Présence de produits ou prestations dédiés aux personnes sourdes ou malentendantes<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="liste-des-équipements-daide-à-laudition-et-à-la-communication---propriété-accueil_equipements_malentendants">Liste des équipements d’aide à l’audition et à la communication - Propriété <code class="highlighter-rouge">accueil_equipements_malentendants</code></h4>
+
+<blockquote>
+  <p><em>Description : Équipements ou prestations disponibles<br />Ex : Valeurs possibles: bim -&gt; Boucle à induction magnétique fixe, bmp -&gt; Boucle à induction magnétique portative, lsf -&gt; Langue des signes française, lpc -&gt; Langue Française Parlée Complétée (LFPC), sts -&gt; Sous-Titrage ou Transcription Simultanée, autres -&gt; Autres</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : liste</li>
+  </ul>
+</blockquote>
+
+<h4 id="cheminement-de-plain-pied-entre-lentrée-et-laccueil---propriété-accueil_cheminement_plain_pied">Cheminement de plain-pied entre l’entrée et l’accueil - Propriété <code class="highlighter-rouge">accueil_cheminement_plain_pied</code></h4>
+
+<blockquote>
+  <p><em>Description : L’accès à cet espace se fait de plain-pied (sans rupture de niveau)<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="ascenseurélévateur---propriété-accueil_cheminement_ascenseur">Ascenseur/élévateur - Propriété <code class="highlighter-rouge">accueil_cheminement_ascenseur</code></h4>
+
+<blockquote>
+  <p><em>Description : None<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="nombre-de-marches---propriété-accueil_cheminement_nombre_marches">Nombre de marches - Propriété <code class="highlighter-rouge">accueil_cheminement_nombre_marches</code></h4>
+
+<blockquote>
+  <p><em>Description : None<br />Ex : 0</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : nombre entier</li>
+  </ul>
+</blockquote>
+
+<h4 id="repérage-des-marches-ou-de-lescalier---propriété-accueil_cheminement_reperage_marches">Repérage des marches ou de l’escalier - Propriété <code class="highlighter-rouge">accueil_cheminement_reperage_marches</code></h4>
+
+<blockquote>
+  <p><em>Description : Nez de marche contrastés, bande d’éveil à la vigilance en haut de l’escalier et/ou première et dernière contremarches contrastées<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="main-courante---propriété-accueil_cheminement_main_courante">Main courante - Propriété <code class="highlighter-rouge">accueil_cheminement_main_courante</code></h4>
+
+<blockquote>
+  <p><em>Description : None<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="rampe---propriété-accueil_cheminement_rampe">Rampe - Propriété <code class="highlighter-rouge">accueil_cheminement_rampe</code></h4>
+
+<blockquote>
+  <p><em>Description : Présence et type de rampe<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="sens-de-circulation-de-lescalier---propriété-accueil_cheminement_sens_marches">Sens de circulation de l’escalier - Propriété <code class="highlighter-rouge">accueil_cheminement_sens_marches</code></h4>
+
+<blockquote>
+  <p><em>Description : Sens de circulation des marches ou de l’escalier<br />Ex : Valeurs possibles: montant -&gt; Montant, descendant -&gt; Descendant</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>montant</li>
+        <li>descendant</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<h4 id="rétrécissement-du-cheminement---propriété-accueil_retrecissement">Rétrécissement du cheminement - Propriété <code class="highlighter-rouge">accueil_retrecissement</code></h4>
+
+<blockquote>
+  <p><em>Description : Un ou plusieurs rétrecissements (inférieurs à 80 cm) du chemin pour atteindre l’entrée<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="sanitaires---propriété-sanitaires_presence">Sanitaires - Propriété <code class="highlighter-rouge">sanitaires_presence</code></h4>
+
+<blockquote>
+  <p><em>Description : Mise à disposition de sanitaires dans l’établissement<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+<h4 id="sanitaires-adaptés---propriété-sanitaires_adaptes">Sanitaires adaptés - Propriété <code class="highlighter-rouge">sanitaires_adaptes</code></h4>
+
+<blockquote>
+  <p><em>Description : Nombre de sanitaires adaptés dans l’établissement<br />Ex : 0</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : nombre entier</li>
+  </ul>
+</blockquote>
+
+<h4 id="marques-ou-labels---propriété-labels">Marques ou labels - Propriété <code class="highlighter-rouge">labels</code></h4>
+
+<blockquote>
+  <p><em>Description : Marque(s) ou label(s) obtenus par l’établissement<br />Ex : Valeurs possibles: autre -&gt; Autre, dpt -&gt; Destination pour Tous, mobalib -&gt; Mobalib, th -&gt; Tourisme &amp; Handicap</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : liste</li>
+  </ul>
+</blockquote>
+
+<h4 id="familles-de-handicap-concernéess---propriété-labels_familles_handicap">Famille(s) de handicap concernées(s) - Propriété <code class="highlighter-rouge">labels_familles_handicap</code></h4>
+
+<blockquote>
+  <p><em>Description : Famille(s) de handicap couverte(s) par ces marques ou labels<br />Ex : Valeurs possibles: auditif -&gt; Auditif, mental -&gt; Mental, moteur -&gt; Moteur, visuel -&gt; Visuel</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : liste</li>
+  </ul>
+</blockquote>
+
+<h4 id="registre---propriété-registre_url">Registre - Propriété <code class="highlighter-rouge">registre_url</code></h4>
+
+<blockquote>
+  <p><em>Description : Si l’établissement dispose d’un registre numérique, adresse internet à laquelle celui-ci est consultable<br />Ex : https://handicap.gouv.fr/actualites/article/registre-d-accessibilite-obligatoire-un-guide-pour-les-erp</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères (format <code class="highlighter-rouge">uri</code>)</li>
+  </ul>
+</blockquote>
+
+<h4 id="conformité---propriété-conformite">Conformité - Propriété <code class="highlighter-rouge">conformite</code></h4>
+
+<blockquote>
+  <p><em>Description : Statut réglementaire de conformité de l’établissement<br />Ex : True</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
+  </ul>
+</blockquote>
+
+      
+
+      
+
+  <div class="js-datasets-datagouv"></div>
+
+  <script>
+    const schema = "MTES-MCT/acceslibre-schema"
+
+    fetch(`https://www.data.gouv.fr/api/1/datasets/?schema=${schema}`)
+      .then(response => response.json())
+      .then(data => {
+        const nbDatasets = data["total"]
+
+        content = `
+          <h2 id="jeux-de-donnees-sur-datagouvfr">Jeux de données sur data.gouv.fr</h2>
+
+          <p>
+            Il est possible de spécifier qu'une ressource d'un jeu de données présent
+            sur <a href="https://www.data.gouv.fr" title="Site web data.gouv.fr">data.gouv.fr</a>
+            respecte un schéma depuis l'interface d'administration. Retrouvez
+            <a href="https://www.data.gouv.fr/fr/datasets/?schema=${schema}" title="Jeux de données du schéma ${schema}">
+            ${Intl.NumberFormat().format(nbDatasets)} jeux de données</a>
+            ayant indiqué respecter ce schéma sur la plateforme des données ouvertes.
+          </p>
+        `
+        if (nbDatasets > 0) {
+          document.querySelector('.js-datasets-datagouv').innerHTML = content
+        }
+      });
+  </script>
+
+
+    </div>
+  </div>
+</section>
+
+    <footer class="footer">
+  <div class="container">
+    <div class="footer__logo">
+      <img src="/assets/images/etalab.svg" alt="Etalab">
+      
+      <ul class="footer__social">
+        
+        <li><a href="mailto:schema@data.gouv.fr"><svg class="icon icon-mail"><use xlink:href="#icon-mail"></use></svg></a></li>
+        
+        <li><a href="https://www.twitter.com/datagouvfr"><svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg></a></li>
+        
+        <li><a href="https://github.com/etalab/schema.data.gouv.fr"><svg class="icon icon-github"><use xlink:href="#icon-github"></use></svg></a></li>
+        
+      </ul>
+      
+    </div>
+    
+    <div class="footer__links">
+      
+      <h2>schema.data.gouv.fr</h2>
+      
+      <ul>
+        
+          
+            <li><a href="https://www.data.gouv.fr/">data.gouv.fr</a></li>
+          
+        
+          
+            <li><a href="https://www.data.gouv.fr/reference">Données de référence</a></li>
+          
+        
+          
+            <li><a href="https://www.data.gouv.fr/terms">Condition générales d’utilisation</a></li>
+          
+        
+      </ul>
+    </div>
+    
+    <div></div>
+  </div>
+</footer>
+
+
+    <!-- Scripts -->
+<script async defer src="/assets/main.js"></script>
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//stats.data.gouv.fr/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '90']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+
+
+  </body>
+
+</html>
