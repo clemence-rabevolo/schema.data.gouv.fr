@@ -385,7 +385,7 @@
 <ul>
   <li>Schéma créé le : 12/02/2020</li>
   <li>Site web : https://git.opendatafrance.net/scdl/menus-collectifs</li>
-  <li>Version : 1.2.1</li>
+  <li>Version : 1.2.2</li>
 </ul>
 
 <h3 id="modèle-de-données">Modèle de données</h3>
@@ -457,22 +457,22 @@
       <td>Oui</td>
     </tr>
     <tr>
-      <td><a href="#type-du-repas-servi---propriété-menutyperepas">menuTypeRepas</a></td>
+      <td><a href="#type-du-repas-servi---propriété-menurepastype">menuRepasType</a></td>
       <td>chaîne de caractères</td>
       <td>Oui</td>
     </tr>
     <tr>
-      <td><a href="#type-de-plat-servi---propriété-menutypeplat">menuTypePlat</a></td>
+      <td><a href="#type-de-plat-servi---propriété-menuplattype">menuPlatType</a></td>
       <td>chaîne de caractères</td>
       <td>Oui</td>
     </tr>
     <tr>
-      <td><a href="#nom-du-plat-servi---propriété-menunomplat">menuNomPlat</a></td>
+      <td><a href="#nom-du-plat-servi---propriété-menuplatnom">menuPlatNom</a></td>
       <td>chaîne de caractères</td>
       <td>Oui</td>
     </tr>
     <tr>
-      <td><a href="#code-du-plat-servi---propriété-menucodeplat">menuCodePlat</a></td>
+      <td><a href="#code-du-plat-servi---propriété-menuplatcode">menuPlatCode</a></td>
       <td>chaîne de caractères</td>
       <td>Non</td>
     </tr>
@@ -673,7 +673,7 @@
   </ul>
 </blockquote>
 
-<h4 id="type-du-repas-servi---propriété-menutyperepas">Type du repas servi - Propriété <code class="highlighter-rouge">menuTypeRepas</code></h4>
+<h4 id="type-du-repas-servi---propriété-menurepastype">Type du repas servi - Propriété <code class="highlighter-rouge">menuRepasType</code></h4>
 
 <blockquote>
   <p><em>Description : Permet de spécifier le type du repas parmi les valeurs possibles (petit-déjeuner, déjeuner, goûter, dîner, collation, pique-nique). Dans le cas où vous ne trouvez pas la valeur correspondant à votre usage dans la liste proposée, vous pouvez saisir la valeur “autre”.<br />Ex : None</em></p>
@@ -694,7 +694,7 @@
   </ul>
 </blockquote>
 
-<h4 id="type-de-plat-servi---propriété-menutypeplat">Type de plat servi - Propriété <code class="highlighter-rouge">menuTypePlat</code></h4>
+<h4 id="type-de-plat-servi---propriété-menuplattype">Type de plat servi - Propriété <code class="highlighter-rouge">menuPlatType</code></h4>
 
 <blockquote>
   <p><em>Description : Le type de plat correspond à un des éléments disponibles dans la liste (entrée, plat principal, garniture, dessert, produit laitier, pain). Dans le cas où vous ne trouvez pas la valeur correspondant à votre usage dans la liste proposée, vous pouvez saisir la valeur “autre”.<br />Ex : None</em></p>
@@ -715,7 +715,7 @@
   </ul>
 </blockquote>
 
-<h4 id="nom-du-plat-servi---propriété-menunomplat">Nom du plat servi - Propriété <code class="highlighter-rouge">menuNomPlat</code></h4>
+<h4 id="nom-du-plat-servi---propriété-menuplatnom">Nom du plat servi - Propriété <code class="highlighter-rouge">menuPlatNom</code></h4>
 
 <blockquote>
   <p><em>Description : Le nom du plat permet de désigner dans la limite de 160 caractères maximum les éléments composant le menu. Afin de faciliter le regroupement des informations, favorisez les noms courts.<br />Ex : None</em></p>
@@ -726,7 +726,7 @@
   </ul>
 </blockquote>
 
-<h4 id="code-du-plat-servi---propriété-menucodeplat">Code du plat servi - Propriété <code class="highlighter-rouge">menuCodePlat</code></h4>
+<h4 id="code-du-plat-servi---propriété-menuplatcode">Code du plat servi - Propriété <code class="highlighter-rouge">menuPlatCode</code></h4>
 
 <blockquote>
   <p><em>Description : Code unique par plat éventuellement issu d’une base de données de gestion. Ce code permet de faire une jointure avec le schéma décrivant la composition des plats.<br />Ex : None</em></p>
