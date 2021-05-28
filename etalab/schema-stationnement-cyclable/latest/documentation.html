@@ -295,7 +295,7 @@
       
       
       
-      <h2>etalab/schema-stationnement-cyclable <small><span class="label">0.1.0</span></small></h2>
+      <h2>etalab/schema-stationnement-cyclable <small><span class="label">0.2.0</span></small></h2>
       
       <div class="text-quote">
         <ul>
@@ -305,7 +305,7 @@
           
             
             <li>
-              <a href="/schemas/etalab/schema-stationnement-cyclable/0.1.0/schema.json">Schéma Stationnement cyclable 0.1.0 (format tableschema)</a>
+              <a href="/schemas/etalab/schema-stationnement-cyclable/0.2.0/schema.json">Schéma Stationnement cyclable 0.2.0 (format tableschema)</a>
             </li>
             
           
@@ -314,6 +314,12 @@
           <li>Versions disponibles :
             <ul>
             
+            
+              <li>
+                <a href="/etalab/schema-stationnement-cyclable/0.2.0.html">
+                  0.2.0
+                </a>
+              </li>
             
               <li>
                 <a href="/etalab/schema-stationnement-cyclable/0.1.0.html">
@@ -329,7 +335,7 @@
       
       
       <div class="form__group" style="margin-top: 3em">
-        <a href="/etalab/schema-stationnement-cyclable/0.1.0/documentation.html" title="Documentation du modèle de données" class="button icon-button">
+        <a href="/etalab/schema-stationnement-cyclable/0.2.0/documentation.html" title="Documentation du modèle de données" class="button icon-button">
           <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M4 22v-20h16v11.543c0 4.107-6 2.457-6 2.457s1.518 6-2.638 6h-7.362zm18-7.614v-14.386h-20v24h10.189c3.163 0 9.811-7.223 9.811-9.614zm-5-1.386h-10v-1h10v1zm0-4h-10v1h10v-1zm0-3h-10v1h10v-1z"/></svg>
           Lire la documentation
         </a>
@@ -339,7 +345,7 @@
           Saisir des données
         </a>
 
-        <a href="https://validata.etalab.studio/table-schema?schema_url=https://schema.data.gouv.fr/schemas/etalab/schema-stationnement-cyclable/0.1.0/schema.json" title="Valider des données" class="button icon-button">
+        <a href="https://validata.etalab.studio/table-schema?schema_url=https://schema.data.gouv.fr/schemas/etalab/schema-stationnement-cyclable/0.2.0/schema.json" title="Valider des données" class="button icon-button">
           <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
           Valider des données
         </a>
@@ -355,7 +361,7 @@
 <ul>
   <li>Schéma créé le : 10/03/2021</li>
   <li>Site web : https://github.com/etalab/schema-stationnement-cyclable</li>
-  <li>Version : 1.1</li>
+  <li>Version : 0.2</li>
   <li>Clé primaire : <code class="highlighter-rouge">id_local</code></li>
 </ul>
 
@@ -408,8 +414,23 @@
       <td>Non</td>
     </tr>
     <tr>
+      <td><a href="#propriété-type_accroche">type_accroche</a></td>
+      <td>chaîne de caractères</td>
+      <td>Oui</td>
+    </tr>
+    <tr>
       <td><a href="#propriété-mobilier">mobilier</a></td>
       <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-acces">acces</a></td>
+      <td>chaîne de caractères</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-gratuit">gratuit</a></td>
+      <td>booléen</td>
       <td>Non</td>
     </tr>
     <tr>
@@ -420,11 +441,6 @@
     <tr>
       <td><a href="#propriété-couverture">couverture</a></td>
       <td>booléen</td>
-      <td>Non</td>
-    </tr>
-    <tr>
-      <td><a href="#propriété-acces">acces</a></td>
-      <td>chaîne de caractères</td>
       <td>Non</td>
     </tr>
     <tr>
@@ -531,7 +547,7 @@
 <h4 id="propriété-capacite">Propriété <code class="highlighter-rouge">capacite</code></h4>
 
 <blockquote>
-  <p><em>Description : Nombre de places de stationnement disponibles sur l’emplacement<br />Ex : 14</em></p>
+  <p><em>Description : Nombre de places de stationnement disponibles sur l’emplacement y compris les places adaptées à des vélos spéciaux (comme les vélos de grande taille).<br />Ex : 14</em></p>
   <ul>
     <li>Valeur obligatoire</li>
     <li>Type : nombre entier</li>
@@ -548,10 +564,27 @@
   </ul>
 </blockquote>
 
+<h4 id="propriété-type_accroche">Propriété <code class="highlighter-rouge">type_accroche</code></h4>
+
+<blockquote>
+  <p><em>Description : Mode d’accrochage possible du vélo aux équipements de stationnement<br />Ex : CADRE ET ROUE</em></p>
+  <ul>
+    <li>Valeur obligatoire</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>ROUE</li>
+        <li>CADRE</li>
+        <li>CADRE ET ROUE</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
 <h4 id="propriété-mobilier">Propriété <code class="highlighter-rouge">mobilier</code></h4>
 
 <blockquote>
-  <p><em>Description : Type de mobilier de stationnement<br />Ex : arceau</em></p>
+  <p><em>Description : Type de mobilier de stationnement<br />Ex : ARCEAU</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : chaîne de caractères</li>
@@ -559,14 +592,42 @@
       <ul>
         <li>ARCEAU</li>
         <li>RATELIER</li>
-        <li>CORCHET</li>
         <li>RACK DOUBLE ETAGE</li>
-        <li>ANCRAGE</li>
+        <li>CROCHET</li>
+        <li>SUPPORT GUIDON</li>
         <li>POTELET</li>
         <li>ARCEAU VELO GRANDE TAILLE</li>
+        <li>AUCUN EQUIPEMENT</li>
         <li>AUTRE</li>
       </ul>
     </li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-acces">Propriété <code class="highlighter-rouge">acces</code></h4>
+
+<blockquote>
+  <p><em>Description : Mode d’accès à l’emplacement de stationnement<br />Ex : ACCES LIBRE</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères</li>
+    <li>Valeurs autorisées :
+      <ul>
+        <li>LIBRE ACCES</li>
+        <li>ABONNEMENT OU INSCRIPTION PREALABLE</li>
+        <li>PRIVE</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-gratuit">Propriété <code class="highlighter-rouge">gratuit</code></h4>
+
+<blockquote>
+  <p><em>Description : L’usage de l’équipement de stationnement est-il gratuit ?<br />Ex : true</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : booléen</li>
   </ul>
 </blockquote>
 
@@ -595,23 +656,6 @@
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : booléen</li>
-  </ul>
-</blockquote>
-
-<h4 id="propriété-acces">Propriété <code class="highlighter-rouge">acces</code></h4>
-
-<blockquote>
-  <p><em>Description : Mode d’accès à l’emplacement de stationnement<br />Ex : LIBRE</em></p>
-  <ul>
-    <li>Valeur optionnelle</li>
-    <li>Type : chaîne de caractères</li>
-    <li>Valeurs autorisées :
-      <ul>
-        <li>LIBRE</li>
-        <li>PAYANT</li>
-        <li>PRIVE</li>
-      </ul>
-    </li>
   </ul>
 </blockquote>
 
@@ -648,7 +692,7 @@
 <h4 id="propriété-d_service">Propriété <code class="highlighter-rouge">d_service</code></h4>
 
 <blockquote>
-  <p><em>Description : Date de mise en service du stationnement vélo (Notation ISO 8601, format AAAA)<br />Ex : 2020-02-27</em></p>
+  <p><em>Description : Date de mise en service du stationnement vélo (Notation ISO 8601, format AAAA)<br />Ex : 2017</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : nombre entier</li>
@@ -658,7 +702,7 @@
 <h4 id="propriété-source">Propriété <code class="highlighter-rouge">source</code></h4>
 
 <blockquote>
-  <p><em>Description : Nom de l’organisation ayant fourni les données<br />Ex : Ville de Poitiers</em></p>
+  <p><em>Description : Nom de l’organisation ayant fourni les données<br />Ex : Grand Poitiers</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : chaîne de caractères</li>

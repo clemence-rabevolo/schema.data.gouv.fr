@@ -295,7 +295,7 @@
       
       
       
-      <h2>etalab/schema-stationnement-cyclable <small><span class="label">0.1.0</span></small></h2>
+      <h2>etalab/schema-stationnement-cyclable <small><span class="label">0.2.0</span></small></h2>
       
       <div class="text-quote">
         <ul>
@@ -305,7 +305,7 @@
           
             
             <li>
-              <a href="/schemas/etalab/schema-stationnement-cyclable/0.1.0/schema.json">Schéma Stationnement cyclable 0.1.0 (format tableschema)</a>
+              <a href="/schemas/etalab/schema-stationnement-cyclable/0.2.0/schema.json">Schéma Stationnement cyclable 0.2.0 (format tableschema)</a>
             </li>
             
           
@@ -314,6 +314,12 @@
           <li>Versions disponibles :
             <ul>
             
+            
+              <li>
+                <a href="/etalab/schema-stationnement-cyclable/0.2.0.html">
+                  0.2.0
+                </a>
+              </li>
             
               <li>
                 <a href="/etalab/schema-stationnement-cyclable/0.1.0.html">
@@ -329,7 +335,7 @@
       
       
       <div class="form__group" style="margin-top: 3em">
-        <a href="/etalab/schema-stationnement-cyclable/0.1.0/documentation.html" title="Documentation du modèle de données" class="button icon-button">
+        <a href="/etalab/schema-stationnement-cyclable/0.2.0/documentation.html" title="Documentation du modèle de données" class="button icon-button">
           <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M4 22v-20h16v11.543c0 4.107-6 2.457-6 2.457s1.518 6-2.638 6h-7.362zm18-7.614v-14.386h-20v24h10.189c3.163 0 9.811-7.223 9.811-9.614zm-5-1.386h-10v-1h10v1zm0-4h-10v1h10v-1zm0-3h-10v1h10v-1z"/></svg>
           Lire la documentation
         </a>
@@ -339,7 +345,7 @@
           Saisir des données
         </a>
 
-        <a href="https://validata.etalab.studio/table-schema?schema_url=https://schema.data.gouv.fr/schemas/etalab/schema-stationnement-cyclable/0.1.0/schema.json" title="Valider des données" class="button icon-button">
+        <a href="https://validata.etalab.studio/table-schema?schema_url=https://schema.data.gouv.fr/schemas/etalab/schema-stationnement-cyclable/0.2.0/schema.json" title="Valider des données" class="button icon-button">
           <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
           Valider des données
         </a>
@@ -353,7 +359,7 @@ Ce schéma permet de modéliser et définir le stationnement cyclable sur le ter
 
 <h2 id="contexte">Contexte</h2>
 
-<p>Dans le cadre des travaux de l’équipe du Point d’accès national et de la mise en oeuvre de l’ouverture des données pour améliorer l’information dont disposent les voyageurs, l’équipe de transport.data.gouv.fr propose une solution simple et structurée pour l’ouverture des données pour le stationnement cyclable : la Base Nationale du Stationnement Cyclable (BNSC).</p>
+<p>Dans le cadre des travaux de l’équipe du Point d’accès national et de la mise en oeuvre de l’ouverture des données pour améliorer l’information dont disposent les voyageurs, l’équipe de transport.data.gouv.fr propose une solution simple et structurée pour l’ouverture des données pour le stationnement cyclable : la Base Nationale du Stationnement Cyclable (BNSC).</p>
 
 <p>Le schéma de la base de données a été co-construit avec des associations et entrperises du secteur du stationnement cyclable, les producteurs de données et les réutilisateurs. Deux ateliers ouverts (le 25/11/2020 et le 24/02/2021) ont permis sa production. (Il a été établi après une enquête et plusieurs réunions du groupe de travail). Aujourd’hui disponible en version 0.1.0, il sera mis-à-jour régulièrement.</p>
 
@@ -381,7 +387,10 @@ Ce dataset comprend notamment :</p>
 
 <h2 id="format-de-fichier">Format de fichier</h2>
 
-<p>Les jeux de données seront publiées au format CSV UTF8 avec séparateur “;”. Certains champs sont obligatoires et d’autres optionnels. Les champs obligatoires doivent être complétés. Les champs optionnels peuvent être vides si la donnée n’est pas disponible. La colonne doit toutefois être présente.</p>
+<p>Les jeux de données seront publiées au format CSV encodé en UTF8 avec séparateur “,” et en utilisant des “ “ pour les champs textuels qui pourraient contenir le séparateur. Certains champs sont obligatoires et d’autres optionnels. Les champs obligatoires doivent être complétés. Les champs optionnels peuvent être vides si la donnée n’est pas disponible. La colonne doit toutefois être présente.</p>
+
+<h2 id="documentation">Documentation</h2>
+<p>Une documentation complémentaire est disponible : https://doc.transport.data.gouv.fr/producteurs/documentation-sur-le-stationnement-cyclable</p>
 
 <h2 id="publication">Publication</h2>
 
@@ -410,6 +419,57 @@ Les producteurs pourront :</p>
 <p>Comme indiqué dans les métadonnées, le fichier et ses mises-à-jour sont distribués sous la licence ODbL. Cela signifie que vous pouvez télécharger librement cette base, la réutiliser, la modifier, l’utiliser commercialement, etc, tant que vous en mentionnez la source (par exemple dans les mentions légales de votre application) et que vous repartagez les modifications, améliorations et corrections éventuelles dans les mêmes conditions que cette base (licence ODbL). Plus d’informations <a href="https://doc.transport.data.gouv.fr/reutilisateurs/licence-odbl-et-conditions-de-reutilisation">ici</a>.</p>
 
 <p>Nous tenons à remercier les membres du groupe de travail pour leur investissement dans l’élaboration de ce schéma.</p>
+
+<h2 id="notes-techniques-pour-contribuer-à-ce-schéma">Notes techniques pour contribuer à ce schéma</h2>
+
+<p>Ce schéma s’appuie sur <a href="https://specs.frictionlessdata.io/table-schema/">TableSchema</a>. Pour le modifier, il peut être utile en particulier de se référer à la <a href="https://specs.frictionlessdata.io/table-schema/#field-descriptors">spécification des descripteurs de champs</a>.</p>
+
+<h3 id="fichiers-disponibles">Fichiers disponibles</h3>
+
+<p>Ce dépôt contient un ensemble de fichiers utiles pour un dépôt d’un schéma <a href="https://specs.frictionlessdata.io/table-schema/">Table Schema</a>.</p>
+
+<ul>
+  <li><a href="CHANGELOG.md"><code class="highlighter-rouge">CHANGELOG.md</code></a> contient la liste des changements entre les différentes versions du schéma ;</li>
+  <li><a href="exemple-valide.csv"><code class="highlighter-rouge">exemple-valide.csv</code></a> est un fichier CSV d’exemple conforme par rapport au schéma décrit dans <code class="highlighter-rouge">schema.json</code>  ;</li>
+  <li><a href="LICENSE.md"><code class="highlighter-rouge">LICENSE.md</code></a> est le fichier de licence du dépôt ;</li>
+  <li><a href="README.md"><code class="highlighter-rouge">README.md</code></a> est le fichier que vous lisez actuellement ;</li>
+  <li><a href="requirements.txt"><code class="highlighter-rouge">requirements.txt</code></a> liste les dépendances Python nécessaires pour effectuer des tests en intégration continue sur le dépôt ;</li>
+  <li><a href="schema.json"><code class="highlighter-rouge">schema.json</code></a> est le schéma au format Table Schema.</li>
+</ul>
+
+<h3 id="intégration-continue">Intégration continue</h3>
+
+<p>Ce dépôt est configuré pour utiliser de l’intégration continue, si vous utilisez GitHub. À chaque commit, une suite de tests sera lancée via <a href="https://github.com/features/actions">GitHub Actions</a> afin de vérifier :</p>
+
+<ul>
+  <li>que votre schéma est valide à la spécification Table Schema ;</li>
+  <li>que vos fichiers d’exemples sont conformes au schéma.</li>
+</ul>
+
+<p>Vous pouvez consulter la configuration utilisée dans <a href=".github/workflows/test.yml"><code class="highlighter-rouge">.github/workflows/test.yml</code></a>.</p>
+
+<h3 id="test-en-local">Test en local</h3>
+
+<p>Pour itérer plus facilement sur le schéma en local, il est possible de lancer les tests sur un poste de travail.</p>
+
+<p>Nous recommandons, pour installer la bonne version de Python, l’utilisation de <a href="https://github.com/pyenv/pyenv">PyEnv</a> pour Mac/Linux et <a href="https://github.com/pyenv-win/pyenv-win">pyenv-win</a> pour Windows.</p>
+
+<p>Voici la procédure à suivre pour installer l’environnement de test (sous Mac/Linux) et lancer les tests :</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Installation de la version de Python en vigueur avec pyenv</span>
+<span class="c"># voir https://github.com/pyenv/pyenv</span>
+pyenv <span class="nb">install
+</span>python <span class="nt">--version</span>
+
+<span class="c"># Installation des dépendances</span>
+pip <span class="nb">install</span> <span class="nt">-r</span> requirements.txt
+
+<span class="c"># Test de la validité du schéma</span>
+frictionless validate <span class="nt">--type</span> schema schema.json
+
+<span class="c"># Test de la conformité des fichiers d'exemples</span>
+frictionless validate <span class="nt">--schema</span> schema.json exemple-valide.csv
+</code></pre></div></div>
 
       
 
