@@ -430,8 +430,23 @@
       <td>None</td>
     </tr>
     <tr>
-      <td><a href="#propriété-coordinates">coordinates</a></td>
-      <td>point géographique</td>
+      <td><a href="#propriété-contact_url">contact_url</a></td>
+      <td>chaîne de caractères (format <code class="highlighter-rouge">uri</code>)</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-site_internet">site_internet</a></td>
+      <td>chaîne de caractères (format <code class="highlighter-rouge">uri</code>)</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-longitude">longitude</a></td>
+      <td>nombre réel</td>
+      <td>Non</td>
+    </tr>
+    <tr>
+      <td><a href="#propriété-latitude">latitude</a></td>
+      <td>nombre réel</td>
       <td>Non</td>
     </tr>
     <tr>
@@ -460,7 +475,7 @@
       <td>Non</td>
     </tr>
     <tr>
-      <td><a href="#cheminement-extérieur---propriété-cheminement_ext_presence">cheminement_ext_presence</a></td>
+      <td><a href="#chemin-extérieur---propriété-cheminement_ext_presence">cheminement_ext_presence</a></td>
       <td>booléen</td>
       <td>Non</td>
     </tr>
@@ -470,7 +485,7 @@
       <td>Non</td>
     </tr>
     <tr>
-      <td><a href="#cheminement-extérieur-de-plain-pied---propriété-cheminement_ext_plain_pied">cheminement_ext_plain_pied</a></td>
+      <td><a href="#chemin-extérieur-de-plain-pied---propriété-cheminement_ext_plain_pied">cheminement_ext_plain_pied</a></td>
       <td>booléen</td>
       <td>Non</td>
     </tr>
@@ -530,7 +545,7 @@
       <td>Non</td>
     </tr>
     <tr>
-      <td><a href="#rétrécissement-du-cheminement---propriété-cheminement_ext_retrecissement">cheminement_ext_retrecissement</a></td>
+      <td><a href="#rétrécissement-du-chemin---propriété-cheminement_ext_retrecissement">cheminement_ext_retrecissement</a></td>
       <td>booléen</td>
       <td>Non</td>
     </tr>
@@ -685,7 +700,7 @@
       <td>None</td>
     </tr>
     <tr>
-      <td><a href="#rétrécissement-du-cheminement---propriété-accueil_retrecissement">accueil_retrecissement</a></td>
+      <td><a href="#rétrécissement-du-chemin---propriété-accueil_retrecissement">accueil_retrecissement</a></td>
       <td>booléen</td>
       <td>Non</td>
     </tr>
@@ -813,20 +828,50 @@
   </ul>
 </blockquote>
 
-<h4 id="propriété-coordinates">Propriété <code class="highlighter-rouge">coordinates</code></h4>
+<h4 id="propriété-contact_url">Propriété <code class="highlighter-rouge">contact_url</code></h4>
 
 <blockquote>
-  <p><em>Description : Coordonnées GPS<br />Ex : 90, 45</em></p>
+  <p><em>Description : Lien vers un moyen de contact (chatbot, formulaire, …)<br />Ex : https://site.com/contact</em></p>
   <ul>
     <li>Valeur optionnelle</li>
-    <li>Type : point géographique</li>
+    <li>Type : chaîne de caractères (format <code class="highlighter-rouge">uri</code>)</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-site_internet">Propriété <code class="highlighter-rouge">site_internet</code></h4>
+
+<blockquote>
+  <p><em>Description : Site internet de l’établissement<br />Ex : https://site.com/</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : chaîne de caractères (format <code class="highlighter-rouge">uri</code>)</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-longitude">Propriété <code class="highlighter-rouge">longitude</code></h4>
+
+<blockquote>
+  <p><em>Description : Coordonnées GPS: longitude<br />Ex : 2.352222</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : nombre réel</li>
+  </ul>
+</blockquote>
+
+<h4 id="propriété-latitude">Propriété <code class="highlighter-rouge">latitude</code></h4>
+
+<blockquote>
+  <p><em>Description : Coordonnées GPS: latitude<br />Ex : 48.856613</em></p>
+  <ul>
+    <li>Valeur optionnelle</li>
+    <li>Type : nombre réel</li>
   </ul>
 </blockquote>
 
 <h4 id="proximité-dun-arrêt-de-transport-en-commun---propriété-transport_station_presence">Proximité d’un arrêt de transport en commun - Propriété <code class="highlighter-rouge">transport_station_presence</code></h4>
 
 <blockquote>
-  <p><em>Description : Arrêt de transport en commun à proximité (moins de 200 mètres)<br />Ex : True</em></p>
+  <p><em>Description : Arrêt de transport en commun à moins de 200 mètres de l’établissement<br />Ex : True</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : booléen</li>
@@ -836,7 +881,7 @@
 <h4 id="stationnement-dans-létablissement---propriété-stationnement_presence">Stationnement dans l’établissement - Propriété <code class="highlighter-rouge">stationnement_presence</code></h4>
 
 <blockquote>
-  <p><em>Description : Présence de stationnement au sein de la parcelle de l’établissement<br />Ex : True</em></p>
+  <p><em>Description : Des places de stationnement sont disponibles au sein de la parcelle de l’établissement<br />Ex : True</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : booléen</li>
@@ -846,7 +891,7 @@
 <h4 id="stationnements-adaptés-dans-létablissement---propriété-stationnement_pmr">Stationnements adaptés dans l’établissement - Propriété <code class="highlighter-rouge">stationnement_pmr</code></h4>
 
 <blockquote>
-  <p><em>Description : Présence de stationnement adapté au sein de la parcelle de l’établissement<br />Ex : True</em></p>
+  <p><em>Description : Des places de stationnement adaptées sont disponibles au sein de la parcelle de l’établissement<br />Ex : True</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : booléen</li>
@@ -856,7 +901,7 @@
 <h4 id="stationnement-à-proximité-de-létablissement---propriété-stationnement_ext_presence">Stationnement à proximité de l’établissement - Propriété <code class="highlighter-rouge">stationnement_ext_presence</code></h4>
 
 <blockquote>
-  <p><em>Description : Présence de stationnement à proximité de l’établissement (moins de 200 mètres)<br />Ex : True</em></p>
+  <p><em>Description : Des places de stationnement sont disponibles à moins de 200 mètres de l’établissement<br />Ex : True</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : booléen</li>
@@ -866,17 +911,17 @@
 <h4 id="stationnements-pmr-à-proximité-de-létablissement---propriété-stationnement_ext_pmr">Stationnements PMR à proximité de l’établissement - Propriété <code class="highlighter-rouge">stationnement_ext_pmr</code></h4>
 
 <blockquote>
-  <p><em>Description : Présence de stationnement adapté à proximité de l’établissement (moins de 200 mètres)<br />Ex : True</em></p>
+  <p><em>Description : Des places de stationnement adaptées sont disponibles à moins de 200 mètres de l’établissement<br />Ex : True</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : booléen</li>
   </ul>
 </blockquote>
 
-<h4 id="cheminement-extérieur---propriété-cheminement_ext_presence">Cheminement extérieur - Propriété <code class="highlighter-rouge">cheminement_ext_presence</code></h4>
+<h4 id="chemin-extérieur---propriété-cheminement_ext_presence">Chemin extérieur - Propriété <code class="highlighter-rouge">cheminement_ext_presence</code></h4>
 
 <blockquote>
-  <p><em>Description : L’accès à l’entrée depuis la voirie se fait par un cheminement extérieur<br />Ex : True</em></p>
+  <p><em>Description : L’accès à l’entrée depuis la voirie se fait par un chemin extérieur<br />Ex : True</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : booléen</li>
@@ -886,17 +931,17 @@
 <h4 id="revêtement-extérieur---propriété-cheminement_ext_terrain_accidente">Revêtement extérieur - Propriété <code class="highlighter-rouge">cheminement_ext_terrain_accidente</code></h4>
 
 <blockquote>
-  <p><em>Description : Ce revêtement est stable (absence de pavés, gravillons, terre, herbe, sable, ou toute surface non stabilisée)<br />Ex : True</em></p>
+  <p><em>Description : Le revêtement est stable (absence de pavés, gravillons, terre, herbe, sable, ou toute surface non stabilisée)<br />Ex : True</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : booléen</li>
   </ul>
 </blockquote>
 
-<h4 id="cheminement-extérieur-de-plain-pied---propriété-cheminement_ext_plain_pied">Cheminement extérieur de plain-pied - Propriété <code class="highlighter-rouge">cheminement_ext_plain_pied</code></h4>
+<h4 id="chemin-extérieur-de-plain-pied---propriété-cheminement_ext_plain_pied">Chemin extérieur de plain-pied - Propriété <code class="highlighter-rouge">cheminement_ext_plain_pied</code></h4>
 
 <blockquote>
-  <p><em>Description : L’accès à cet espace se fait de plain-pied (sans rupture de niveau)<br />Ex : True</em></p>
+  <p><em>Description : L’accès à cet espace se fait de plain-pied, c’est à dire sans rupture brutale de niveau<br />Ex : True</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : booléen</li>
@@ -926,7 +971,7 @@
 <h4 id="marches-ou-escalier-sécurisées---propriété-cheminement_ext_reperage_marches">Marches ou escalier sécurisé(es) - Propriété <code class="highlighter-rouge">cheminement_ext_reperage_marches</code></h4>
 
 <blockquote>
-  <p><em>Description : Nez de marche contrastés, bande d’éveil à la vigilance en haut de l’escalier et/ou première et dernière contremarches contrastées<br />Ex : True</em></p>
+  <p><em>Description : Présence de nez de marche contrastés, d’une bande d’éveil à la vigilance en haut de l’escalier et/ou de première et dernière contremarches contrastées<br />Ex : True</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : booléen</li>
@@ -952,7 +997,7 @@
 <h4 id="main-courante---propriété-cheminement_ext_main_courante">Main courante - Propriété <code class="highlighter-rouge">cheminement_ext_main_courante</code></h4>
 
 <blockquote>
-  <p><em>Description : L’escalier est-il équipé d’une ou plusieurs main-courantes ?<br />Ex : True</em></p>
+  <p><em>Description : L’escalier est équipé d’une ou plusieurs main-courantes<br />Ex : True</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : booléen</li>
@@ -962,7 +1007,7 @@
 <h4 id="rampe---propriété-cheminement_ext_rampe">Rampe - Propriété <code class="highlighter-rouge">cheminement_ext_rampe</code></h4>
 
 <blockquote>
-  <p><em>Description : Présence et type de rampe<br />Ex : Valeurs possibles: aucune -&gt; Aucune, fixe -&gt; Fixe, amovible -&gt; Amovible</em></p>
+  <p><em>Description : Présence d’une rampe fixe ou amovible<br />Ex : Valeurs possibles: aucune -&gt; Aucune, fixe -&gt; Fixe, amovible -&gt; Amovible</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : chaîne de caractères</li>
@@ -979,7 +1024,7 @@
 <h4 id="pente---propriété-cheminement_ext_pente_presence">Pente - Propriété <code class="highlighter-rouge">cheminement_ext_pente_presence</code></h4>
 
 <blockquote>
-  <p><em>Description : Le cheminement est-il en pente ?<br />Ex : True</em></p>
+  <p><em>Description : Le chemin est en pente<br />Ex : True</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : booléen</li>
@@ -989,7 +1034,7 @@
 <h4 id="degré-de-difficulté-de-la-pente---propriété-cheminement_ext_pente_degre_difficulte">Degré de difficulté de la pente - Propriété <code class="highlighter-rouge">cheminement_ext_pente_degre_difficulte</code></h4>
 
 <blockquote>
-  <p><em>Description : Quel est son degré de difficulté ?<br />Ex : Valeurs possibles: légère -&gt; Légère, importante -&gt; Importante</em></p>
+  <p><em>Description : Difficulté de la pente<br />Ex : Valeurs possibles: légère -&gt; Légère, importante -&gt; Importante</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : chaîne de caractères</li>
@@ -1005,7 +1050,7 @@
 <h4 id="longueur-de-la-pente---propriété-cheminement_ext_pente_longueur">Longueur de la pente - Propriété <code class="highlighter-rouge">cheminement_ext_pente_longueur</code></h4>
 
 <blockquote>
-  <p><em>Description : Quelle est sa longueur ?<br />Ex : Valeurs possibles: courte -&gt; &lt; 0,5 mètres, moyenne -&gt; entre 0,5 et 2 mètres, longue -&gt; &gt; 2 mètres</em></p>
+  <p><em>Description : Longueur de la pente<br />Ex : Valeurs possibles: courte -&gt; &lt; 0,5 mètres, moyenne -&gt; entre 0,5 et 2 mètres, longue -&gt; &gt; 2 mètres</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : chaîne de caractères</li>
@@ -1022,7 +1067,7 @@
 <h4 id="dévers---propriété-cheminement_ext_devers">Dévers - Propriété <code class="highlighter-rouge">cheminement_ext_devers</code></h4>
 
 <blockquote>
-  <p><em>Description : Un dévers est une inclinaison transversale du cheminement. S’il en existe un, quel est son degré de difficulté ?<br />Ex : Valeurs possibles: aucun -&gt; Aucun, léger -&gt; Léger, important -&gt; Important</em></p>
+  <p><em>Description : Dévers ou inclinaison transversale du chemin<br />Ex : Valeurs possibles: aucun -&gt; Aucun, léger -&gt; Léger, important -&gt; Important</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : chaîne de caractères</li>
@@ -1046,10 +1091,10 @@
   </ul>
 </blockquote>
 
-<h4 id="rétrécissement-du-cheminement---propriété-cheminement_ext_retrecissement">Rétrécissement du cheminement - Propriété <code class="highlighter-rouge">cheminement_ext_retrecissement</code></h4>
+<h4 id="rétrécissement-du-chemin---propriété-cheminement_ext_retrecissement">Rétrécissement du chemin - Propriété <code class="highlighter-rouge">cheminement_ext_retrecissement</code></h4>
 
 <blockquote>
-  <p><em>Description : Un ou plusieurs rétrecissements (inférieurs à 80 cm) du chemin pour atteindre l’entrée<br />Ex : True</em></p>
+  <p><em>Description : Un ou plusieurs rétrécissements inférieurs à 90 centimètres du chemin pour atteindre l’entrée<br />Ex : True</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : booléen</li>
@@ -1059,7 +1104,7 @@
 <h4 id="entrée-facilement-repérable---propriété-entree_reperage">Entrée facilement repérable - Propriété <code class="highlighter-rouge">entree_reperage</code></h4>
 
 <blockquote>
-  <p><em>Description : Présence d’éléments facilitant le repérage de l’entrée de l’établissement (numéro de rue à proximité, enseigne, végétaux, éléments architecturaux contrastés, etc)<br />Ex : True</em></p>
+  <p><em>Description : L’entrée de l’établissement est facilement repérable<br />Ex : True</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : booléen</li>
@@ -1069,7 +1114,7 @@
 <h4 id="entrée-vitrée---propriété-entree_vitree">Entrée vitrée - Propriété <code class="highlighter-rouge">entree_vitree</code></h4>
 
 <blockquote>
-  <p><em>Description : La porte d’entrée est-elle vitrée ?<br />Ex : True</em></p>
+  <p><em>Description : La porte d’entrée est vitrée<br />Ex : True</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : booléen</li>
@@ -1079,7 +1124,7 @@
 <h4 id="repérage-de-la-vitre---propriété-entree_vitree_vitrophanie">Repérage de la vitre - Propriété <code class="highlighter-rouge">entree_vitree_vitrophanie</code></h4>
 
 <blockquote>
-  <p><em>Description : Présence d’éléments contrastés permettant de visualiser les parties vitrées de l’entrée<br />Ex : True</em></p>
+  <p><em>Description : Des éléments contrastés permettent de visualiser les parties vitrées de l’entrée<br />Ex : True</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : booléen</li>
@@ -1089,7 +1134,7 @@
 <h4 id="entrée-de-plain-pied---propriété-entree_plain_pied">Entrée de plain-pied - Propriété <code class="highlighter-rouge">entree_plain_pied</code></h4>
 
 <blockquote>
-  <p><em>Description : L’entrée se fait de plain-pied (sans rupture de niveau)<br />Ex : True</em></p>
+  <p><em>Description : L’entrée se fait de plain-pied, c’est à dire sans rupture brutale de niveau<br />Ex : True</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : booléen</li>
@@ -1099,7 +1144,7 @@
 <h4 id="ascenseurélévateur---propriété-entree_ascenseur">Ascenseur/élévateur - Propriété <code class="highlighter-rouge">entree_ascenseur</code></h4>
 
 <blockquote>
-  <p><em>Description : Existe-t-il un ascenseur ou un élévateur ?<br />Ex : True</em></p>
+  <p><em>Description : Présence d’un ascenseur ou d’un élévateur<br />Ex : True</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : booléen</li>
@@ -1109,7 +1154,7 @@
 <h4 id="nombre-de-marches---propriété-entree_marches">Nombre de marches - Propriété <code class="highlighter-rouge">entree_marches</code></h4>
 
 <blockquote>
-  <p><em>Description : Indiquer 0 s’il n’y a ni marche ni escalier<br />Ex : 0</em></p>
+  <p><em>Description : Nombre de marches de l’escalier<br />Ex : 0</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : nombre entier</li>
@@ -1119,7 +1164,7 @@
 <h4 id="repérage-des-marches---propriété-entree_marches_reperage">Repérage des marches - Propriété <code class="highlighter-rouge">entree_marches_reperage</code></h4>
 
 <blockquote>
-  <p><em>Description : Nez de marche contrastés, bande d’éveil à la vigilance en haut de l’escalier et/ou première et dernière contremarches contrastées<br />Ex : True</em></p>
+  <p><em>Description : Présence de nez de marche contrastés, d’une bande d’éveil à la vigilance en haut de l’escalier et/ou de première et dernière contremarches contrastées<br />Ex : True</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : booléen</li>
@@ -1129,7 +1174,7 @@
 <h4 id="main-courante---propriété-entree_marches_main_courante">Main courante - Propriété <code class="highlighter-rouge">entree_marches_main_courante</code></h4>
 
 <blockquote>
-  <p><em>Description : L’escalier est-il équipé d’une ou plusieurs main-courantes ?<br />Ex : True</em></p>
+  <p><em>Description : L’escalier est équipé d’une ou plusieurs main-courantes<br />Ex : True</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : booléen</li>
@@ -1139,7 +1184,7 @@
 <h4 id="rampe---propriété-entree_marches_rampe">Rampe - Propriété <code class="highlighter-rouge">entree_marches_rampe</code></h4>
 
 <blockquote>
-  <p><em>Description : S’il existe une rampe ayant une pente douce, est-elle fixe ou amovible ?<br />Ex : Valeurs possibles: aucune -&gt; Aucune, fixe -&gt; Fixe, amovible -&gt; Amovible</em></p>
+  <p><em>Description : Présence d’une rampe fixe ou amovible<br />Ex : Valeurs possibles: aucune -&gt; Aucune, fixe -&gt; Fixe, amovible -&gt; Amovible</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : chaîne de caractères</li>
@@ -1192,7 +1237,7 @@
 <h4 id="balise-sonore-à-lentrée---propriété-entree_balise_sonore">Balise sonore à l’entrée - Propriété <code class="highlighter-rouge">entree_balise_sonore</code></h4>
 
 <blockquote>
-  <p><em>Description : L’entrée est-elle équipée d’une balise sonore facilitant son repérage par une personne aveugle ou malvoyante ?<br />Ex : True</em></p>
+  <p><em>Description : Présence d’une balise sonore facilitant son repérage par une personne aveugle ou malvoyante<br />Ex : True</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : booléen</li>
@@ -1202,7 +1247,7 @@
 <h4 id="aide-humaine---propriété-entree_aide_humaine">Aide humaine - Propriété <code class="highlighter-rouge">entree_aide_humaine</code></h4>
 
 <blockquote>
-  <p><em>Description : Présence ou possibilité d’une aide humaine au déplacement<br />Ex : True</em></p>
+  <p><em>Description : Possibilité d’une aide humaine au déplacement<br />Ex : True</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : booléen</li>
@@ -1286,7 +1331,7 @@
 <h4 id="personnel-daccueil---propriété-accueil_personnels">Personnel d’accueil - Propriété <code class="highlighter-rouge">accueil_personnels</code></h4>
 
 <blockquote>
-  <p><em>Description : En cas de présence du personnel, est-il formé ou sensibilisé à l’accueil des personnes handicapées ?<br />Ex : Valeurs possibles: aucun -&gt; Aucun personnel, formés -&gt; Personnels sensibilisés ou formés, non-formés -&gt; Personnels non-formés</em></p>
+  <p><em>Description : Personnel à l’accueil des personnes handicapées<br />Ex : Valeurs possibles: aucun -&gt; Aucun personnel, formés -&gt; Personnels sensibilisés ou formés, non-formés -&gt; Personnels non-formés</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : chaîne de caractères</li>
@@ -1323,7 +1368,7 @@
 <h4 id="chemin-entre-lentrée-principale-du-bâtiment-et-laccueil-de-létablissement---propriété-accueil_cheminement_plain_pied">Chemin entre l’entrée principale du bâtiment et l’accueil de l’établissement - Propriété <code class="highlighter-rouge">accueil_cheminement_plain_pied</code></h4>
 
 <blockquote>
-  <p><em>Description : L’accès à cet espace se fait de plain-pied (sans rupture de niveau)<br />Ex : True</em></p>
+  <p><em>Description : L’accès à cet espace se fait de plain-pied, c’est à dire sans rupture brutale de niveau<br />Ex : True</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : booléen</li>
@@ -1333,7 +1378,7 @@
 <h4 id="ascenseurélévateur---propriété-accueil_cheminement_ascenseur">Ascenseur/élévateur - Propriété <code class="highlighter-rouge">accueil_cheminement_ascenseur</code></h4>
 
 <blockquote>
-  <p><em>Description : Existe-t-il un ascenseur ou un élévateur ?<br />Ex : True</em></p>
+  <p><em>Description : Présence d’un ascenseur ou un élévateur<br />Ex : True</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : booléen</li>
@@ -1343,7 +1388,7 @@
 <h4 id="nombre-de-marches---propriété-accueil_cheminement_nombre_marches">Nombre de marches - Propriété <code class="highlighter-rouge">accueil_cheminement_nombre_marches</code></h4>
 
 <blockquote>
-  <p><em>Description : Indiquer 0 s’il n’y a ni marche ni escalier<br />Ex : 0</em></p>
+  <p><em>Description : Nombre de marches de l’escalier<br />Ex : 0</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : nombre entier</li>
@@ -1363,7 +1408,7 @@
 <h4 id="main-courante---propriété-accueil_cheminement_main_courante">Main courante - Propriété <code class="highlighter-rouge">accueil_cheminement_main_courante</code></h4>
 
 <blockquote>
-  <p><em>Description : L’escalier est-il équipé d’une ou plusieurs main-courantes ?<br />Ex : True</em></p>
+  <p><em>Description : L’escalier est équipé d’une ou plusieurs main-courantes<br />Ex : True</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : booléen</li>
@@ -1373,7 +1418,7 @@
 <h4 id="rampe---propriété-accueil_cheminement_rampe">Rampe - Propriété <code class="highlighter-rouge">accueil_cheminement_rampe</code></h4>
 
 <blockquote>
-  <p><em>Description : Présence et type de rampe<br />Ex : True</em></p>
+  <p><em>Description : Présence d’une rampe fixe ou amovible<br />Ex : True</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : booléen</li>
@@ -1396,10 +1441,10 @@
   </ul>
 </blockquote>
 
-<h4 id="rétrécissement-du-cheminement---propriété-accueil_retrecissement">Rétrécissement du cheminement - Propriété <code class="highlighter-rouge">accueil_retrecissement</code></h4>
+<h4 id="rétrécissement-du-chemin---propriété-accueil_retrecissement">Rétrécissement du chemin - Propriété <code class="highlighter-rouge">accueil_retrecissement</code></h4>
 
 <blockquote>
-  <p><em>Description : Un ou plusieurs rétrecissements (inférieurs à 80 cm) du chemin pour atteindre l’entrée<br />Ex : True</em></p>
+  <p><em>Description : Présence d’un ou plusieurs rétrécissements inférieurs à 90 centimètres du chemin pour atteindre l’entrée<br />Ex : True</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : booléen</li>
@@ -1409,7 +1454,7 @@
 <h4 id="sanitaires---propriété-sanitaires_presence">Sanitaires - Propriété <code class="highlighter-rouge">sanitaires_presence</code></h4>
 
 <blockquote>
-  <p><em>Description : Mise à disposition de sanitaires dans l’établissement<br />Ex : True</em></p>
+  <p><em>Description : Des sanitaires sont mis à disposition dans l’établissement<br />Ex : True</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : booléen</li>
@@ -1419,7 +1464,7 @@
 <h4 id="sanitaires-adaptés---propriété-sanitaires_adaptes">Sanitaires adaptés - Propriété <code class="highlighter-rouge">sanitaires_adaptes</code></h4>
 
 <blockquote>
-  <p><em>Description : Mise à disposition de sanitaires adaptés dans l’établissement<br />Ex : 0</em></p>
+  <p><em>Description : Des sanitaires adaptés sont mis à disposition dans l’établissement<br />Ex : 0</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : nombre entier</li>
@@ -1439,7 +1484,7 @@
 <h4 id="familles-de-handicap-concernéess---propriété-labels_familles_handicap">Famille(s) de handicap concernées(s) - Propriété <code class="highlighter-rouge">labels_familles_handicap</code></h4>
 
 <blockquote>
-  <p><em>Description : Famille(s) de handicap couverte(s) par ces marques ou labels<br />Ex : Valeurs possibles: auditif -&gt; Auditif, mental -&gt; Mental, moteur -&gt; Moteur, visuel -&gt; Visuel</em></p>
+  <p><em>Description : Famille(s) de handicap couverte(s) par ces marques ou labels<br />Ex : Valeurs possibles: auditif -&gt; Handicap auditif, mental -&gt; Handicap mental, moteur -&gt; Handicap moteur, visuel -&gt; Handicap visuel</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : liste</li>
@@ -1449,7 +1494,7 @@
 <h4 id="registre---propriété-registre_url">Registre - Propriété <code class="highlighter-rouge">registre_url</code></h4>
 
 <blockquote>
-  <p><em>Description : Si l’établissement dispose d’un registre numérique, adresse internet à laquelle celui-ci est consultable<br />Ex : https://handicap.gouv.fr/actualites/article/registre-d-accessibilite-obligatoire-un-guide-pour-les-erp</em></p>
+  <p><em>Description : Adresse internet à laquelle le registre est consultable<br />Ex : https://handicap.gouv.fr/actualites/article/registre-d-accessibilite-obligatoire-un-guide-pour-les-erp</em></p>
   <ul>
     <li>Valeur optionnelle</li>
     <li>Type : chaîne de caractères (format <code class="highlighter-rouge">uri</code>)</li>
